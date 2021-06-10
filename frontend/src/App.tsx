@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Pokemon from './components/Pokemon'
 
 function App() {
   return (
     <div className="App">
-     HI
+     <Pokemon />
     </div>
   );
 }

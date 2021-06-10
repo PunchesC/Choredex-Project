@@ -6,7 +6,4 @@ export function fetchAllPokemon():Promise<Result[]>{
   .then((data: PokemonResults) => {
     return data.results;
   })
-
 }
-
-

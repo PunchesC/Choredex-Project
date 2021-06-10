@@ -8,6 +8,18 @@ export interface PokemonResults{
  }
 
  export interface PokemonData{
+   id:number;
    name: string;
-   image: string;
+ }
+
+ export interface PokeData{
+   stats: Stats[];
+   order:number;
+ }
+ export interface Stats{
+   base_stat: number;
+   stat: Stat;
+ }
+ export interface Stat{
+   name:string;
  }

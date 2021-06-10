@@ -5,9 +5,9 @@ export function fetchAllPokemon():Promise<Result[]>{
     `https://pokeapi.co/api/v2/pokemon/`
   )
   .then (res =>res.json())
-  .then((data)=> {
+  .then((data:PokemonResults)=> {
     console.log(data);
-    return data;
+    return data.results;
    
 
   })

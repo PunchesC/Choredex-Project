@@ -1,11 +1,16 @@
+import {Result} from '../model/pokemonAPI'
+
+interface Props {
+  result:Result
+}
 
 
-function Pokemon(){
-
+function Pokemon({result}: Props){
+const pokemonName = result.name
 
   return(
     <div className="Pokemon">
-        Hello
+        {result.name}
     </div>
   )
 }

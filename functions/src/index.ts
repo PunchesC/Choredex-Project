@@ -1,1 +1,1 @@
-export {default as app} from "./routes/homepage";
+export {default as app} from "./routes/choredex";

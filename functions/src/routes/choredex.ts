@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
-import {PokeData, Result} from '../model/pokemonAPI';
+import {PokeData, PokemonResults} from '../model/pokemonAPI';
 // import { Result } from '../model/pokemonAPI';
 
 const app = express();
@@ -25,7 +25,8 @@ app.get("/", async (req, res) => {
 });
 
 async function getPokeStuff(){
-  let pokes:Result[] = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=3')).data;
+  let pokeResults:PokemonResults = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=3')).data;
+  let pokes = pokeResults.results
   console.log(pokes);
   let dbArray: { name: string; hp: string; hpAmount: number; attack: string; attackAmount: number; defense: string; defenseAmount: number; speed: string; speedAmount: number; }[]= [];
   for (let poke of pokes){
@@ -42,8 +43,8 @@ async function getPokeStuff(){
       speedAmount: pokeData.stats[5].base_stat,
     }
     dbArray.push(dbPoke);
-    console.log(dbArray)
   }
+  return dbArray;
 }
 
 

@@ -6,12 +6,6 @@ export interface PokemonResults{
    name: string;
    url: string;
  }
-
- export interface PokemonData{
-   id:number;
-   name: string;
- }
-
  export interface PokeData{
    stats: Stats[];
    order:number;

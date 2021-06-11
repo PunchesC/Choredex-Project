@@ -5,7 +5,8 @@ function CalendarCard(){
 
   return(
     <div className="CalendarCard">
-      <h5>Trainer Name Calendar</h5>
+      <h5>[Trainer Name] Calendar</h5>
+      <button>Create a Task for [Trainer Name]</button>
       <div className="CalendarCard_days">Monday
       </div>
       <div className="CalendarCard_days">Tuesday

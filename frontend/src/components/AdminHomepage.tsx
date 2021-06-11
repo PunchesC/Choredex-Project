@@ -1,4 +1,5 @@
 import './AdminHomepage.css'
+import CalendarCard from './CalendarCard'
 
 
 function AdminHomepage(){
@@ -6,7 +7,8 @@ function AdminHomepage(){
 
   return (
     <div className="AdminHomepage">
-
+      <h3>Admin Homepage</h3>
+      <CalendarCard />
     </div>
   )
 }

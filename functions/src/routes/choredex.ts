@@ -17,7 +17,9 @@ app.use(express.json());
 app.get("/", async (req, res) => {
     try {
       await getPokeStuff()
-      res.send('Success');
+     
+      res.send(getPokeStuff);
+      console.log(getPokeStuff)
     } catch (err) {
       console.error("FAIL", err);
       res.status(500).json({message: "Internal Server Error"});
@@ -43,8 +45,9 @@ async function getPokeStuff(){
       speedAmount: pokeData.stats[5].base_stat,
     }
     dbArray.push(dbPoke);
+
   }
-  return dbArray;
+  
 }
 
 

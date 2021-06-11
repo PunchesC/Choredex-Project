@@ -1,7 +1,7 @@
 import './AccountForm.css'
 import { useHistory } from 'react-router';
 import { FormEvent, useContext, useState } from 'react';
-import Account from '../model/Account';
+import Account from '../model/model';
 
 function AccountForm(){
 
@@ -26,30 +26,30 @@ function AccountForm(){
     }
 
     // const num = addAccount(account);
-    // history.push()
+    // history.push(`/admin-homepage/${num}`);
   }
 
   return (
-    <form className="AccountForm">
+    <form className="AccountForm" onSubmit={handleSubmit}>
       <h3>New Account Form</h3>
       <div className="AccountForm_left_container">
         <label>Admin Name:
-          <input></input>
+          <input type="text" value={adminName} onChange={(e) => setAdminName(e.target.value)} />
         </label>
         <label>Admin Password:
-          <input></input>
+          <input type="text" value={adminPassword} onChange={(e) => setAdminPassword(e.target.value)} />
         </label>
         {/* Hover effect to let parents/guardians know why gym means */}
         <label>Gym Name
-          <input></input>
+          <input type="text" value={gymName} onChange={(e) => setGymName(e.target.value)} />
         </label>
         <label>Gym Password
-          <input></input>
+          <input type="text" value={gymPassword} onChange={(e) => setGymPassword(e.target.value)} />
         </label>
       </div>
       <div className="AccountForm_right_container">
         <label>Calendar Title
-          <input></input>
+          <input type="text" value={calendarTitle} onChange={(e) => setCalendarTitle(e.target.value)} />
         </label>
         {/* <label>Number of Trainers
           <input></input>

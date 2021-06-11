@@ -19,3 +19,11 @@ export interface Chore{
   Trainer: string;
   difficulty: string;
 }
+
+export default interface Account {
+  adminName: string;
+  adminPassword: string;
+  gymName: string;
+  gymPassword: string;
+  calendarTitle: string;
+}

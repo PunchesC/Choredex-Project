@@ -15,7 +15,7 @@ function App() {
         <header>
           <h1>Site Title</h1>
           <nav>
-            <NavLink to="/admin-homepage" className="navLinks">Sign In</NavLink>{" | "}
+            <NavLink to="/admin-homepage" className="navLinks">Sign In</NavLink>
             <NavLink to="/account-sign-up" className="navLinks">Sign Up</NavLink>
           </nav>
         </header>
@@ -23,7 +23,7 @@ function App() {
           <Route path="/account-sign-up">
             <AccountForm />
           </Route>
-          <Route path="/admin-homepage">
+          <Route path="/admin-homepage/:num">
             <AdminHomepage />
           </Route>
           <Route path="/trainer-choredex">

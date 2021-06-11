@@ -3,20 +3,30 @@ import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
 import {PokeData, PokemonResults} from '../model/pokemonAPI';
+import { Pokemon } from "../model/pokemonAPI";
 import { getClient } from "../db";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/", async (req, res) => {
+app.get("/setData", async (req, res) => {
     try {
       await getPokeStuff();
-      res.send()
     } catch (err) {
       console.error("FAIL", err);
       res.status(500).json({message: "Internal Server Error"});
     }
+});
+app.get("/", async (req, res) => {
+  try {
+    const client = await getClient();
+    const results = await client.db().collection<Pokemon>('Pokemon').find().toArray();
+    res.json(results); // send JSON results
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
 });
 
 async function getPokeStuff(){

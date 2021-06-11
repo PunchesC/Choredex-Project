@@ -1,7 +1,17 @@
+import { ObjectId } from "mongodb";
+
+export interface Pokemon{
+    _id?: ObjectId;
+    name: string;
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    pic: string;
+}
 export interface PokemonResults {
   results: Result[];
 }
-
 export interface Result {
   name: string;
   url: string;

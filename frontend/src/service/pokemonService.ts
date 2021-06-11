@@ -1,9 +1,11 @@
-import { PokemonResults, Result} from "../model/model"
+import axios from 'axios';
+import Pokemon from '../model/Pokemon'
 
-export function fetchAllPokemon():Promise<Result[]>{
-  return fetch(`https://pokeapi.co/api/v2/pokemon/`)
-  .then (res =>res.json())
-  .then((data: PokemonResults) => {
-    return data.results;
-  })
+const baseUrl = process.env.REACT_APP_API_URL || "";
+if (!baseUrl){
+  console.error("REACT_APP_API_URL environment variable not set.")
+}
+
+export function allPokemon():Promise<Pokemon[]> {
+  return axios.get(baseUrl).then(res => res.data);
 }

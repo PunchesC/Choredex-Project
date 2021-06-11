@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Pokemon from './components/Pokemon'
+import Pokemons from './components/Pokemons'
 import Header from './components/Header'
 import AccountForm from './components/AccountForm';
 import TaskForm from './components/TaskForm';
@@ -28,6 +28,9 @@ function App() {
           </Route>
           <Route path="/trainer-choredex">
             <TrainerChoredex />
+          </Route>
+          <Route path="/Pokemons">
+            <Pokemons />
           </Route>
         </Switch>
       </Router>

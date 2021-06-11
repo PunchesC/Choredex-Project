@@ -6,7 +6,7 @@ function TrainerChoredex(){
 
   return (
     <div className="TrainerChoredex">
-
+      
     </div>
   )
 }

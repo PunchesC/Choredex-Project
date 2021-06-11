@@ -1,4 +1,4 @@
-import { PokemonResults, Result} from "../model/pokemonAPI"
+import { PokemonResults, Result} from "../model/model"
 
 export function fetchAllPokemon():Promise<Result[]>{
   return fetch(`https://pokeapi.co/api/v2/pokemon/`)

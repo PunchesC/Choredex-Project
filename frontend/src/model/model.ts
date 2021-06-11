@@ -9,18 +9,18 @@ export interface Result{
 export interface Chore{
   title: string;
   description?: string;
-  Monday?: boolean;
-  Tuesday: boolean;
-  Wednesday?: boolean;
-  Thursday?: boolean;
-  Friday?: boolean;
-  Saturday?: boolean;
-  Sunday?: boolean;
-  Trainer: string;
+  monday?: boolean;
+  tuesday?: boolean;
+  wednesday?: boolean;
+  thursday?: boolean;
+  friday?: boolean;
+  saturday?: boolean;
+  sunday?: boolean;
+  trainer: string;
   difficulty: string;
 }
 
-export default interface Account {
+export  interface Account {
   adminName: string;
   adminPassword: string;
   gymName: string;

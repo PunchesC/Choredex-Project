@@ -1,7 +1,7 @@
 import './AccountForm.css'
 import { useHistory } from 'react-router';
 import { FormEvent, useContext, useState } from 'react';
-import Account from '../model/model';
+import {Account} from '../model/model';
 
 function AccountForm(){
 
@@ -14,23 +14,23 @@ function AccountForm(){
   const [ gymPassword, setGymPassword ] = useState("");
   const [ calendarTitle, setCalendarTitle ] = useState("");
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
+  // function handleSubmit(e: FormEvent) {
+  //   e.preventDefault();
 
-    const account: Account = {
-      adminName: adminName,
-      adminPassword: adminPassword,
-      gymName: gymName,
-      gymPassword: gymPassword,
-      calendarTitle: calendarTitle,
-    }
+  //   const account: Account = {
+  //     adminName: adminName,
+  //     adminPassword: adminPassword,
+  //     gymName: gymName,
+  //     gymPassword: gymPassword,
+  //     calendarTitle: calendarTitle,
+  //   }
 
-    // const num = addAccount(account);
-    // history.push(`/admin-homepage/${num}`);
-  }
+  //   const num = addAccount(account);
+  //   history.push(`/admin-homepage/${num}`);
+  // }
 
   return (
-    <form className="AccountForm" onSubmit={handleSubmit}>
+    <form className="AccountForm" >
       <h3>New Account Form</h3>
       <div className="AccountForm_left_container">
         <label>Admin Name:

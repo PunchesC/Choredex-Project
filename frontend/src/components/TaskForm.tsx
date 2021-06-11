@@ -1,7 +1,43 @@
 import './TaskForm'
+import { FormEvent, useState, useContext, useRef} from "react";
+import {Chore} from "../model/model";
+import firebase from "../firebaseConfig"
 
-function TaskForm(){
+interface Props {
+  onSubmit: (chore:Chore) => void;
+}
 
+
+function TaskForm({onSubmit}:Props){
+const [title, setTitle] = useState("");
+const[ description, setDescription]= useState("");
+const [monday, setMonday] = useState("");
+const [tuesday, setTuesday] = useState("");
+const [wednesday, setWednesday] = useState("");
+const [thursday, setThursday] = useState("");
+const [friday, setFriday] = useState("");
+const [saturday, setSaturday] = useState("");
+const [sunday, setSunday] = useState("");
+const [trainer, setTrainer] = useState("");
+const [difficulty, setDifficulty] = useState("");
+
+function handleSubmit(event:FormEvent): void {
+  event.preventDefault();
+  const chore: Chore = {
+    title:title,
+    description: description,
+    trainer: trainer,
+    difficulty: difficulty
+
+  }
+
+  function clearForm(){
+    setTitle("");
+    setDescription("");
+    setTrainer("");
+    setDifficulty("")
+  }
+}
 
   return (
     <form className="TaskForm">

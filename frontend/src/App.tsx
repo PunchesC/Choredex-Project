@@ -23,7 +23,7 @@ function App() {
           <Route path="/account-sign-up">
             <AccountForm />
           </Route>
-          <Route path="/admin-homepage/:num">
+          <Route path="/admin-homepage">
             <AdminHomepage />
           </Route>
           <Route path="/trainer-choredex">

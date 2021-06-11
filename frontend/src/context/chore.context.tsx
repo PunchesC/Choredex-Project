@@ -16,16 +16,30 @@ const examples: Chore[] = [
   {
     title: "Take out the trash",
     description: "dont forget the recycling",
-    Monday: true,
-    Tuesday: false,
-    Wednesday: true,
-    Thursday: false,
-    Friday: true,
-    Saturday: true,
-    Sunday: false,
-    Trainer: "MJ",
+    monday: true,
+    tuesday: false,
+    wednesday: true,
+    thursday: false,
+    friday: true,
+    saturday: true,
+    sunday: false,
+    trainer: "MJ",
     difficulty: "easy", 
+  },
+  {
+    title: "Clean Dishes",
+    description: "",
+    monday: false,
+    tuesday: true,
+    wednesday: false,
+    thursday: true,
+    friday: false,
+    saturday: true,
+    sunday: false,
+    trainer: "Lebron",
+    difficulty: "hard", 
   }
+
 ];
 
 export const ChoreContext = createContext( defaultValue);

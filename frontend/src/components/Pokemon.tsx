@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Result } from "../model/pokemonAPI";
+import { Result } from "../model/model";
 import { fetchAllPokemon } from "../service/pokemonService";
 
 

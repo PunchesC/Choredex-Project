@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink } from 
 function App() {
   return (
     <div className="App">
+     
       <Router>
         <header>
           <h1>Site Title</h1>
@@ -34,6 +35,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+    
     </div>
   );
 }

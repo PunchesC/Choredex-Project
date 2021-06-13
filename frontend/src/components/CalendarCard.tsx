@@ -10,11 +10,9 @@ const {chores} = useContext(ChoreContext);
     <div className="CalendarCard">
       <h5>[Trainer Name] Calendar</h5>
       <button>Create a Task for [Trainer Name]</button>
+    
       <div className="CalendarCard_days">
         Monday
-        {chores.map((chores)=> (
-          <div>chore</div>
-        ))}
       </div>
       <div className="CalendarCard_days">Tuesday
       </div>

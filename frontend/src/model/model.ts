@@ -1,12 +1,16 @@
-export interface PokemonResults{
+export interface PokemonResults {
  results: Result[];
 }
 
-export interface Result{
+export interface Result {
   name:string;
 }
+export interface Trainer {
+  name: string;
+  chores?: Chore[];
+}
 
-export interface Chore{
+export interface Chore {
   _id?:string;
   title: string;
   description?: string;
@@ -27,4 +31,5 @@ export interface Account {
   gymName: string;
   gymPassword: string;
   calendarTitle: string;
+  trainers: Trainer[];
 }

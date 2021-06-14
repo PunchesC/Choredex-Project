@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Chore } from '../model/model';
+import { Chore, Trainer } from '../model/model';
 import { createTask, readAllChores } from '../service/pokemonService';
-import './AdminHomepage.css'
-import CalendarCard from './CalendarCard'
+import './AdminHomepage.css';
+import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
 
 function AdminHomepage(){
@@ -23,6 +23,12 @@ function AdminHomepage(){
     function handleAddTask(chore:Chore):void{
       createTask(chore).then(loadChores)
     }
+
+  const [ trainer, setTrainer ] = useState<Trainer[]>([]);
+
+  function handleAddTrainer(trainer: Trainer): void {
+    setTrainer(prevTrainer => [ ...prevTrainer, trainer ]);
+  }
 
   return (
     <div className="AdminHomepage">

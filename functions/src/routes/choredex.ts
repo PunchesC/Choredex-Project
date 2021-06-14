@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
-import {PokeData, PokemonResults} from '../model/pokemonAPI';
+import {Chore, PokeData, PokemonResults} from '../model/pokemonAPI';
 import { Pokemon } from "../model/pokemonAPI";
 import { getClient } from "../db";
 
@@ -18,11 +18,34 @@ app.get("/setData", async (req, res) => {
       res.status(500).json({message: "Internal Server Error"});
     }
 });
-app.get("/", async (req, res) => {
+app.get("/pokemon", async (req, res) => {
   try {
     const client = await getClient();
     const results = await client.db().collection<Pokemon>('Pokemon').find().toArray();
     res.json(results); // send JSON results
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+app.get("/chores", async (req, res) => {
+  try {
+    const client = await getClient();
+    const results = await client.db().collection<Chore>('chores').find().toArray();
+    res.json(results); // send JSON results
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
+app.post("/chores", async (req, res) => {
+  const chore = req.body as Chore;
+  try {
+    const client = await getClient();
+    const result = await client.db().collection<Chore>('chores').insertOne(chore);
+    chore._id = result.insertedId;
+    res.status(201).json(chore);
   } catch (err) {
     console.error("FAIL", err);
     res.status(500).json({message: "Internal Server Error"});

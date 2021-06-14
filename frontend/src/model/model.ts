@@ -7,6 +7,7 @@ export interface Result{
 }
 
 export interface Chore{
+  _id?:string;
   title: string;
   description?: string;
   monday?: boolean;

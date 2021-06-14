@@ -12,10 +12,10 @@ export function allPokemon():Promise<Pokemon[]> {
 }
 
 export function createTask(chore:Chore):Promise<Chore>{
-  return axios.post(baseUrl,chore).then(res =>res.data)
+  return axios.post(`${baseUrl}/chores`,chore).then(res =>res.data)
 }
 
 export function readAllChores():Promise<Chore[]> {
-  return axios.get(baseUrl).then(res => res.data);
+  return axios.get(`${baseUrl}/chores`).then(res => res.data);
 }
 

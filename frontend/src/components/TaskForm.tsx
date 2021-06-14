@@ -30,7 +30,6 @@ function handleSubmit(event:FormEvent): void {
     description: description,
     trainer: trainer,
     difficulty: difficulty
-
   }
   const files = fileInputRef.current?.files;
   if (files && files[0]){
@@ -45,10 +44,10 @@ function handleSubmit(event:FormEvent): void {
         clearForm();
       })
     })
+  }else {
+    onSubmit(chore);
     clearForm();
-  };
-  
-
+  }
   function clearForm(){
     setTitle("");
     setDescription("");

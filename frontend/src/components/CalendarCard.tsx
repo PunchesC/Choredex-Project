@@ -1,53 +1,31 @@
-import "./CalendarCard.css"
-import {useContext, useEffect, useState} from "react"
-import {ChoreContext} from "../context/chore.context"
-import TaskForm from "./TaskForm";
 import { Chore } from "../model/model";
-import {createTask, readAllChores, } from "../service/pokemonService"
+import "./CalendarCard.css"
+import TaskForm from "./TaskForm";
 
-
-function CalendarCard(){
-// const {chores} = useContext(ChoreContext);
-const [ Chores, setChores ] = useState<Chore[]>([]);
-const [ choresLoaded, setChoresLoaded ] = useState(false);
-
-useEffect(()=>{
-  loadChores();
-}, []);
-function loadChores(){
-  readAllChores().then(choresFromApi => {
-    setChores(choresFromApi);
-    setChoresLoaded(true);
-  });
+interface Props{
+  chore: Chore;
+  // onDelete: () => void;
 }
 
-
-function handleAddTask(chore:Chore):void{
-  createTask(chore).then(loadChores)
-}
-
-
+function CalendarCard({chore}:Props){
 
 
   return(
     <div className="CalendarCard">
-      <h5>[trainer name] calendar</h5>
-      <button>create a task for [trainer name]</button>
-      <h5>[Trainer Name] Calendar</h5>
-      <section >
-      <button>Create a Task for [Trainer Name]</button>
-      <section className="CalendarCard_taskform">
-    <TaskForm onSubmit={handleAddTask} />
-    </section>
-    </section>
+      <h5>{chore.trainer} Calendar</h5>
+      
+      <button>Create a Task for {chore.trainer}</button>
+      <p>Chore: {chore.title}</p>
+      <p>More Info: {chore.description}</p>
+      <p>Difficulty: {chore.difficulty}</p>
       <div className="CalendarCard_days">
-        <div>monday</div>
-        <div>tuesday</div>
-        <div>wednesday</div>
-        <div>thursday</div>
-        <div>friday</div>
-        <div>saturday</div>
-        <div>sunday</div>
+        {chore.monday === true ? <div>monday</div> : <div></div>}
+        {chore.tuesday ? <div>teusday</div> : <div></div>}
+        {chore.wednesday ? <div>wednesday</div> : <div></div>}
+        {chore.thursday ? <div>thursday</div> : <div></div>}
+        {chore.friday ? <div>friday</div> : <div></div>}
+        {chore.saturday ? <div>saturday</div> : <div></div>}
+        {chore.sunday ? <div>sunday</div> : <div></div>}
       </div>
     </div>
   )

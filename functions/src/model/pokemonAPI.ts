@@ -37,3 +37,17 @@ export interface Stats {
 export interface Stat {
   name: string;
 }
+export interface Chore{
+  _id?:ObjectId;
+  title: string;
+  description?: string;
+  monday?: boolean;
+  tuesday?: boolean;
+  wednesday?: boolean;
+  thursday?: boolean;
+  friday?: boolean;
+  saturday?: boolean;
+  sunday?: boolean;
+  trainer: string;
+  difficulty: string;
+}

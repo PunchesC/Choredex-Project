@@ -7,8 +7,8 @@ function AdminHomepage(){
 
   return (
     <div className="AdminHomepage">
-      <h3>Admin Homepage</h3>
-      <button>Add Trainer</button>
+      <h3>ADMIN HOMEPAGE</h3>
+      <button>add trainer</button>
       <CalendarCard />
     </div>
   )

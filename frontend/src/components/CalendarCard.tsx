@@ -8,23 +8,20 @@ const {chores} = useContext(ChoreContext);
 
   return(
     <div className="CalendarCard">
-      <h5>[Trainer Name] Calendar</h5>
-      <button>Create a Task for [Trainer Name]</button>
-    
+      <h5>[trainer name] calendar</h5>
+      <button>create a task for [trainer name]</button>
       <div className="CalendarCard_days">
-        Monday
-      </div>
-      <div className="CalendarCard_days">Tuesday
-      </div>
-      <div className="CalendarCard_days">Wednesday
-      </div>
-      <div className="CalendarCard_days">Thursday
-      </div>
-      <div className="CalendarCard_days">Friday
-      </div>
-      <div className="CalendarCard_days">Saturday
-      </div>
-      <div className="CalendarCard_days">Sunday
+        <div>monday
+          {chores.map((chores)=> (
+            <div>chore</div>
+          ))}
+        </div>
+        <div>tuesday</div>
+        <div>wednesday</div>
+        <div>thursday</div>
+        <div>friday</div>
+        <div>saturday</div>
+        <div>sunday</div>
       </div>
     </div>
   )

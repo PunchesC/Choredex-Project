@@ -1,0 +1,60 @@
+.Homepage {
+    display: flex;
+    flex-direction: row;
+    /* height: 100vh; */
+}
+
+body {
+    margin: 0px;
+}
+
+.leftSide, .rightSide {
+    margin-top: 10%;
+}
+
+.leftSide {
+    min-width: 20%;
+    width: 30%;
+    padding: 5%;
+}
+
+h3 {
+    font-style: italic;
+    font-weight: unset;
+    border-bottom: 1px solid white;
+    color: white;
+    text-align: unset;
+    padding: unset;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: unset;
+    color: white;
+}
+
+.rightFrame {
+    min-width: 60%;
+}
+
+.rightSide {
+    width: 55%;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.pokeText, .pokemon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pokeText {
+    height: 85px;
+    padding-top: 20px;
+}
+
+.pokemon {
+    height: 275px;
+}

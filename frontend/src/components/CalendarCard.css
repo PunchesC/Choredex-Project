@@ -1,0 +1,10 @@
+.CalendarCard {
+    padding: 20px;
+}
+
+.CalendarCard_days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-style: italic;
+    border-bottom: 1px solid black;
+}

@@ -1,0 +1,54 @@
+body {
+    background-color: rgb(153, 150, 149);
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.89);
+    color: white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-style: italic;
+    height: 65px;
+    opacity: 85%;
+}
+
+h1, nav {
+    padding: 0 20px;
+}
+
+.navLinks {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+    padding: 5px 20px;
+    font-size: 16px;
+}
+
+.navLinks:hover {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: black;
+}
+
+footer {
+    background-color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+h2 {
+    padding-right: 40px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+img {
+    height: 16px;
+}

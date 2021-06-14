@@ -26,10 +26,10 @@ function App() {
           <Route path="/sign-in-form">
             <SignInForm />
           </Route>
-          <Route path="/admin-homepage">
+          <Route path="/homepage/admin">
             <AdminHomepage />
           </Route>
-          <Route path="/trainer-choredex">
+          <Route path="/choredex/:name">
             <TrainerChoredex />
           </Route>
           <Route path="/Pokemons">

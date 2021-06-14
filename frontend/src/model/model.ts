@@ -31,5 +31,5 @@ export interface Account {
   gymName: string;
   gymPassword: string;
   calendarTitle: string;
-  trainers: Trainer[];
+  trainers?: Trainer[];
 }

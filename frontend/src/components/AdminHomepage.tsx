@@ -1,54 +1,64 @@
-import { useEffect, useState } from 'react';
-import { AccountContext } from '../context/auth.context';
+import React, { useEffect, useState } from 'react';
 import { Chore, Trainer } from '../model/model';
-
-import { createTask, readAllChores } from '../service/pokemonService';
+import { createTask, readAllChores, addTrainer, readAllTrainers } from '../service/pokemonService';
 import './AdminHomepage.css';
 import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
-import { useContext } from "react";
+import TrainerForm from './TrainerForm';
 
 function AdminHomepage(){
     const [ chores, setChores ] = useState<Chore[]>([]);
     const [ choresLoaded, setChoresLoaded ] = useState(false);
-    const {accounts} = useContext(AccountContext);
-    const [ showForm, setShowForm] = useState(false);
+    const [ showTaskForm, setShowTaskForm ] = useState(false);
+    const [ showTrainerForm, setShowTrainerForm ] = useState(false);
+    const [ trainer, setTrainer ] = useState<Trainer[]>([]);
     
-    useEffect(()=>{
+    useEffect(() => {
       loadChores();
+      loadTrainers();
     }, []);
     
-    function loadChores(){
+    function loadChores() {
       readAllChores().then(choresFromApi => {
         setChores(choresFromApi);
         setChoresLoaded(true);
       });
     }
     
-    function handleShowForm(){
-      setShowForm(true);
-    }
-    function handleAddTask(chore:Chore):void{
-      createTask(chore).then(loadChores)
+    function loadTrainers() {
+      readAllTrainers().then(trainersFromApi => {
+        setTrainer(trainersFromApi);
+      })
     }
 
-  const [ trainer, setTrainer ] = useState<Trainer[]>([]);
+    function handleShowTaskForm() {
+      setShowTaskForm(true);
+    }
 
-  function handleAddTrainer(trainer: Trainer): void {
-    setTrainer(prevTrainer => [ ...prevTrainer, trainer ]);
-  }
+    function handleShowTrainerForm() {
+      setShowTrainerForm(true);
+    }
+
+    function handleAddTask(chore:Chore):void {
+      createTask(chore).then(loadChores);
+    }
+
+    function handleAddTrainer(trainer: Trainer): void {
+      addTrainer(trainer).then(loadTrainers);
+    }
 
   return (
     <div className="AdminHomepage">
-      <h3> HOMEPAGE</h3>
-      <button>add trainer</button>
-      <button onClick={handleShowForm}>Create a Task</button>
+      <h3>ADMIN HOMEPAGE</h3>
+      <button onClick={handleShowTrainerForm}>add trainer</button>
+      {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={()=> setShowTrainerForm(false)}/>}
+      <button onClick={handleShowTaskForm}>Create a Task</button>
       { !choresLoaded ?
             <p className="AdminHomePage_message">Loading...</p>
             : chores.map(eachChore => 
             <CalendarCard key={eachChore._id} chore={eachChore}/>
             )}
-      {showForm === true && <TaskForm onSubmit={handleAddTask} onClose={()=> setShowForm(false)}/>}
+      {showTaskForm === true && <TaskForm onSubmit={handleAddTask} onClose={()=> setShowTaskForm(false)}/>}
     </div>
   );
 

@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
-import {Chore, PokeData, PokemonResults} from '../model/pokemonAPI';
+import {Chore, PokeData, PokemonResults, Trainer} from '../model/pokemonAPI';
 import { Pokemon } from "../model/pokemonAPI";
 import { getClient } from "../db";
 
@@ -18,6 +18,7 @@ app.get("/setData", async (req, res) => {
       res.status(500).json({message: "Internal Server Error"});
     }
 });
+
 app.get("/pokemon", async (req, res) => {
   try {
     const client = await getClient();
@@ -28,6 +29,7 @@ app.get("/pokemon", async (req, res) => {
     res.status(500).json({message: "Internal Server Error"});
   }
 });
+
 app.get("/chores", async (req, res) => {
   try {
     const client = await getClient();
@@ -52,10 +54,11 @@ app.post("/chores", async (req, res) => {
   }
 });
 
-app.get("/accounts", async (req, res) => {
+
+app.get("/trainers", async (req, res) => {
   try {
     const client = await getClient();
-    const results = await client.db().collection<Chore>('chores').find().toArray();
+    const results = await client.db().collection<Trainer>('trainers').find().toArray();
     res.json(results); // send JSON results
   } catch (err) {
     console.error("FAIL", err);
@@ -63,20 +66,18 @@ app.get("/accounts", async (req, res) => {
   }
 });
 
-app.post("/accounts", async (req, res) => {
-  const chore = req.body as Chore;
+app.post("/trainers", async (req, res) => {
+  const trainer = req.body as Trainer;
   try {
     const client = await getClient();
-    const result = await client.db().collection<Chore>('chores').insertOne(chore);
-    chore._id = result.insertedId;
-    res.status(201).json(chore);
+    const result = await client.db().collection<Trainer>('trainers').insertOne(trainer);
+    trainer._id = result.insertedId;
+    res.status(201).json(trainer);
   } catch (err) {
     console.error("FAIL", err);
     res.status(500).json({message: "Internal Server Error"});
   }
 });
-
-
 
 async function getPokeStuff(){
   let pokeResults:PokemonResults = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151')).data;

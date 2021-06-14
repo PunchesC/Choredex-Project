@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink } from 
 import linkedinIcon from './assets/linkedinIcon.png';
 import Homepage from './components/Homepage';
 import { AccountContextProvider } from './context/auth.context';
+import SignInForm from './components/SignInForm';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route path="/account-sign-up">
             <AccountForm />
+          </Route>
+          <Route path="/sign-in-form">
+            <SignInForm />
           </Route>
           <Route path="/admin-homepage">
             <AdminHomepage />

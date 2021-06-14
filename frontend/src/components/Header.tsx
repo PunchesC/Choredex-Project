@@ -13,7 +13,7 @@ console.log(accounts);
     <div className="Header">
    <NavLink to="/" className="navLogo">CHOREDEX</NavLink>
           <nav>
-            <NavLink to="/admin-homepage" className="navLinks">sign in</NavLink>
+            <NavLink to="/sign-in-form" className="navLinks">sign in</NavLink>
             <NavLink to="/account-sign-up" className="navLinks">sign up</NavLink>
           </nav>
     </div>

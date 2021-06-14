@@ -1,15 +1,29 @@
 import "./CalendarCard.css"
-import {useContext} from "react"
+import {useContext, useEffect, useState} from "react"
 import {ChoreContext} from "../context/chore.context"
 import TaskForm from "./TaskForm";
 import { Chore } from "../model/model";
+import {createTask, readAllChores, } from "../service/pokemonService"
 
 
 function CalendarCard(){
-const {chores} = useContext(ChoreContext);
+// const {chores} = useContext(ChoreContext);
+const [ Chores, setChores ] = useState<Chore[]>([]);
+const [ choresLoaded, setChoresLoaded ] = useState(false);
 
-function handleAddTask(){
-  console.log("hi")
+useEffect(()=>{
+  loadChores();
+}, []);
+function loadChores(){
+  readAllChores().then(choresFromApi => {
+    setChores(choresFromApi);
+    setChoresLoaded(true);
+  });
+}
+
+
+function handleAddTask(chore:Chore):void{
+  createTask(chore).then(loadChores)
 }
 
 
@@ -27,11 +41,7 @@ function handleAddTask(){
     </section>
     </section>
       <div className="CalendarCard_days">
-        <div>monday
-          {chores.map((chores)=> (
-            <div>chore</div>
-          ))}
-        </div>
+        <div>monday</div>
         <div>tuesday</div>
         <div>wednesday</div>
         <div>thursday</div>

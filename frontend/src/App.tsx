@@ -39,11 +39,11 @@ function App() {
             <Homepage />
           </Route>
         </Switch>
-        <footer>
+        {/* <footer>
           <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>yitz-hochstadt-386a831b6</h2>
           <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>curtispunches</h2>
           <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>kaleigh-griffin</h2>
-        </footer>
+        </footer> */}
       </Router>
     
     </div>

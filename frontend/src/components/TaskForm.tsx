@@ -1,7 +1,8 @@
 import './TaskForm'
-import { FormEvent, useState, useContext, useRef} from "react";
-import {Chore} from "../model/model";
+import { FormEvent, useState, useContext, useRef, useEffect} from "react";
+import {Chore, Trainer} from "../model/model";
 import firebase from "../firebaseConfig"
+import { readAllTrainers } from '../service/pokemonService';
 
 interface Props {
   onSubmit: (chore:Chore) => void;
@@ -12,25 +13,38 @@ interface Props {
 function TaskForm({onSubmit, onClose}:Props){
 const [title, setTitle] = useState("");
 const [description, setDescription] = useState("");
-const [monday, setMonday] = useState("");
-const [tuesday, setTuesday] = useState("");
-const [wednesday, setWednesday] = useState("");
-const [thursday, setThursday] = useState("");
-const [friday, setFriday] = useState("");
-const [saturday, setSaturday] = useState("");
-const [sunday, setSunday] = useState("");
-const [trainer, setTrainer] = useState("");
+const [monday, setMonday] = useState(false);
+const [tuesday, setTuesday] = useState(false);
+const [wednesday, setWednesday] = useState(false);
+const [thursday, setThursday] = useState(false);
+const [friday, setFriday] = useState(false);
+const [saturday, setSaturday] = useState(false);
+const [sunday, setSunday] = useState(false);
+const [ trainers, setTrainers ] = useState<Trainer[]>([]);
+const [ourTrainer, setOurTrainer] = useState("");
 const [difficulty, setDifficulty] = useState("");
 const fileInputRef = useRef<HTMLInputElement>(null);
 const formRef = useRef<HTMLFormElement>(null);
+
+useEffect(() => {
+  loadTrainers();
+}, []);
+
+function loadTrainers() {
+  readAllTrainers().then(trainersFromApi => {
+    setTrainers(trainersFromApi);
+  })
+}
 
 function handleSubmit(event:FormEvent): void {
   event.preventDefault();
   const chore: Chore = {
     title:title,
     description: description,
-    trainer: trainer,
-    difficulty: difficulty
+    trainer: ourTrainer,
+    difficulty: difficulty,
+    monday: monday,
+    wednesday: wednesday
   }
   const files = fileInputRef.current?.files;
   if (files && files[0]){
@@ -52,7 +66,7 @@ function handleSubmit(event:FormEvent): void {
   function clearForm(){
     setTitle("");
     setDescription("");
-    setTrainer("");
+    setOurTrainer("");
     setDifficulty("")
     formRef.current?.reset();
   }
@@ -74,32 +88,32 @@ function handleSubmit(event:FormEvent): void {
       <div className="TaskForm_right_container">
       <label>Select Day(s):
         <label>Monday
-        <input type="checkbox" value={monday} onChange={e => setMonday(e.target.value)}></input>
+        <input type="checkbox" onClick={e => setMonday(true)}></input>
         </label>
         <label>Tuesday
-        <input type="checkbox" value={tuesday} onChange={e => setTuesday(e.target.value)}></input>
+        <input type="checkbox" onClick={e => setTuesday(true)}></input>
         </label>
         <label>Wednesday
-        <input type="checkbox" value={wednesday} onChange={e => setWednesday(e.target.value)}></input>
+        <input type="checkbox" onClick={e => setWednesday(true)}></input>
         </label>
         <label>Thursday
-        <input type="checkbox" value={thursday} onChange={e => setThursday(e.target.value)}></input>
+        <input type="checkbox" onClick={e => setThursday(true)}></input>
         </label>
         <label>Friday
-        <input type="checkbox" value={friday} onChange={e => setFriday(e.target.value)}></input>
+        <input type="checkbox" onClick={e => setFriday(true)}></input>
         </label>
         <label>Saturday
-        <input type="checkbox" value={saturday} onChange={e => setSaturday(e.target.value)}></input>
+        <input type="checkbox" onClick={e => setSaturday(true)}></input>
         </label>
         <label>Sunday
-        <input type="checkbox" value={sunday} onChange={e => setSunday(e.target.value)}></input>
+        <input type="checkbox" onClick={e => setSunday(true)}></input>
         </label>  
       </label>
       {/* Number of trainer dependent on the amount selected on Account Form */}
       <label>Select Trainer:
-      <select value={trainer} onChange={e=> setTrainer(e.target.value)}>
-        <option> Trainer Example1</option>
-        <option> Trainer Example2</option>
+      <select value={ourTrainer} onChange={e=> setOurTrainer(e.target.value)}>
+      {trainers.map((trainer,i )=> 
+            <option> {trainer.name}</option>)}
       </select>
       </label>
       <label>Level of Difficulty:
@@ -118,3 +132,7 @@ function handleSubmit(event:FormEvent): void {
 }
 
 export default TaskForm;
+
+function loadChores() {
+  throw new Error('Function not implemented.');
+}

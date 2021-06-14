@@ -5,9 +5,11 @@ import firebase from "../firebaseConfig"
 
 interface Props {
   onSubmit: (chore:Chore) => void;
+  onClose:() => void;
 }
 
-function TaskForm({onSubmit}:Props){
+
+function TaskForm({onSubmit, onClose}:Props){
 const [title, setTitle] = useState("");
 const [description, setDescription] = useState("");
 const [monday, setMonday] = useState("");
@@ -109,6 +111,7 @@ function handleSubmit(event:FormEvent): void {
       </label>
       <input ref={fileInputRef} type="file" />
       <button type="submit">Submit</button>
+      <button onClick={onClose}>Back</button>
       </div>
     </form>
   )

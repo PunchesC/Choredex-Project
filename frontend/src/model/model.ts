@@ -1,4 +1,4 @@
-export  interface PokemonResults{
+export interface PokemonResults{
  results: Result[];
 }
 
@@ -20,7 +20,7 @@ export interface Chore{
   difficulty: string;
 }
 
-export  interface Account {
+export interface Account {
   adminName: string;
   adminPassword: string;
   gymName: string;

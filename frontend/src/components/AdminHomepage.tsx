@@ -1,9 +1,7 @@
 import './AdminHomepage.css'
 import CalendarCard from './CalendarCard'
 
-
 function AdminHomepage(){
-
 
   return (
     <div className="AdminHomepage">
@@ -11,7 +9,8 @@ function AdminHomepage(){
       <button>add trainer</button>
       <CalendarCard />
     </div>
-  )
+  );
+
 }
 
 export default AdminHomepage;

@@ -1,6 +1,6 @@
 import { checkPropTypes } from 'prop-types';
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import {Chore} from "../model/model"
+import { Chore } from "../model/model"
 
 interface ChoreContextValue {
   chores: Chore[];

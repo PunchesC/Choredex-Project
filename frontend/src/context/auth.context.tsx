@@ -17,7 +17,10 @@ const example: Account[] = [
         adminPassword: "Pokemon4life",
         gymName: "Cerulean Gym",
         gymPassword: "Pokemon4Ever",
-        calendarTitle: "Galar League"
+        calendarTitle: "Galar League",
+        trainers: [
+            { name: "Jimmy" }
+        ]
     }
 ];
 console.log(example)

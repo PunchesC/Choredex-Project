@@ -7,10 +7,9 @@ interface Props {
   onSubmit: (chore:Chore) => void;
 }
 
-
 function TaskForm({onSubmit}:Props){
 const [title, setTitle] = useState("");
-const[ description, setDescription]= useState("");
+const [description, setDescription] = useState("");
 const [monday, setMonday] = useState("");
 const [tuesday, setTuesday] = useState("");
 const [wednesday, setWednesday] = useState("");

@@ -26,3 +26,10 @@ export function addTrainer(trainer:Trainer):Promise<Trainer>{
 export function readAllTrainers():Promise<Trainer[]> {
   return axios.get(`${baseUrl}/trainers`).then(res => res.data);
 }
+
+export function readAllChoresForTrainer(name: string):Promise<Chore[]>{
+  return axios.get(baseUrl, {
+    params: { name : name } 
+  }).then(res => res.data);
+}
+

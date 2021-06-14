@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
+import { AccountContext } from '../context/auth.context';
 import { Chore } from '../model/model';
 import { createTask, readAllChores } from '../service/pokemonService';
 import './AdminHomepage.css'
 import CalendarCard from './CalendarCard'
 import TaskForm from './TaskForm';
+import { useContext } from "react";
 
 function AdminHomepage(){
     const [ chores, setChores ] = useState<Chore[]>([]);
     const [ choresLoaded, setChoresLoaded ] = useState(false);
+    const {accounts} = useContext(AccountContext);
     
     useEffect(()=>{
       loadChores();
@@ -26,7 +29,7 @@ function AdminHomepage(){
 
   return (
     <div className="AdminHomepage">
-      <h3>ADMIN HOMEPAGE</h3>
+      <h3> HOMEPAGE</h3>
       <button>add trainer</button>
       { !choresLoaded ?
             <p className="AdminHomePage_message">Loading...</p>

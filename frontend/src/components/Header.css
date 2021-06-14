@@ -4,3 +4,36 @@
   align-items: center;
 
 }
+
+.navLinks {
+  color: white;
+  text-decoration: none;
+  font-style: normal;
+  padding: 5px 20px;
+  font-size: 16px;
+ 
+ 
+}
+
+.navLinks:hover {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.navLogo {
+  font-size: 65px;
+  color: white;
+  text-decoration: none;
+  font-style: normal;
+  padding: 5px 20px;
+  
+}
+
+.navLogo:hover {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: black;
+}
+
+

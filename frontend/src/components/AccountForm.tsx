@@ -2,12 +2,13 @@ import './AccountForm.css'
 import { useHistory } from 'react-router';
 import { FormEvent, useContext, useState } from 'react';
 import {Account} from '../model/model';
+import { AccountContext } from '../context/auth.context';
 
 function AccountForm(){
 
   // const { add account } = useContext(AccountContext);
   const history = useHistory();
-
+  const {accounts} = useContext(AccountContext);
   const [ adminName, setAdminName ] = useState("");
   const [ adminPassword, setAdminPassword ] = useState("");
   const [ gymName, setGymName ] = useState("");

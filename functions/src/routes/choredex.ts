@@ -52,6 +52,32 @@ app.post("/chores", async (req, res) => {
   }
 });
 
+app.get("/accounts", async (req, res) => {
+  try {
+    const client = await getClient();
+    const results = await client.db().collection<Chore>('chores').find().toArray();
+    res.json(results); // send JSON results
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
+app.post("/accounts", async (req, res) => {
+  const chore = req.body as Chore;
+  try {
+    const client = await getClient();
+    const result = await client.db().collection<Chore>('chores').insertOne(chore);
+    chore._id = result.insertedId;
+    res.status(201).json(chore);
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
+
+
 async function getPokeStuff(){
   let pokeResults:PokemonResults = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151')).data;
   let pokes = pokeResults.results

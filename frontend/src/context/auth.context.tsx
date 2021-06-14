@@ -20,7 +20,7 @@ const example: Account[] = [
         calendarTitle: "Galar League"
     }
 ];
-
+console.log(example)
 export const AccountContext = createContext(defaultValue);
 
 export function AccountContextProvider({children}: {children:ReactNode;}) {

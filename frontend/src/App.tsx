@@ -9,19 +9,15 @@ import AdminHomepage from './components/AdminHomepage';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink } from 'react-router-dom';
 import linkedinIcon from './assets/linkedinIcon.png';
 import Homepage from './components/Homepage';
+import { AccountContextProvider } from './context/auth.context';
 
 function App() {
   return (
     <div className="App">
-     
+  
       <Router>
-        <header>
-          <h1>SITE TITLE</h1>
-          <nav>
-            <NavLink to="/admin-homepage" className="navLinks">sign in</NavLink>
-            <NavLink to="/account-sign-up" className="navLinks">sign up</NavLink>
-          </nav>
-        </header>
+        <AccountContextProvider>
+      <Header />
         <Switch>
           <Route path="/account-sign-up">
             <AccountForm />
@@ -44,6 +40,7 @@ function App() {
           <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>curtispunches</h2>
           <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>kaleigh-griffin</h2>
         </footer> */}
+        </AccountContextProvider>
       </Router>
     
     </div>

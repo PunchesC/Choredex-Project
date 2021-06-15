@@ -2,16 +2,13 @@ import React, { createContext, ReactNode, useContext, useEffect, useState } from
 import { Account } from '../model/model'
 
 interface AccountContextValue {
-    accounts: Account[];
-    addAccount: (account: Account) => void;
+    account: Account;
+    setAccount: (account: Account) => void;
+    currentUser: string;
+    isAdmin: boolean;
+    setCurrentUser:(user:string) => void; 
 }
-
-const defaultValue: AccountContextValue = {
-    accounts: [],
-    addAccount: () => {},
-}
-
-const example: Account[] = [
+const example: Account = 
     {
         adminName: "Ash",
         adminPassword: "Pokemon4life",
@@ -21,22 +18,37 @@ const example: Account[] = [
         trainers: [
             { name: "Jimmy" }
         ]
-    }
-];
+    };
+
+    const defaultValue: AccountContextValue = {
+    account: example,
+    setAccount: () => {},
+    currentUser: "",
+    isAdmin: false,
+    setCurrentUser: ()=> {}
+}
+
+
 console.log(example)
 export const AccountContext = createContext(defaultValue);
 
 export function AccountContextProvider({children}: {children:ReactNode;}) {
 
-    const [ accounts, setAccounts ] = useState<Account[]>(example);
+    const [ account, setAccount ] = useState<Account>(example);
+    const [currentUser, setCurrentUser] = useState("");
+    const isAdmin = currentUser===account.adminName;
 
-    function addAccount(account:Account): number | undefined {
-        setAccounts([...accounts, account]);
-        return accounts.length
+    function changeAccount(account:Account) {
+        setAccount(account);    
     }
 
+    
+
+    
+   
+
     return (
-        <AccountContext.Provider value={{accounts, addAccount}}>
+        <AccountContext.Provider value={{account, setAccount, currentUser, isAdmin, setCurrentUser}}>
             {children}
         </AccountContext.Provider>
     );

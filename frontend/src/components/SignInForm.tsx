@@ -8,21 +8,26 @@ function SignInForm(){
 const [adminName, setAdminName] = useState("");
 const [trainerName, setTrainerName] = useState("");
 const [password, setPassword] = useState("");
-const {accounts} = useContext(AccountContext);
+const {account,setCurrentUser} = useContext(AccountContext);
+
 let history = useHistory();
 
 
 function handleSubmit(event:FormEvent): void {
   event.preventDefault();
-for(let account of accounts)
+
 if(account.adminName===adminName && account.adminPassword===password){
   console.log("Sucess Admin: " + account.adminName + account.adminPassword)
+  setCurrentUser(adminName)
   history.push(`/homepage/${account.adminName}`)
+ 
 }
-for(let account of accounts)
+
+
 for(let trainer of account.trainers!)
 if(trainer.name===trainerName && account.gymPassword===password){
   console.log("Sucess Trainer: " + trainer.name + account.gymPassword)
+  setCurrentUser(trainerName)
   history.push(`/choredex/${trainer.name}`)
 }
 

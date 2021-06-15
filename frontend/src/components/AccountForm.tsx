@@ -8,7 +8,7 @@ function AccountForm(){
 
   // const { add account } = useContext(AccountContext);
   const history = useHistory();
-  const {accounts} = useContext(AccountContext);
+  const {account} = useContext(AccountContext);
   const [ adminName, setAdminName ] = useState("");
   const [ adminPassword, setAdminPassword ] = useState("");
   const [ gymName, setGymName ] = useState("");

@@ -11,7 +11,7 @@ interface RouteParams {
 }
 
 function TrainerChoredex(){
-  const {accounts} = useContext(AccountContext);
+  const {account} = useContext(AccountContext);
   const {name} = useParams<RouteParams>() ;
 
   const [chores, setChores] = useState<Chore[]>([]);

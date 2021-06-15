@@ -1,4 +1,5 @@
 import Pokemon from "./Pokemon";
+// import ObjectId from 'mongodb'
 
 export interface PokemonResults {
  results: Result[];
@@ -8,6 +9,7 @@ export interface Result {
   name:string;
 }
 export interface Trainer {
+  _id?:string;
   name: string;
   pokemons?: Pokemon[];
 }

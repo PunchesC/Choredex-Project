@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { Chore, Trainer } from "../model/model";
-import { readAllChores } from "../service/pokemonService";
+import {
+  readAllChores,
+  readAllChoresForTrainer,
+} from "../service/pokemonService";
 import "./CalendarCard.css";
 import TaskForm from "./TaskForm";
 
 interface Props {
-  chore: Chore;
+  ourTrainer: Trainer;
   // onDelete: () => void;
   onComplete?: () => void;
 }
 
-function CalendarCard({ chore, onComplete }: Props) {
+function CalendarCard({ ourTrainer, onComplete }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
   // const [ourTrainer, setOurTrainer] = useState<Trainer>(null)
 
@@ -19,18 +22,18 @@ function CalendarCard({ chore, onComplete }: Props) {
   }, []);
 
   function loadTrainerChores() {
-    readAllChores().then((choresFromApi) => {
+    readAllChoresForTrainer(ourTrainer.name).then((choresFromApi) => {
       setChores(choresFromApi);
     });
   }
 
   return (
     <div className="CalendarCard">
-      <h5>{chore.trainer}'s Calendar</h5>
+      <h5>{ourTrainer.name}'s Calendar</h5>
       <table>
         <tr>
           <th>Monday</th>
-          <th>Teusday</th>
+          <th>Tuesday</th>
           <th>Wednesday</th>
           <th>Thursday</th>
           <th>Friday</th>
@@ -38,9 +41,12 @@ function CalendarCard({ chore, onComplete }: Props) {
           <th>Sunday</th>
         </tr>
         <tr>
-          {chore.monday ? (
-              <tr>
-                <td>
+          <td>
+            {chores
+              .filter((eachChore) => eachChore.monday)
+              .map((chore) => (
+                <div>
+                  <pre>{JSON.stringify(chore, null, 2)}</pre>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -48,14 +54,15 @@ function CalendarCard({ chore, onComplete }: Props) {
                   Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-                </td>
-              </tr>
-          ) : (
-            <td>No chores for today.</td>
-          )}
-          {chore.tuesday ? (
-              <tr>
-                <td>
+                </div>
+              ))}
+          </td>
+          <td>
+            {chores
+              .filter((eachChore) => eachChore.tuesday)
+              .map((chore) => (
+                <div>
+                  <pre>{JSON.stringify(chore, null, 2)}</pre>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -63,14 +70,15 @@ function CalendarCard({ chore, onComplete }: Props) {
                   Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-                </td>
-              </tr>
-          ) : (
-            <td>No chores for today.</td>
-          )}
-          {chore.wednesday ? (
-              <tr>
-                <td>
+                </div>
+              ))}
+          </td>
+          <td>
+            {chores
+              .filter((eachChore) => eachChore.wednesday)
+              .map((chore) => (
+                <div>
+                  <pre>{JSON.stringify(chore, null, 2)}</pre>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -78,14 +86,15 @@ function CalendarCard({ chore, onComplete }: Props) {
                   Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-                </td>
-              </tr>
-          ) : (
-            <td>No chores for today.</td>
-          )}
-          {chore.thursday ? (
-              <tr>
-                <td>
+                </div>
+              ))}
+          </td>
+          <td>
+            {chores
+              .filter((eachChore) => eachChore.thursday)
+              .map((chore) => (
+                <div>
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -93,14 +102,15 @@ function CalendarCard({ chore, onComplete }: Props) {
                   Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-                </td>
-              </tr>
-          ) : (
-            <td>No chores for today.</td>
-          )}
-          {chore.friday ? (
-              <tr>
-                <td>
+                </div>
+              ))}
+          </td>
+          <td>
+            {chores
+              .filter((eachChore) => eachChore.friday)
+              .map((chore) => (
+                <div>
+                  <pre>{JSON.stringify(chore, null, 2)}</pre>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -108,14 +118,15 @@ function CalendarCard({ chore, onComplete }: Props) {
                   Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-                </td>
-              </tr>
-          ) : (
-            <td>No chores for today.</td>
-          )}
-          {chore.saturday ? (
-              <tr>
-                <td>
+                </div>
+              ))}
+          </td>
+          <td>
+            {chores
+              .filter((eachChore) => eachChore.saturday)
+              .map((chore) => (
+                <div>
+                  <pre>{JSON.stringify(chore, null, 2)}</pre>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -123,14 +134,15 @@ function CalendarCard({ chore, onComplete }: Props) {
                   Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-                </td>
-              </tr>
-          ) : (
-            <td>No chores for today.</td>
-          )}
-          {chore.sunday ? (
-              <tr>
-                <td>
+                </div>
+              ))}
+          </td>
+          <td>
+            {chores
+              .filter((eachChore) => eachChore.sunday)
+              .map((chore) => (
+                <div>
+                  <pre>{JSON.stringify(chore, null, 2)}</pre>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -138,11 +150,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-                </td>
-              </tr>
-          ) : (
-            <td>No chores for today.</td>
-          )}
+                </div>
+              ))}
+          </td>
         </tr>
       </table>
       {/* <button>Create a Task for {chore.trainer}</button> */}

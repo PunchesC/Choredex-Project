@@ -37,8 +37,8 @@ console.log(trainerChores)
     <div className="TrainerChoredex">
       <h2>{currentUser} Choredex</h2>
       <div className="TrainerChoredex_calendar">
-        {trainerChores.map(eachchore => 
-        <CalendarCard chore={eachchore}/>)} 
+        {/* {trainerChores.map(eachTrainer => 
+        <CalendarCard ourTrainer={eachTrainer}/>)}  */}
       {/* This is where the specific trainer calendar card will go! */}
       </div>
     </div>

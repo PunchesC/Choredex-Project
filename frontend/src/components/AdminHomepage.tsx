@@ -84,8 +84,8 @@ function AdminHomepage(){
 
       { !choresLoaded ?
             <p className="AdminHomePage_message">Loading...</p>
-            : chores.map(eachChore => 
-            <CalendarCard key={eachChore._id} chore={eachChore} onComplete={ () => handleCompleteTask() }/> )
+            : trainers.map(eachTrainer => 
+            <CalendarCard key={eachTrainer._id} ourTrainer={eachTrainer} onComplete={ () => handleCompleteTask() }/> )
       }
 
       <Modal size="lg" centered show={ showTaskForm } onHide={ handleHideTaskForm } animation={ false }>

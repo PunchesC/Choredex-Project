@@ -6,13 +6,11 @@ import { readAllChores, readAllChoresForTrainer } from '../service/pokemonServic
 import CalendarCard from './CalendarCard';
 import './TrainerChoredex'
 
-interface RouteParams {
-  name:string
-}
+
 
 function TrainerChoredex(){
-  const {account} = useContext(AccountContext);
-  const {name} = useParams<RouteParams>() ;
+  const {account,currentUser} = useContext(AccountContext);
+
 
   const [chores, setChores] = useState<Chore[]>([]);
 
@@ -26,19 +24,21 @@ function TrainerChoredex(){
   //   });
   // }
 
-  useEffect(loadChores, [name]);
+  let trainerChores = chores.filter(chore => chore.trainer===currentUser)
+console.log(trainerChores)
+  useEffect(loadChores, [currentUser]);
   function loadChores() {
-    readAllChoresForTrainer(name).then(choresFromApi => {
+    readAllChoresForTrainer(currentUser).then(choresFromApi => {
       setChores(choresFromApi);
   
     });
   } 
   return (
     <div className="TrainerChoredex">
-      <h2>{name} Choredex</h2>
+      <h2>{currentUser} Choredex</h2>
       <div className="TrainerChoredex_calendar">
-        {chores.map(eachchore => 
-          <CalendarCard chore={eachchore}/>)}
+        {trainerChores.map(eachchore => 
+        <CalendarCard chore={eachchore}/>)} 
       {/* This is where the specific trainer calendar card will go! */}
       </div>
     </div>

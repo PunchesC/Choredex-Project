@@ -11,8 +11,11 @@ function AdminHomepage(){
     const [ choresLoaded, setChoresLoaded ] = useState(false);
     const [ showTaskForm, setShowTaskForm ] = useState(false);
     const [ showTrainerForm, setShowTrainerForm ] = useState(false);
+<<<<<<< Updated upstream
     const [ trainer, setTrainer ] = useState<Trainer[]>([]);
     const [ complete, setComplete ] = useState(false);
+=======
+>>>>>>> Stashed changes
     const [ trainers, setTrainers ] = useState<Trainer[]>([]);
     
     useEffect(() => {

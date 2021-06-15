@@ -46,8 +46,11 @@ function CalendarCard({ chore, onComplete }: Props) {
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
+<<<<<<< Updated upstream
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+>>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -61,8 +64,11 @@ function CalendarCard({ chore, onComplete }: Props) {
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
+<<<<<<< Updated upstream
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+>>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -76,8 +82,11 @@ function CalendarCard({ chore, onComplete }: Props) {
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
+<<<<<<< Updated upstream
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+>>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -91,8 +100,11 @@ function CalendarCard({ chore, onComplete }: Props) {
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
+<<<<<<< Updated upstream
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+>>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -106,8 +118,11 @@ function CalendarCard({ chore, onComplete }: Props) {
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
+<<<<<<< Updated upstream
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+>>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -121,8 +136,11 @@ function CalendarCard({ chore, onComplete }: Props) {
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
+<<<<<<< Updated upstream
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+>>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -136,8 +154,11 @@ function CalendarCard({ chore, onComplete }: Props) {
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
+<<<<<<< Updated upstream
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+>>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (

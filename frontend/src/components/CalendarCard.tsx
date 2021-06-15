@@ -45,13 +45,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   <br></br>
                   {chore.description}
                   <br></br>
-<<<<<<< Updated upstream
-                  {chore.difficulty}
+                  Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-=======
-                  Difficulty: {chore.difficulty}
->>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -64,13 +60,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   <br></br>
                   {chore.description}
                   <br></br>
-<<<<<<< Updated upstream
-                  {chore.difficulty}
+                  Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-=======
-                  Difficulty: {chore.difficulty}
->>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -83,13 +75,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   <br></br>
                   {chore.description}
                   <br></br>
-<<<<<<< Updated upstream
-                  {chore.difficulty}
+                  Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-=======
-                  Difficulty: {chore.difficulty}
->>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -102,13 +90,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   <br></br>
                   {chore.description}
                   <br></br>
-<<<<<<< Updated upstream
-                  {chore.difficulty}
+                  Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-=======
-                  Difficulty: {chore.difficulty}
->>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -121,13 +105,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   <br></br>
                   {chore.description}
                   <br></br>
-<<<<<<< Updated upstream
-                  {chore.difficulty}
+                  Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-=======
-                  Difficulty: {chore.difficulty}
->>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -140,13 +120,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   <br></br>
                   {chore.description}
                   <br></br>
-<<<<<<< Updated upstream
-                  {chore.difficulty}
+                  Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-=======
-                  Difficulty: {chore.difficulty}
->>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (
@@ -159,13 +135,9 @@ function CalendarCard({ chore, onComplete }: Props) {
                   <br></br>
                   {chore.description}
                   <br></br>
-<<<<<<< Updated upstream
-                  {chore.difficulty}
+                  Difficulty: {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
-=======
-                  Difficulty: {chore.difficulty}
->>>>>>> Stashed changes
                 </td>
               </tr>
           ) : (

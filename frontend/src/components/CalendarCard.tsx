@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Chore } from "../model/model";
+import { Chore, Trainer } from "../model/model";
 import { readAllChores } from "../service/pokemonService";
 import "./CalendarCard.css";
 import TaskForm from "./TaskForm";
@@ -12,6 +12,7 @@ interface Props {
 
 function CalendarCard({ chore, onComplete }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
+  // const [ourTrainer, setOurTrainer] = useState<Trainer>(null)
 
   useEffect(() => {
     loadChores();
@@ -25,7 +26,7 @@ function CalendarCard({ chore, onComplete }: Props) {
 
   return (
     <div className="CalendarCard">
-      <h5>{chore.trainer} Calendar</h5>
+      <h5>{chore.trainer}'s Calendar</h5>
       <table>
         <tr>
           <th>Monday</th>
@@ -38,121 +39,135 @@ function CalendarCard({ chore, onComplete }: Props) {
         </tr>
         <tr>
           {chore.monday ? (
-            <div>
               <tr>
                 <td>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
+<<<<<<< Updated upstream
                   {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+                  Difficulty: {chore.difficulty}
+>>>>>>> Stashed changes
                 </td>
               </tr>
-            </div>
           ) : (
             <td>No chores for today.</td>
           )}
           {chore.tuesday ? (
-            <div>
               <tr>
                 <td>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
+<<<<<<< Updated upstream
                   {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+                  Difficulty: {chore.difficulty}
+>>>>>>> Stashed changes
                 </td>
               </tr>
-            </div>
           ) : (
             <td>No chores for today.</td>
           )}
           {chore.wednesday ? (
-            <div>
               <tr>
                 <td>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
+<<<<<<< Updated upstream
                   {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+                  Difficulty: {chore.difficulty}
+>>>>>>> Stashed changes
                 </td>
               </tr>
-            </div>
           ) : (
             <td>No chores for today.</td>
           )}
           {chore.thursday ? (
-            <div>
               <tr>
                 <td>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
+<<<<<<< Updated upstream
                   {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+                  Difficulty: {chore.difficulty}
+>>>>>>> Stashed changes
                 </td>
               </tr>
-            </div>
           ) : (
             <td>No chores for today.</td>
           )}
           {chore.friday ? (
-            <div>
               <tr>
                 <td>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
+<<<<<<< Updated upstream
                   {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+                  Difficulty: {chore.difficulty}
+>>>>>>> Stashed changes
                 </td>
               </tr>
-            </div>
           ) : (
             <td>No chores for today.</td>
           )}
           {chore.saturday ? (
-            <div>
               <tr>
                 <td>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
+<<<<<<< Updated upstream
                   {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+                  Difficulty: {chore.difficulty}
+>>>>>>> Stashed changes
                 </td>
               </tr>
-            </div>
           ) : (
             <td>No chores for today.</td>
           )}
           {chore.sunday ? (
-            <div>
               <tr>
                 <td>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
+<<<<<<< Updated upstream
                   {chore.difficulty}
                   <br></br>
                   <button onClick={onComplete}>DONE!</button>
+=======
+                  Difficulty: {chore.difficulty}
+>>>>>>> Stashed changes
                 </td>
               </tr>
-            </div>
           ) : (
             <td>No chores for today.</td>
           )}

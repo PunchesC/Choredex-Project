@@ -1,13 +1,10 @@
-import React from 'react';
 import './App.css';
 import Pokemons from './components/Pokemons'
 import Header from './components/Header'
 import AccountForm from './components/AccountForm';
-import TaskForm from './components/TaskForm';
 import TrainerChoredex from './components/TrainerChoredex';
 import AdminHomepage from './components/AdminHomepage';
-import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink } from 'react-router-dom';
-import linkedinIcon from './assets/linkedinIcon.png';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Homepage from './components/Homepage';
 import { AccountContextProvider } from './context/auth.context';
 import SignInForm from './components/SignInForm';

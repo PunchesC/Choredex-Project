@@ -1,3 +1,5 @@
+import Pokemon from "./Pokemon";
+
 export interface PokemonResults {
  results: Result[];
 }
@@ -7,7 +9,7 @@ export interface Result {
 }
 export interface Trainer {
   name: string;
-  chores?: Chore[];
+  pokemons?: Pokemon[];
 }
 
 export interface Chore {

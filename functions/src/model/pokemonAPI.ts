@@ -64,7 +64,7 @@ export interface Chore {
 export interface Trainer {
   _id?: ObjectId;
   name: string;
-  chores: Chore[];
+  pokemons: Pokemon[];
 }
 
 export interface Account {

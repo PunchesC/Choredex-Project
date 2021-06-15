@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Chore, Trainer } from '../model/model';
-import { createTask, readAllChores, addTrainer, readAllTrainers } from '../service/pokemonService';
+import { createTask, readAllChores, addTrainer, readAllTrainers, readAllChoresForTrainer } from '../service/pokemonService';
 import './AdminHomepage.css';
 import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
@@ -11,8 +11,12 @@ function AdminHomepage(){
     const [ choresLoaded, setChoresLoaded ] = useState(false);
     const [ showTaskForm, setShowTaskForm ] = useState(false);
     const [ showTrainerForm, setShowTrainerForm ] = useState(false);
+<<<<<<< Updated upstream
     const [ trainer, setTrainer ] = useState<Trainer[]>([]);
     const [ complete, setComplete ] = useState(false);
+=======
+    const [ trainers, setTrainers ] = useState<Trainer[]>([]);
+>>>>>>> Stashed changes
     
     useEffect(() => {
       loadChores();
@@ -22,13 +26,23 @@ function AdminHomepage(){
     function loadChores() {
       readAllChores().then(choresFromApi => {
         setChores(choresFromApi);
+        addChoresByTrainer();
         setChoresLoaded(true);
       });
     }
     
+    function addChoresByTrainer(){
+      for (let chore of chores){
+        for (let trainer of trainers)
+        if (chore.trainer === trainer.name){
+          trainer.chores?.push(chore);
+        }
+      }
+    }
+
     function loadTrainers() {
       readAllTrainers().then(trainersFromApi => {
-        setTrainer(trainersFromApi);
+        setTrainers(trainersFromApi);
       })
     }
 

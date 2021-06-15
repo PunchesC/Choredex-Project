@@ -44,7 +44,12 @@ function handleSubmit(event:FormEvent): void {
     trainer: ourTrainer,
     difficulty: difficulty,
     monday: monday,
-    wednesday: wednesday
+    tuesday: tuesday,
+    wednesday: wednesday,
+    thursday: thursday,
+    friday: friday,
+    saturday: saturday,
+    sunday: sunday
   }
   const files = fileInputRef.current?.files;
   if (files && files[0]){

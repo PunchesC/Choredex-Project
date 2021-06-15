@@ -7,9 +7,10 @@ import TaskForm from "./TaskForm";
 interface Props {
   chore: Chore;
   // onDelete: () => void;
+  onComplete?: () => void;
 }
 
-function CalendarCard({ chore }: Props) {
+function CalendarCard({ chore, onComplete }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
 
   useEffect(() => {
@@ -21,6 +22,7 @@ function CalendarCard({ chore }: Props) {
       setChores(choresFromApi);
     });
   }
+
   return (
     <div className="CalendarCard">
       <h5>{chore.trainer} Calendar</h5>
@@ -44,6 +46,8 @@ function CalendarCard({ chore }: Props) {
                   {chore.description}
                   <br></br>
                   {chore.difficulty}
+                  <br></br>
+                  <button onClick={onComplete}>DONE!</button>
                 </td>
               </tr>
             </div>
@@ -59,6 +63,8 @@ function CalendarCard({ chore }: Props) {
                   {chore.description}
                   <br></br>
                   {chore.difficulty}
+                  <br></br>
+                  <button onClick={onComplete}>DONE!</button>
                 </td>
               </tr>
             </div>
@@ -74,6 +80,8 @@ function CalendarCard({ chore }: Props) {
                   {chore.description}
                   <br></br>
                   {chore.difficulty}
+                  <br></br>
+                  <button onClick={onComplete}>DONE!</button>
                 </td>
               </tr>
             </div>
@@ -89,6 +97,8 @@ function CalendarCard({ chore }: Props) {
                   {chore.description}
                   <br></br>
                   {chore.difficulty}
+                  <br></br>
+                  <button onClick={onComplete}>DONE!</button>
                 </td>
               </tr>
             </div>
@@ -104,6 +114,8 @@ function CalendarCard({ chore }: Props) {
                   {chore.description}
                   <br></br>
                   {chore.difficulty}
+                  <br></br>
+                  <button onClick={onComplete}>DONE!</button>
                 </td>
               </tr>
             </div>
@@ -119,6 +131,8 @@ function CalendarCard({ chore }: Props) {
                   {chore.description}
                   <br></br>
                   {chore.difficulty}
+                  <br></br>
+                  <button onClick={onComplete}>DONE!</button>
                 </td>
               </tr>
             </div>
@@ -134,6 +148,8 @@ function CalendarCard({ chore }: Props) {
                   {chore.description}
                   <br></br>
                   {chore.difficulty}
+                  <br></br>
+                  <button onClick={onComplete}>DONE!</button>
                 </td>
               </tr>
             </div>

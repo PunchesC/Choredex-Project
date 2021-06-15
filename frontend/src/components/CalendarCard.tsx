@@ -46,7 +46,7 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.monday)
               .map((chore) => (
                 <div>
-                  <pre>{JSON.stringify(chore, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -62,7 +62,7 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.tuesday)
               .map((chore) => (
                 <div>
-                  <pre>{JSON.stringify(chore, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -78,7 +78,7 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.wednesday)
               .map((chore) => (
                 <div>
-                  <pre>{JSON.stringify(chore, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -110,7 +110,7 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.friday)
               .map((chore) => (
                 <div>
-                  <pre>{JSON.stringify(chore, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -126,7 +126,7 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.saturday)
               .map((chore) => (
                 <div>
-                  <pre>{JSON.stringify(chore, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -142,7 +142,7 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.sunday)
               .map((chore) => (
                 <div>
-                  <pre>{JSON.stringify(chore, null, 2)}</pre>
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}

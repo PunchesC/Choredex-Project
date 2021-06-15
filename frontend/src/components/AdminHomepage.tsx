@@ -5,6 +5,9 @@ import './AdminHomepage.css';
 import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
 import TrainerForm from './TrainerForm';
+import { Button, Modal } from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import Modal from 'react-bootstrap/Modal';
 
 function AdminHomepage(){
     const [ chores, setChores ] = useState<Chore[]>([]);
@@ -36,8 +39,16 @@ function AdminHomepage(){
       setShowTaskForm(true);
     }
 
+    function handleHideTaskForm() {
+      setShowTaskForm(false);
+    }
+
     function handleShowTrainerForm() {
       setShowTrainerForm(true);
+    }
+
+    function handleHideTrainerForm() {
+      setShowTrainerForm(false);
     }
 
     function handleAddTask(chore:Chore):void {
@@ -55,16 +66,38 @@ function AdminHomepage(){
 
   return (
     <div className="AdminHomepage">
+
       <h3>ADMIN HOMEPAGE</h3>
-      <button onClick={handleShowTrainerForm}>add trainer</button>
-      {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>}
-      <button onClick={handleShowTaskForm}>Create a Task</button>
+      <button onClick={ handleShowTrainerForm }>add trainer</button>
+
+      <Modal size="sm" centered show={ showTrainerForm } onHide={ handleHideTrainerForm } animation={ false }>
+        {/* <Modal.Header>
+          <Modal.Title><h3 className="trainerFormTitle">ADD NEW TRAINER</h3></Modal.Title>
+        </Modal.Header> */}
+        <Modal.Body>
+          <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>
+        </Modal.Body>
+      </Modal>
+      {/* {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>} */}
+
+      <button onClick={ handleShowTaskForm }>Create a Task</button>
+
       { !choresLoaded ?
             <p className="AdminHomePage_message">Loading...</p>
             : chores.map(eachChore => 
-            <CalendarCard key={eachChore._id} chore={eachChore} onComplete={ () => handleCompleteTask() }/>
-            )}
-      {showTaskForm === true && <TaskForm onSubmit={handleAddTask} onClose={ () => setShowTaskForm(false) }/>}
+            <CalendarCard key={eachChore._id} chore={eachChore} onComplete={ () => handleCompleteTask() }/> )
+      }
+
+      <Modal size="lg" centered show={ showTaskForm } onHide={ handleHideTaskForm } animation={ false }>
+        {/* <Modal.Header>
+          <Modal.Title><h3 className="taskFormTitle">NEW TASK FORM</h3></Modal.Title>
+        </Modal.Header> */}
+        <Modal.Body>
+          <TaskForm onSubmit={ handleAddTask } onClose={ () => setShowTaskForm(false) }/>
+        </Modal.Body>
+      </Modal>
+      {/* {showTaskForm === true && <TaskForm onSubmit={handleAddTask} onClose={ () => setShowTaskForm(false) }/>} */}
+
     </div>
   );
 

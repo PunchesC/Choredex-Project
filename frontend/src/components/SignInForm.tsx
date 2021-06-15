@@ -17,14 +17,14 @@ function handleSubmit(event:FormEvent): void {
 for(let account of accounts)
 if(account.adminName===adminName && account.adminPassword===password){
   console.log("Sucess Admin: " + account.adminName + account.adminPassword)
-
+  history.push(`/homepage/${account.adminName}`)
 }
-// for(let account of accounts)
-// for(let trainer of account.trainers)
-// if(trainer.name===trainerName && account.gymPassword===password){
-//   console.log("Sucess Trainer: " + trainer.name + account.gymPassword)
-//   history.push(`/choredex/${trainer.name}`)
-// }
+for(let account of accounts)
+for(let trainer of account.trainers!)
+if(trainer.name===trainerName && account.gymPassword===password){
+  console.log("Sucess Trainer: " + trainer.name + account.gymPassword)
+  history.push(`/choredex/${trainer.name}`)
+}
 
 
   

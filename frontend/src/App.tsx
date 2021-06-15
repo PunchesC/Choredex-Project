@@ -26,7 +26,7 @@ function App() {
           <Route path="/sign-in-form">
             <SignInForm />
           </Route>
-          <Route path="/homepage/admin">
+          <Route path="/homepage/:admin">
             <AdminHomepage />
           </Route>
           <Route path="/choredex/:name">

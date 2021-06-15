@@ -35,7 +35,7 @@ function TrainerChoredex(){
   } 
   return (
     <div className="TrainerChoredex">
-      <h2>{name}</h2>
+      <h2>{name} Choredex</h2>
       <div className="TrainerChoredex_calendar">
         {chores.map(eachchore => 
           <CalendarCard chore={eachchore}/>)}

@@ -36,4 +36,6 @@
   background-color: black;
 }
 
-
+.noDisplay{
+display:none;
+}

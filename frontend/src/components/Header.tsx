@@ -1,13 +1,17 @@
-import { NavLink, useLocation, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useLocation, useParams } from 'react-router-dom';
 import { AccountContext } from '../context/auth.context';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import './Header.css'
+import TrainerChoredex from './TrainerChoredex';
+import userEvent from '@testing-library/user-event';
 
 
 
 
 function Header(){
-const {account,isAdmin,currentUser} = useContext(AccountContext);
+const {account,isAdmin,currentUser,setCurrentUser} = useContext(AccountContext);
+const [trainer, setTrainer] = useState("");
+let history = useHistory();
 
 
 // function useQuery() {
@@ -20,22 +24,43 @@ const {account,isAdmin,currentUser} = useContext(AccountContext);
 let addNoDisplay=""
 
 
-if(isAdmin){
+if(currentUser){
   addNoDisplay= " noDisplay"
   
 }
-console.log(account)
-console.log(isAdmin)
-console.log(currentUser)
+
+if(currentUser===account.adminName){
+  addNoDisplay= " noDisplay"
+}
 
 
 
+// for(let user of account.trainers!){
+//   if(user.name===currentUser){
+//    addNoDisplay= " noDisplay"
+//   }
+// }
+// EXTRA TRY TO GET  INDIVIDUAL GREETINGS IN HEADER
+console.log(trainer);
+function signOut(){
+setCurrentUser("");
+history.push(`/`);
+}
+
+function goToChoredex(){
+  for(let trainer of account.trainers!)
+  history.push(`/choredex/${trainer.name}`);
+}
   return (
     <div className="Header">
       <NavLink to="/" className="navLogo">CHOREDEX</NavLink>
           <nav>
             {!currentUser&&<NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay}>sign in</NavLink>}
-            <NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>
+            {!currentUser&&<NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>}
+            {currentUser&& <span>Welcome {currentUser}, to {account.gymName}</span>}
+            {currentUser && <button onClick={goToChoredex}>CHOREDEX</button>}
+            {currentUser&&<button onClick={signOut}>Sign Out</button>}
+           
           </nav>
           
     </div>

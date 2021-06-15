@@ -11,9 +11,9 @@ interface AccountContextValue {
 const example: Account = 
     {
         adminName: "Ash",
-        adminPassword: "Pokemon4life",
+        adminPassword: "123",
         gymName: "Cerulean Gym",
-        gymPassword: "Pokemon4Ever",
+        gymPassword: "123",
         calendarTitle: "Galar League",
         trainers: [
             { name: "Jimmy" }
@@ -42,7 +42,7 @@ export function AccountContextProvider({children}: {children:ReactNode;}) {
         setAccount(account);    
     }
 
-    
+
 
     
    

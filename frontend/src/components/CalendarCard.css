@@ -8,3 +8,8 @@
     font-style: italic;
     border-bottom: 1px solid black;
 }
+
+.CompletedTask {
+    font-style: italic;
+    color: gray;
+}

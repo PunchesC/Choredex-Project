@@ -12,6 +12,7 @@ function AdminHomepage(){
     const [ showTaskForm, setShowTaskForm ] = useState(false);
     const [ showTrainerForm, setShowTrainerForm ] = useState(false);
     const [ trainer, setTrainer ] = useState<Trainer[]>([]);
+    const [ complete, setComplete ] = useState(false);
     
     useEffect(() => {
       loadChores();
@@ -47,18 +48,23 @@ function AdminHomepage(){
       addTrainer(trainer).then(loadTrainers);
     }
 
+    function handleCompleteTask() {
+      setComplete(true);
+      console.log('complete');
+    }
+
   return (
     <div className="AdminHomepage">
       <h3>ADMIN HOMEPAGE</h3>
       <button onClick={handleShowTrainerForm}>add trainer</button>
-      {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={()=> setShowTrainerForm(false)}/>}
+      {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>}
       <button onClick={handleShowTaskForm}>Create a Task</button>
       { !choresLoaded ?
             <p className="AdminHomePage_message">Loading...</p>
             : chores.map(eachChore => 
-            <CalendarCard key={eachChore._id} chore={eachChore}/>
+            <CalendarCard key={eachChore._id} chore={eachChore} onComplete={ () => handleCompleteTask() }/>
             )}
-      {showTaskForm === true && <TaskForm onSubmit={handleAddTask} onClose={()=> setShowTaskForm(false)}/>}
+      {showTaskForm === true && <TaskForm onSubmit={handleAddTask} onClose={ () => setShowTaskForm(false) }/>}
     </div>
   );
 

@@ -24,7 +24,7 @@ if(adminName===account.adminName){
 
   return (
     <div className="Header">
-   <NavLink to="/" className="navLogo">CHOREDEX</NavLink>
+      <NavLink to="/" className="navLogo">CHOREDEX</NavLink>
           <nav>
             <NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay}>sign in</NavLink>
             <NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>

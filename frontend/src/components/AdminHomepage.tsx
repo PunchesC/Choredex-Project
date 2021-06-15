@@ -11,11 +11,7 @@ function AdminHomepage(){
     const [ choresLoaded, setChoresLoaded ] = useState(false);
     const [ showTaskForm, setShowTaskForm ] = useState(false);
     const [ showTrainerForm, setShowTrainerForm ] = useState(false);
-<<<<<<< Updated upstream
-    const [ trainer, setTrainer ] = useState<Trainer[]>([]);
     const [ complete, setComplete ] = useState(false);
-=======
->>>>>>> Stashed changes
     const [ trainers, setTrainers ] = useState<Trainer[]>([]);
     
     useEffect(() => {
@@ -26,18 +22,8 @@ function AdminHomepage(){
     function loadChores() {
       readAllChores().then(choresFromApi => {
         setChores(choresFromApi);
-        addChoresByTrainer();
         setChoresLoaded(true);
       });
-    }
-    
-    function addChoresByTrainer(){
-      for (let chore of chores){
-        for (let trainer of trainers)
-        if (chore.trainer === trainer.name){
-          trainer.chores?.push(chore);
-        }
-      }
     }
 
     function loadTrainers() {

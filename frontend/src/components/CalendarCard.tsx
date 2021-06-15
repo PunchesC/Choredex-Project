@@ -15,10 +15,10 @@ function CalendarCard({ chore, onComplete }: Props) {
   // const [ourTrainer, setOurTrainer] = useState<Trainer>(null)
 
   useEffect(() => {
-    loadChores();
+    loadTrainerChores();
   }, []);
 
-  function loadChores() {
+  function loadTrainerChores() {
     readAllChores().then((choresFromApi) => {
       setChores(choresFromApi);
     });

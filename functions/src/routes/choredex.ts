@@ -31,9 +31,14 @@ app.get("/pokemon", async (req, res) => {
 });
 
 app.get("/chores", async (req, res) => {
+  const trainer = String(req.query.trainer || "");
+  const query: any = {};
+  if (trainer){
+    query.trainer = trainer;
+  }
   try {
     const client = await getClient();
-    const results = await client.db().collection<Chore>('chores').find().toArray();
+    const results = await client.db().collection<Chore>('chores').find(query).toArray();
     res.json(results); // send JSON results
   } catch (err) {
     console.error("FAIL", err);

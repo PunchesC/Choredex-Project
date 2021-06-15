@@ -27,7 +27,7 @@ export function readAllTrainers():Promise<Trainer[]> {
   return axios.get(`${baseUrl}/trainers`).then(res => res.data);
 }
 
-export function readAllChoresForTrainer(name: string):Promise<Chore[]>{
-  return axios.get(`${baseUrl}/chores`, {params: {name: name}}).then(res => res.data);
+export function readAllChoresForTrainer(trainer: string):Promise<Chore[]>{
+  return axios.get(`${baseUrl}/chores`, {params: {trainer: trainer}}).then(res => res.data);
 }
 

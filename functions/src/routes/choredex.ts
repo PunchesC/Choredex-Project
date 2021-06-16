@@ -2,9 +2,10 @@ import * as functions from "firebase-functions";
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
-import {Chore, PokeData, PokemonResults, Trainer} from '../model/pokemonAPI';
+import {Account, Chore, PokeData, PokemonResults, Trainer} from '../model/pokemonAPI';
 import { Pokemon } from "../model/pokemonAPI";
 import { getClient } from "../db";
+import { ObjectId } from "mongodb";
 
 const app = express();
 app.use(cors());
@@ -78,6 +79,65 @@ app.post("/trainers", async (req, res) => {
     const result = await client.db().collection<Trainer>('trainers').insertOne(trainer);
     trainer._id = result.insertedId;
     res.status(201).json(trainer);
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
+app.get("/accounts", async (req, res) => {
+  try {
+    const client = await getClient();
+    const results = await client.db().collection<Account>('accounts').find().toArray();
+    res.json(results); // send JSON results
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
+app.post("/accounts", async (req, res) => {
+  const account = req.body as Account;
+  try {
+    const client = await getClient();
+    const result = await client.db().collection<Account>('accounts').insertOne(account);
+    account._id = result.insertedId;
+    res.status(201).json(account);
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
+app.get("/accounts/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const client = await getClient();
+    const account = await client.db().collection<Account>('accounts').findOne({ _id : new ObjectId(id) });
+    if (account) {
+      res.json(account);
+    } else {
+      res.status(404).json({message: "Not Found"});
+    }
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
+app.put("/accounts/:id", async (req, res) => {
+  const id = req.params.id;
+  const account = req.body as Account;
+  delete account._id;
+  try {
+    const client = await getClient();
+    const result = await client.db().collection<Account>('accounts').replaceOne({ _id: new ObjectId(id) }, account);
+    if (result.modifiedCount === 0) {
+      res.status(404).json({message: "Not Found"});
+    } else {
+      account._id = new ObjectId(id);
+      res.json(account);
+    }
   } catch (err) {
     console.error("FAIL", err);
     res.status(500).json({message: "Internal Server Error"});

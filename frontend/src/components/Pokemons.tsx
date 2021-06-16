@@ -6,27 +6,6 @@ import { allPokemon } from "../service/pokemonService";
 function Pokemons(){
  const [pokes, setPokes] = useState<Pokemon[]>([])
 
- let avgPoints = 0;
- let maxPoints = 0;
- let minPoints = 500;
- for (let poke of pokes){
-   avgPoints += poke.hpAmount + poke.defenseAmount + poke.attackAmount + poke.speedAmount
- }
- console.log(avgPoints / 151)
-for (let poke of pokes){
-  let currentMax = poke.hpAmount + poke.defenseAmount + poke.attackAmount + poke.speedAmount
-  if (currentMax > maxPoints){
-    maxPoints = currentMax;
-  }
-}
-for (let poke of pokes){
-  let currentMin = poke.hpAmount + poke.defenseAmount + poke.attackAmount + poke.speedAmount
-  if (currentMin < minPoints){
-    minPoints = currentMin;
-  }
-}
-console.log(maxPoints)
-console.log(minPoints)
 let easyPokes = []
 let mediumPokes = []
 let hardPokes = []

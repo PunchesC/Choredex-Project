@@ -1,35 +1,37 @@
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Account } from '../model/model'
+import { readAccountById, updateAccountInDatabase } from '../service/pokemonService';
 
 interface AccountContextValue {
     account: Account;
-    setAccount: (account: Account) => void;
+    updateAccount: (account: Account) => void;
     currentUser: string;
     isAdmin: boolean;
     setCurrentUser:(user:string) => void; 
 }
 const example: Account = 
     {
+        _id: "60ca0d103e4534633954dd1c",
         adminName: "Ash",
         adminPassword: "123",
         gymName: "Cerulean Gym",
         gymPassword: "123",
         calendarTitle: "Galar League",
         trainers: [
-            { name: "Jimmy" }
+            { name: "Jimmy", pokemons: [] },
+            { name: "Billy", pokemons: [] },
+            { name: "Samantha", pokemons: [] },
+            { name: "Ash", pokemons: [] }
         ]
     };
 
     const defaultValue: AccountContextValue = {
     account: example,
-    setAccount: () => {},
+    updateAccount: () => {},
     currentUser: "",
     isAdmin: false,
     setCurrentUser: ()=> {}
 }
-
-
-console.log(example)
 export const AccountContext = createContext(defaultValue);
 
 export function AccountContextProvider({children}: {children:ReactNode;}) {
@@ -38,17 +40,23 @@ export function AccountContextProvider({children}: {children:ReactNode;}) {
     const [currentUser, setCurrentUser] = useState("");
     const isAdmin = currentUser===account.adminName;
 
-    function changeAccount(account:Account) {
-        setAccount(account);    
+    function updateAccount(account:Account) {
+        setAccount(account);
+        updateAccountInDatabase(account); 
     }
 
+    useEffect(() => {
+        readAccountById("60ca0d103e4534633954dd1c").then(accountFromApi => {
+            setAccount(accountFromApi)
+        });
+    }, [])
 
 
     
    
 
     return (
-        <AccountContext.Provider value={{account, setAccount, currentUser, isAdmin, setCurrentUser}}>
+        <AccountContext.Provider value={{account, updateAccount, currentUser, isAdmin, setCurrentUser}}>
             {children}
         </AccountContext.Provider>
     );

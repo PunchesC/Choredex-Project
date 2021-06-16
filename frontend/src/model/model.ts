@@ -11,7 +11,7 @@ export interface Result {
 export interface Trainer {
   _id?:string;
   name: string;
-  pokemons?: Pokemon[];
+  pokemons: Pokemon[];
 }
 
 export interface Chore {
@@ -30,10 +30,11 @@ export interface Chore {
 }
 
 export interface Account {
+  _id?:string;
   adminName: string;
   adminPassword: string;
   gymName: string;
   gymPassword: string;
   calendarTitle: string;
-  trainers?: Trainer[];
+  trainers: Trainer[];
 }

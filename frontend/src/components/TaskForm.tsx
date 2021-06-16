@@ -1,8 +1,8 @@
 import './TaskForm.css'
-import { FormEvent, useState, useContext, useRef, useEffect} from "react";
-import {Chore, Trainer} from "../model/model";
+import {FormEvent, useState, useContext, useRef} from "react";
+import {Chore} from "../model/model";
 import firebase from "../firebaseConfig"
-import { readAllTrainers } from '../service/pokemonService';
+import {AccountContext} from '../context/auth.context';
 
 interface Props {
   onSubmit: (chore:Chore) => void;
@@ -20,21 +20,13 @@ function TaskForm({onSubmit, onClose}:Props){
   const [ friday, setFriday ] = useState(false);
   const [ saturday, setSaturday ] = useState(false);
   const [ sunday, setSunday ] = useState(false);
-  const [ trainers, setTrainers ] = useState<Trainer[]>([]);
   const [ ourTrainer, setOurTrainer ] = useState("");
   const [ difficulty, setDifficulty ] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const {account} = useContext(AccountContext);
 
-  useEffect(() => {
-    loadTrainers();
-  }, []);
 
-  function loadTrainers() {
-    readAllTrainers().then(trainersFromApi => {
-      setTrainers(trainersFromApi);
-    })
-  }
 
   function handleSubmit(event:FormEvent): void {
 
@@ -124,7 +116,7 @@ function TaskForm({onSubmit, onClose}:Props){
       {/* Number of trainer dependent on the amount selected on Account Form */}
         <label>Select Trainer:
           <select value={ourTrainer} onChange={e=> setOurTrainer(e.target.value)}>
-            {trainers.map((trainer,i )=> 
+            {account.trainers.map((trainer,i )=> 
               <option> {trainer.name}</option>)}
           </select>
         </label>
@@ -146,7 +138,3 @@ function TaskForm({onSubmit, onClose}:Props){
 }
 
 export default TaskForm;
-
-function loadChores() {
-  throw new Error('Function not implemented.');
-}

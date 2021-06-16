@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Chore, Trainer } from '../model/model';
+import {Account, Chore} from '../model/model';
 import Pokemon from '../model/Pokemon'
 
 const baseUrl = process.env.REACT_APP_API_URL || "";
@@ -8,7 +8,7 @@ if (!baseUrl){
 }
 
 export function allPokemon():Promise<Pokemon[]> {
-  return axios.get(baseUrl).then(res => res.data);
+  return axios.get(`${baseUrl}/pokemon`).then(res => res.data);
 }
 
 export function createTask(chore:Chore):Promise<Chore>{
@@ -19,15 +19,14 @@ export function readAllChores():Promise<Chore[]> {
   return axios.get(`${baseUrl}/chores`).then(res => res.data);
 }
 
-export function addTrainer(trainer:Trainer):Promise<Trainer>{
-  return axios.post(`${baseUrl}/trainers`, trainer).then(res =>res.data)
-}
-
-export function readAllTrainers():Promise<Trainer[]> {
-  return axios.get(`${baseUrl}/trainers`).then(res => res.data);
-}
-
 export function readAllChoresForTrainer(trainer: string):Promise<Chore[]>{
   return axios.get(`${baseUrl}/chores`, {params: {trainer: trainer}}).then(res => res.data);
 }
 
+export function readAccountById(id:string):Promise<Account>{
+  return axios.get(`${baseUrl}/accounts/${encodeURIComponent(id)}`).then(res => res.data);
+}
+
+export function updateAccountInDatabase(account:Account):Promise<Account>{
+  return axios.put(`${baseUrl}/accounts/${encodeURIComponent(account._id!)}`, account).then(res => res.data);
+}

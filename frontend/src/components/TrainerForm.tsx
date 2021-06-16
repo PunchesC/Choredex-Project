@@ -15,7 +15,8 @@ function TrainerForm({ onSubmit, onClose }: Props) {
         e.preventDefault();
 
         const trainer: Trainer = {
-            name: name
+            name: name,
+            pokemons: []
         }
 
         onSubmit(trainer);

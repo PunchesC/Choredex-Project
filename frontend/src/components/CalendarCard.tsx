@@ -1,31 +1,30 @@
-import { useEffect, useState } from "react";
-import { Chore, Trainer } from "../model/model";
+import {useEffect, useState} from "react";
+import {Chore} from "../model/model";
 import {readAllChoresForTrainer} from "../service/pokemonService";
 import "./CalendarCard.css";
 
 interface Props {
-  ourTrainer: Trainer;
+  ourTrainer: string;
   // onDelete: () => void;
   onComplete?: () => void;
 }
 
 function CalendarCard({ ourTrainer, onComplete }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
-  // const [ourTrainer, setOurTrainer] = useState<Trainer>(null)
 
   useEffect(() => {
     loadTrainerChores();
   }, []);
 
   function loadTrainerChores() {
-    readAllChoresForTrainer(ourTrainer.name).then((choresFromApi) => {
+    readAllChoresForTrainer(ourTrainer).then((choresFromApi) => {
       setChores(choresFromApi);
     });
   }
 
   return (
     <div className="CalendarCard">
-      <h5>{ourTrainer.name}'s Calendar</h5>
+      <h5>{ourTrainer}'s Calendar</h5>
       <table>
         <tr>
           <th>Monday</th>
@@ -58,7 +57,6 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.tuesday)
               .map((chore) => (
                 <div>
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -74,7 +72,6 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.wednesday)
               .map((chore) => (
                 <div>
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -90,7 +87,6 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.thursday)
               .map((chore) => (
                 <div>
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -106,7 +102,6 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.friday)
               .map((chore) => (
                 <div>
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -122,7 +117,6 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.saturday)
               .map((chore) => (
                 <div>
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -138,7 +132,6 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
               .filter((eachChore) => eachChore.sunday)
               .map((chore) => (
                 <div>
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -151,7 +144,6 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
           </td>
         </tr>
       </table>
-      {/* <button>Create a Task for {chore.trainer}</button> */}
     </div>
   );
 }

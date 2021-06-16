@@ -1,17 +1,19 @@
-import { NavLink, useHistory, useLocation, useParams } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { AccountContext } from '../context/auth.context';
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import './Header.css'
+<<<<<<< Updated upstream
 import TrainerChoredex from './TrainerChoredex';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+=======
+>>>>>>> Stashed changes
 
 
 
 
 function Header(){
-const {account,isAdmin,currentUser,setCurrentUser} = useContext(AccountContext);
-const [trainer, setTrainer] = useState("");
+const {account, currentUser, setCurrentUser} = useContext(AccountContext);
 let history = useHistory();
 
 
@@ -42,7 +44,6 @@ if(currentUser===account.adminName){
 //   }
 // }
 // EXTRA TRY TO GET  INDIVIDUAL GREETINGS IN HEADER
-console.log(trainer);
 function signOut(){
 setCurrentUser("");
 history.push(`/`);

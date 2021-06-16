@@ -59,10 +59,9 @@ function goToChoredex(){
           <nav>
             {!currentUser&&<NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay}>sign in</NavLink>}
             {!currentUser&&<NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>}
-            {currentUser&& <span>Welcome {currentUser}, to {account.gymName}</span>}
-            {currentUser && <button onClick={goToChoredex}>CHOREDEX</button>}
-            {currentUser&&<button onClick={signOut}>Sign Out</button>}
-           
+            {currentUser&& <span className="welcomeMessage">Welcome {currentUser}, to the {account.gymName}!</span>}
+            {currentUser && <button onClick={goToChoredex}>view my choredex</button>}
+            {currentUser&&<button onClick={signOut}>sign out</button>}
           </nav>
           
     </div>

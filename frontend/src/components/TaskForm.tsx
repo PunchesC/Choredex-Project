@@ -136,8 +136,8 @@ function TaskForm({onSubmit, onClose}:Props){
         </select>
         </label>
           <input ref={fileInputRef} type="file" />
-        <button type="submit">Submit</button>
-        <button onClick={onClose}>Back</button>
+        <button type="submit" onClick={onClose}>submit</button>
+        <button onClick={onClose}>back</button>
       </div>
 
     </form>

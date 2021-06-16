@@ -80,7 +80,7 @@ function AdminHomepage(){
       </Modal>
       {/* {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>} */}
 
-      <button onClick={ handleShowTaskForm }>Create a Task</button>
+      <button onClick={ handleShowTaskForm }>add task</button>
 
       { !choresLoaded ?
             <p className="AdminHomePage_message">Loading...</p>

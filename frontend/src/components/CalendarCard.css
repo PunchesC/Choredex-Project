@@ -1,15 +1,72 @@
 .CalendarCard {
     padding: 20px;
+    border: 3px solid rgb(61, 60, 60);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.747);
+    border-radius: 20px;
+    margin: 30px;
+    background-color: white;
+    min-width: 600px;
 }
 
-.CalendarCard_days {
+.CalendarTitle {
+    font-weight: bold;
+    text-align: right;
+    border-bottom: 1px solid black;
+    font-style: italic;
+}
+
+/* th {
+    font-style: italic;
+    font-size: 12px;
+}
+
+td {
+    font-size: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+tr {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+table {
+    width: 100%;
+} */
+
+.CalendarGrid {
+    font-style: italic;
+    font-size: 12px;
+    border-bottom: 1px solid black;
+}
+
+.CalendarGridChores{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.CalendarGrid, .CalendarGridChores {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    font-style: italic;
-    border-bottom: 1px solid black;
 }
 
 .CompletedTask {
     font-style: italic;
     color: gray;
+}
+
+.DoneButton {
+    margin: 2px;
+    background-color: unset;
+    border: unset;
+    border-radius: unset;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    width: 90%;
+}
+
+.DoneButton:hover {
+    background-color: unset;
+    text-shadow: 0 0 10px black;
 }

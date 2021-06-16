@@ -2,23 +2,27 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
-
+  background-color: rgba(0, 0, 0, 0.705);
 }
 
-.navLinks {
+.navLinks, .NavLinkButton {
   color: white;
   text-decoration: none;
   font-style: normal;
   padding: 5px 20px;
   font-size: 16px;
- 
- 
 }
 
-.navLinks:hover {
+.navLinks:hover, .NavLinkButton:hover {
   border: 1px solid white;
   border-radius: 5px;
   background-color: black;
+  color: white;
+}
+
+.NavLinkButton {
+  background-color: unset;
+  border: unset;
 }
 
 .navLogo {
@@ -27,23 +31,21 @@
   text-decoration: none;
   font-style: normal;
   padding: 5px 20px;
-  
+  font-style: italic;
 }
 
 .navLogo:hover {
-  border: 1px solid white;
-  border-radius: 5px;
-  background-color: black;
+  text-shadow: 0 0 10px white;
+  color: white;
 }
 
 .noDisplay{
-display:none;
+  display:none;
 }
 
 
 .welcomeMessage {
-  font-style: italic;
-  color: black;
+  color: rgb(163, 162, 162);
   text-shadow: 0 0 10px white;
   text-transform: uppercase;
   letter-spacing: 0.1em;

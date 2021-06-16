@@ -1,8 +1,23 @@
 .AdminHomepage {
-    background-color: white;
+    /* background-color: white; */
     width: 70%;
     margin: 0 auto;
     text-align: center;
     margin-top: 40px;
     border-radius: 20px;
 }
+
+/* .TopButton {
+    border: unset;
+    background-color: unset;
+    border-top: 1px solid black;
+    border-radius: unset;
+    color: black;
+    font-style: italic;
+    width: 75%;
+}
+
+.TopButton:hover {
+    background-color: unset;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.781);
+} */

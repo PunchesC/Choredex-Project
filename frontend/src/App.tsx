@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Homepage from './components/Homepage';
 import { AccountContextProvider } from './context/auth.context';
 import SignInForm from './components/SignInForm';
+import linkedinIcon from './assets/linkedinIcon.png';
 
 function App() {
   return (
@@ -33,13 +34,13 @@ function App() {
               </Route>
               <Route path="/">
                 <Homepage />
+                <footer>
+                  <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2 className="Credits">yitz-hochstadt</h2>
+                  <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2 className="Credits">curtispunches</h2>
+                  <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2 className="Credits">kaleigh-griffin</h2>
+                </footer>
               </Route>
             </Switch>
-        {/* <footer>
-          <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>yitz-hochstadt-386a831b6</h2>
-          <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>curtispunches</h2>
-          <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2>kaleigh-griffin</h2>
-        </footer> */}
         </AccountContextProvider>
       </Router>
     

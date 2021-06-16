@@ -5,10 +5,10 @@ import './AdminHomepage.css';
 import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
 import TrainerForm from './TrainerForm';
-import { Button, Modal } from 'react-bootstrap';
+// import { Button, Modal } from 'react-bootstrap';
 import { AccountContext } from '../context/auth.context';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import Modal from 'react-bootstrap/Modal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from 'react-bootstrap/Modal';
 
 function AdminHomepage(){
     const [ chores, setChores ] = useState<Chore[]>([]);
@@ -53,10 +53,15 @@ function AdminHomepage(){
       updateAccount(account);
     }
 
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+
   return (
     <div className="AdminHomepage">
 
-      <h3>ADMIN HOMEPAGE</h3>
+      {/* <h3 className="Title">ADMIN HOMEPAGE</h3> */}
       <button onClick={ handleShowTrainerForm }>add trainer</button>
 
       <Modal size="sm" centered show={ showTrainerForm } onHide={ handleHideTrainerForm } animation={ false }>
@@ -81,12 +86,19 @@ function AdminHomepage(){
         {/* <Modal.Header>
           <Modal.Title><h3 className="taskFormTitle">NEW TASK FORM</h3></Modal.Title>
         </Modal.Header> */}
-        <Modal.Body>
+        <Modal.Body className="FormModal">
           <TaskForm onSubmit={ handleAddTask } onClose={ () => setShowTaskForm(false) }/>
         </Modal.Body>
       </Modal>
       {/* {showTaskForm === true && <TaskForm onSubmit={handleAddTask} onClose={ () => setShowTaskForm(false) }/>} */}
 
+      <button className="TopButton" onClick={ scrollToTop } >back to top</button>
+
+      {/* <div className="AdminFooter">
+        <button onClick={ handleShowTrainerForm }>add trainer</button>
+        <button onClick={ handleShowTaskForm }>add task</button>
+        <button onClick={ scrollToTop } >back to top</button>
+      </div> */}
     </div>
   );
 

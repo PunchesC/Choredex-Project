@@ -34,20 +34,22 @@ if(account.adminName===adminName && account.adminPassword===password){
 
   return (
     <form className="SignInForm" onSubmit={handleSubmit}>
-      <h2>SIGN IN FORM</h2>
+      {/* <h2>SIGN IN FORM</h2>
       <div className="SignInForm_inputs">
-        <label>Admin Name:
+        <label>Admin Name: */}
+      <div>
+        <label>admin name:<br></br>
           <input value={adminName} onChange={e => setAdminName(e.target.value)} ></input>
-        </label>
-        <label>Trainer Name:
+        </label><br></br>
+        <label>trainer name:<br></br>
           <input value={trainerName} onChange={e => setTrainerName(e.target.value)} ></input>
-        </label>
-        <label>Password:
+        </label><br></br>
+        <label>password:<br></br>
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} required></input>
-        </label>
+        </label><br></br>
       </div>
       <div>
-        <button type="submit">Log In</button>
+        <button type="submit">sign in</button>
       </div>
     </form>
   )

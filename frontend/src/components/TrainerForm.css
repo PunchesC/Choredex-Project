@@ -1,4 +1,4 @@
-.TrainerForm {
+/* .TrainerForm {
     position: fixed;
     z-index: 1040;
     top: 50%;
@@ -12,8 +12,17 @@
     max-width: 90%;
     text-align: center;
     border-radius: 15px;
-}
+} */
 
 .trainerFormTitle {
     color: black;
+}
+
+.FormModal {
+    font-family: inherit;
+    text-align: center;
+}
+
+.TrainerForm {
+    text-align: center;
 }

@@ -1,4 +1,4 @@
-body {
+.AppBody {
     background-color: rgb(153, 150, 149);
     font-family: 'Roboto', sans-serif;
 }
@@ -34,19 +34,22 @@ h1, nav {
 
 footer {
     background-color: white;
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
+    right: 0;
+    left: 0;
     width: 100%;
 }
 
-h2 {
+h2, .Credits {
     padding-right: 40px;
     font-style: italic;
     font-size: 16px;
+    font-weight: bold;
 }
 
 img {

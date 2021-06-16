@@ -6,7 +6,7 @@ import {AccountContext} from '../context/auth.context';
 
 interface Props {
   onSubmit: (chore:Chore) => void;
-  onClose:() => void;
+  onClose: () => void;
 }
 
 function TaskForm({onSubmit, onClose}:Props){
@@ -27,6 +27,12 @@ function TaskForm({onSubmit, onClose}:Props){
   const {account} = useContext(AccountContext);
 
 
+
+  // function loadChores() {
+  //   readAllChores().then(choresFromApi => {
+  //     setChores(choresFromApi);
+  //   })
+  // }
 
   function handleSubmit(event:FormEvent): void {
 
@@ -62,6 +68,7 @@ function TaskForm({onSubmit, onClose}:Props){
       });
     } else {
       onSubmit(chore);
+      onClose();
       clearForm();
     }
 
@@ -81,55 +88,55 @@ function TaskForm({onSubmit, onClose}:Props){
       <h3 className="taskFormTitle">NEW TASK</h3>
 
       <div className="TaskForm_left_container">
-        <label>Task Title:
+        <label>task title:{" "}
           <input  value={title} onChange={e => setTitle(e.target.value)} required></input>
-        </label>
-        <label>Task Description(optional):
-          <textarea value={description} onChange={e => setDescription(e.target.value)} rows={7}></textarea>
-        </label>
+        </label><br></br>
+        <label>task description(optional):{" "}
+          <input value={description} onChange={e => setDescription(e.target.value)}></input>
+        </label><br></br>
       </div>
 
       <div className="TaskForm_right_container">
-        <h5>Select Day(s):
-          <label>Monday
-            <input type="checkbox" onClick={e => setMonday(true)}></input>
-          </label>
-          <label>Tuesday
-            <input type="checkbox" onClick={e => setTuesday(true)}></input>
-          </label>
-          <label>Wednesday
-            <input type="checkbox" onClick={e => setWednesday(true)}></input>
-          </label>
-          <label>Thursday
-            <input type="checkbox" onClick={e => setThursday(true)}></input>
-          </label>
-          <label>Friday
-            <input type="checkbox" onClick={e => setFriday(true)}></input>
-          </label>
-          <label>Saturday
-            <input type="checkbox" onClick={e => setSaturday(true)}></input>
-          </label>
-          <label>Sunday
-            <input type="checkbox" onClick={e => setSunday(true)}></input>
+        <label>select day(s):<br></br>
+          <label>
+            <input type="checkbox" onClick={e => setMonday(true)}></input>monday
+          </label>{" "}
+          <label>
+            <input type="checkbox" onClick={e => setTuesday(true)}></input>tuesday
+          </label>{" "}
+          <label>
+            <input type="checkbox" onClick={e => setWednesday(true)}></input>wednesday
+          </label>{" "}
+          <label>
+            <input type="checkbox" onClick={e => setThursday(true)}></input>thursday
+          </label>{" "}
+          <label>
+            <input type="checkbox" onClick={e => setFriday(true)}></input>friday
+          </label>{" "}
+          <label>
+            <input type="checkbox" onClick={e => setSaturday(true)}></input>saturday
+          </label>{" "}
+          <label>
+            <input type="checkbox" onClick={e => setSunday(true)}></input>sunday
           </label>  
-        </h5>
+        </label><br></br>
       {/* Number of trainer dependent on the amount selected on Account Form */}
-        <label>Select Trainer:
+        <label>select trainer:
           <select value={ourTrainer} onChange={e=> setOurTrainer(e.target.value)}>
             {account.trainers.map((trainer,i )=> 
               <option> {trainer.name}</option>)}
           </select>
-        </label>
-        <label>Level of Difficulty:
+        </label><br></br>
+        <label>level of difficulty:
           <select value={difficulty} onChange={e=> setDifficulty(e.target.value)}>
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
+            <option>easy</option>
+            <option>medium</option>
+            <option>hard</option>
         </select>
-        </label>
-          <input ref={fileInputRef} type="file" />
-        <button type="submit" onClick={onClose}>submit</button>
-        <button onClick={onClose}>back</button>
+        </label><br></br>
+          {/* <input ref={fileInputRef} type="file" /> */}
+        <button type="submit">submit</button>
+        <button onClick={onClose}>close</button>
       </div>
 
     </form>

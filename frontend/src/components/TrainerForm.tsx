@@ -20,6 +20,7 @@ function TrainerForm({ onSubmit, onClose }: Props) {
         }
 
         onSubmit(trainer);
+        onClose();
     }
 
     return (

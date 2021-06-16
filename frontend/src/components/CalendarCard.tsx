@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { Chore, Trainer } from "../model/model";
-import {
-  readAllChores,
-  readAllChoresForTrainer,
-} from "../service/pokemonService";
+import {readAllChoresForTrainer} from "../service/pokemonService";
 import "./CalendarCard.css";
-import TaskForm from "./TaskForm";
 
 interface Props {
   ourTrainer: Trainer;

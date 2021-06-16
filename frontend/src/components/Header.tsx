@@ -2,12 +2,9 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { AccountContext } from '../context/auth.context';
 import { useContext} from "react";
 import './Header.css'
-<<<<<<< Updated upstream
 import TrainerChoredex from './TrainerChoredex';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-=======
->>>>>>> Stashed changes
 
 
 
@@ -53,13 +50,16 @@ function goToChoredex(){
   for(let trainer of account.trainers!)
   history.push(`/choredex/${trainer.name}`);
 }
+
+function testing(){
+  console.log("CLICKED")
+}
   return (
-    <Router>
+  
     <div className="Header">
       <NavLink to="/" className="navLogo">CHOREDEX</NavLink>
           <nav>
-            <p>hi</p>
-            {!currentUser&&<NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay}>sign in</NavLink>}
+            {!currentUser&&<NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay} onClick={testing}>sign in</NavLink>}
             {!currentUser&&<NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>}
             {currentUser&& <span className="welcomeMessage">Welcome {currentUser}, to the {account.gymName}!</span>}
             {currentUser && <button onClick={goToChoredex}>view my choredex</button>}
@@ -67,7 +67,7 @@ function goToChoredex(){
           </nav>
           
     </div>
-    </Router>
+   
   )
 }
 

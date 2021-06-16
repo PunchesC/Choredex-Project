@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import Homepage from './Homepage';
 
 
-test('header classes',() =>{
+test('homepage texts',() =>{
   render(<Homepage />);
   const text = screen.getByText("welcome!");
   expect(text).toBeInTheDocument();

@@ -57,6 +57,7 @@ function goToChoredex(){
     <div className="Header">
       <NavLink to="/" className="navLogo">CHOREDEX</NavLink>
           <nav>
+            <p>hi</p>
             {!currentUser&&<NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay}>sign in</NavLink>}
             {!currentUser&&<NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>}
             {currentUser&& <span className="welcomeMessage">Welcome {currentUser}, to the {account.gymName}!</span>}

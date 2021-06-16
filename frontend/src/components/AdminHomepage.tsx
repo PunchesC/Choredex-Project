@@ -6,7 +6,6 @@ import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
 import TrainerForm from './TrainerForm';
 import { Button, Modal } from 'react-bootstrap';
-import Pokemon from '../model/Pokemon';
 import { AccountContext } from '../context/auth.context';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import Modal from 'react-bootstrap/Modal';
@@ -16,38 +15,11 @@ function AdminHomepage(){
     const [ choresLoaded, setChoresLoaded ] = useState(false);
     const [ showTaskForm, setShowTaskForm ] = useState(false);
     const [ showTrainerForm, setShowTrainerForm ] = useState(false);
-    const [ complete, setComplete ] = useState(false);
-    const [pokes, setPokes] = useState<Pokemon[]>([])
     const {account, updateAccount, currentUser} = useContext(AccountContext);
     const trainers = account.trainers;
-
-    let easyPokes = []
-    let mediumPokes = []
-    let hardPokes = []
-    for (let poke of pokes){
-      let points = poke.hpAmount + poke.defenseAmount + poke.attackAmount + poke.speedAmount
-      if (points >= 150 && points < 280){
-        easyPokes.push(poke)
-      } else if (points >= 280 && points < 340){
-        mediumPokes.push(poke)
-      } else {
-        hardPokes.push(poke)
-      }
-    }
-    const randomEasyPoke = easyPokes[Math.floor(Math.random() * easyPokes.length)];
-    const randomMediumPoke = mediumPokes[Math.floor(Math.random() * mediumPokes.length)];
-    const randomHardPoke = hardPokes[Math.floor(Math.random() * hardPokes.length)];
-    
     useEffect(() => {
       loadChores();
-      loadPokemon();
     }, []);
-
-    function loadPokemon(){
-      allPokemon().then((data) => {
-        setPokes(data);
-      });
-    };
     
     function loadChores() {
       readAllChores().then(choresFromApi => {
@@ -81,21 +53,6 @@ function AdminHomepage(){
       updateAccount(account);
     }
 
-   
-
-    function handleCompleteTask() {
-      console.log(account.trainers)
-      for (let trainer of account.trainers){
-        if (trainer.name === currentUser){
-          trainer.pokemons.push(randomEasyPoke)
-          updateAccount(account);
-          console.log(trainer.pokemons)
-          console.log(account.trainers)
-        }
-      }
-      
-    }
-
   return (
     <div className="AdminHomepage">
 
@@ -117,7 +74,7 @@ function AdminHomepage(){
       { !choresLoaded ?
             <p className="AdminHomePage_message">Loading...</p>
             : trainers.map(eachTrainer => 
-            <CalendarCard key={eachTrainer._id} ourTrainer={eachTrainer.name} onComplete={ () => handleCompleteTask() }/> )
+            <CalendarCard key={eachTrainer._id} ourTrainer={eachTrainer.name}/> )
       }
 
       <Modal size="lg" centered show={ showTaskForm } onHide={ handleHideTaskForm } animation={ false }>

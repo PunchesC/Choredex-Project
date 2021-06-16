@@ -4,7 +4,7 @@ import {AccountContext} from '../context/auth.context';
 import Pokemon from '../model/Pokemon';
 import { allPokemon } from '../service/pokemonService';
 import CalendarCard from './CalendarCard';
-import './TrainerChoredex'
+import './TrainerChoredex.css'
 
 
 
@@ -19,7 +19,7 @@ function TrainerChoredex(){
   }, []);
 
   if (!currentTrainer){
-    return <Redirect to="/"/>
+    return <Redirect to="/sign-in-form"/>
   }
 
   let easyPokes = []
@@ -72,12 +72,12 @@ function TrainerChoredex(){
       <div className="TrainerChoredex_calendar">
       <CalendarCard ourTrainer={currentUser} onComplete={ () => handleCompleteTask() }/>
       {currentTrainer!.pokemons.map((poke, i) => (
-            <p key={i}>
-              <img src={poke.picUrl} alt=''/>
-              Name: {poke.name}, 
-              HP: {poke.hpAmount}, 
-              Attack: {poke.attackAmount}, 
-              Defense: {poke.defenseAmount}, 
+            <p key={i} className="pokemonCard">
+              <img src={poke.picUrl} alt='' className="pokemonCard_pic"/><br/>
+              Name: {poke.name}<br/> 
+              HP: {poke.hpAmount}<br/>
+              Attack: {poke.attackAmount}<br/>
+              Defense: {poke.defenseAmount}<br/>
               Speed: {poke.speedAmount}
             </p>))}
       {/* This is where the specific trainer calendar card will go! */}

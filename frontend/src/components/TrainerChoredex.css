@@ -1,0 +1,12 @@
+.pokemonCard{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 5px solid black;
+    display: inline-block;
+}
+.pokemonCard_pic{
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+}

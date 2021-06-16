@@ -2,12 +2,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { AccountContext } from '../context/auth.context';
 import { useContext} from "react";
 import './Header.css'
-<<<<<<< Updated upstream
-import TrainerChoredex from './TrainerChoredex';
-import userEvent from '@testing-library/user-event';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-=======
->>>>>>> Stashed changes
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 

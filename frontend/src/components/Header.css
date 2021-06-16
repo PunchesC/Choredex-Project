@@ -39,3 +39,15 @@
 .noDisplay{
 display:none;
 }
+
+
+.welcomeMessage {
+  font-style: italic;
+  color: black;
+  text-shadow: 0 0 10px white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* .welcomeMessage .letter {
+} */

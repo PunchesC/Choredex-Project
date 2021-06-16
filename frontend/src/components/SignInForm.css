@@ -1,23 +1,19 @@
 .SignInForm{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: white;
-  border-radius: 20px;
-  margin: 0 auto;
-  width: 60%;
-  margin-top: 40px;
-  padding-top:20px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
+    margin-top: 40px;
 }
 
 
-
-h3 {
+h2 {
   border-bottom: 1px solid black;
   padding: 10px;
   font-style: italic;
   text-align: center;
+  color:black
 }
 
 label {
@@ -38,4 +34,9 @@ button {
 
 button:hover {
   background-color: rgb(167, 164, 164);
+}
+
+.SignInForm label{
+ margin:5px;
+
 }

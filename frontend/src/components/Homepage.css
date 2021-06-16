@@ -1,7 +1,8 @@
 .Homepage {
     display: flex;
     flex-direction: row;
-    /* height: 100vh; */
+    align-items: center;
+   
 }
 
 body {
@@ -9,13 +10,13 @@ body {
 }
 
 .leftSide, .rightSide {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .leftSide {
-    min-width: 20%;
-    width: 30%;
-    padding: 5%;
+    flex:1;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 h3 {
@@ -33,21 +34,23 @@ h4 {
     color: white;
 }
 
-.rightFrame {
-    min-width: 60%;
-}
+
 
 .rightSide {
-    width: 55%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex:1;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 19px;
     text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
-.pokeText, .pokemon {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.rightFrame{
+    width:100%;
 }
 
 .pokeText {

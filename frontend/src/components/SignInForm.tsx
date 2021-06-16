@@ -35,7 +35,8 @@ if(account.adminName===adminName && account.adminPassword===password){
 
   return (
     <form className="SignInForm" onSubmit={handleSubmit}>
-      <div>
+      <h2>SIGN IN FORM</h2>
+      <div className="SignInForm_inputs">
         <label>Admin Name:
           <input value={adminName} onChange={e => setAdminName(e.target.value)} ></input>
         </label>

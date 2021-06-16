@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import './Header.css'
 import TrainerChoredex from './TrainerChoredex';
 import userEvent from '@testing-library/user-event';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 
 
@@ -52,6 +53,7 @@ function goToChoredex(){
   history.push(`/choredex/${trainer.name}`);
 }
   return (
+    <Router>
     <div className="Header">
       <NavLink to="/" className="navLogo">CHOREDEX</NavLink>
           <nav>
@@ -64,6 +66,7 @@ function goToChoredex(){
           </nav>
           
     </div>
+    </Router>
   )
 }
 

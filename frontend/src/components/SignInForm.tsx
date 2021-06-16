@@ -18,17 +18,16 @@ function handleSubmit(event:FormEvent): void {
   for(let trainer of account.trainers!){
 if(account.adminName===adminName && account.adminPassword===password){
   console.log("Sucess Admin: " + account.adminName + account.adminPassword)
+  console.log(account.adminName)
   setCurrentUser(adminName)
   history.push(`/homepage/${account.adminName}`)
- 
+
 } else if(trainer.name===trainerName && account.gymPassword===password){
   console.log("Sucess Trainer: " + trainer.name + account.gymPassword)
   setCurrentUser(trainerName)
   history.push(`/choredex/${trainer.name}`)
-} else {
-  alert("Incorrect LogIn")
-}
 
+}
   }
   
 }

@@ -7,14 +7,15 @@ interface Props {
   ourTrainer: string;
   // onDelete: () => void;
   onComplete?: () => void;
+  choresUpdateTrigger?: any;
 }
 
-function CalendarCard({ ourTrainer, onComplete }: Props) {
+function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
 
   useEffect(() => {
     loadTrainerChores();
-  }, []);
+  }, [choresUpdateTrigger]);
 
   function loadTrainerChores() {
     readAllChoresForTrainer(ourTrainer).then((choresFromApi) => {
@@ -37,8 +38,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
       <div className="CalendarGridChores">
             {chores
               .filter((eachChore) => eachChore.monday)
-              .map((chore) => (
-                <div>
+              .map((chore, i) => (
+                <div key={i}>
                   {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
@@ -52,8 +53,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
 
             {chores
               .filter((eachChore) => eachChore.tuesday)
-              .map((chore) => (
-                <div>
+              .map((chore, i) => (
+                <div key={i}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -66,8 +67,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
 
             {chores
               .filter((eachChore) => eachChore.wednesday)
-              .map((chore) => (
-                <div>
+              .map((chore, i) => (
+                <div key={i}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -80,8 +81,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
 
             {chores
               .filter((eachChore) => eachChore.thursday)
-              .map((chore) => (
-                <div>
+              .map((chore, i) => (
+                <div key={i}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -94,8 +95,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
 
             {chores
               .filter((eachChore) => eachChore.friday)
-              .map((chore) => (
-                <div>
+              .map((chore, i) => (
+                <div key={i}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -108,8 +109,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
 
             {chores
               .filter((eachChore) => eachChore.saturday)
-              .map((chore) => (
-                <div>
+              .map((chore, i) => (
+                <div key={i}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -122,8 +123,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
 
             {chores
               .filter((eachChore) => eachChore.sunday)
-              .map((chore) => (
-                <div>
+              .map((chore, i) => (
+                <div key={i}>
                   {chore.title}
                   <br></br>
                   {chore.description}

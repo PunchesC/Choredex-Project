@@ -11,22 +11,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
 
 function AdminHomepage(){
-    const [ chores, setChores ] = useState<Chore[]>([]);
-    const [ choresLoaded, setChoresLoaded ] = useState(false);
     const [ showTaskForm, setShowTaskForm ] = useState(false);
     const [ showTrainerForm, setShowTrainerForm ] = useState(false);
+    const [choresUpdateTrigger, setChoresUpdateTrigger] = useState(0);
     const {account, updateAccount, currentUser} = useContext(AccountContext);
     const trainers = account.trainers;
-    useEffect(() => {
-      loadChores();
-    }, []);
-    
-    function loadChores() {
-      readAllChores().then(choresFromApi => {
-        setChores(choresFromApi);
-        setChoresLoaded(true);
-      });
-    }
 
     function handleShowTaskForm() {
       setShowTaskForm(true);
@@ -45,7 +34,8 @@ function AdminHomepage(){
     }
 
     function handleAddTask(chore:Chore):void {
-      createTask(chore).then(loadChores);
+      createTask(chore).then(() => 
+      setChoresUpdateTrigger(prev => prev + 1))
     }
 
     function handleAddTrainer(trainer: Trainer): void {
@@ -76,11 +66,8 @@ function AdminHomepage(){
 
       <button onClick={ handleShowTaskForm }>add task</button>
 
-      { !choresLoaded ?
-            <p className="AdminHomePage_message">Loading...</p>
-            : trainers.map(eachTrainer => 
-            <CalendarCard key={eachTrainer._id} ourTrainer={eachTrainer.name}/> )
-      }
+      {trainers.map((eachTrainer, i) => 
+      <CalendarCard key={i} ourTrainer={eachTrainer.name} choresUpdateTrigger={choresUpdateTrigger}/> )}
 
       <Modal size="lg" centered show={ showTaskForm } onHide={ handleHideTaskForm } animation={ false }>
         {/* <Modal.Header>

@@ -68,7 +68,6 @@ function TrainerChoredex(){
 
   return (
     <div className="TrainerChoredex">
-      <h2>{currentUser}'s Choredex</h2>
       <div>
       <CalendarCard ourTrainer={currentUser} onComplete={ () => handleCompleteTask() }/>
       </div>

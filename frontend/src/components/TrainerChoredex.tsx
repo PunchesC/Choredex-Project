@@ -69,8 +69,8 @@ function TrainerChoredex(){
 
   return (
     <div className="TrainerChoredex">
-      <h2>{currentUser}'s Choredex</h2>
-      <div>
+      <h2 className="TrainerTitle">{currentUser}'s Choredex</h2>
+      <div className="TrainerChoredex_calendar">
       <CalendarCard ourTrainer={currentUser} onComplete={ () => handleCompleteTask() }/>
       </div>
       {currentTrainer!.pokemons.map((poke, i) => (

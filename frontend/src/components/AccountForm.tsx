@@ -32,7 +32,7 @@ function AccountForm(){
 
   return (
     <form className="AccountForm" >
-      <h2>NEW ACCOUNT FORM</h2>
+      <h2 className="Title">NEW ACCOUNT FORM</h2>
       <div className="AccountForm_left_container">
         <label>admin name:<br></br>
           <input type="text" value={adminName} onChange={(e) => setAdminName(e.target.value)} />

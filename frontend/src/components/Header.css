@@ -23,6 +23,7 @@
 .NavLinkButton {
   background-color: unset;
   border: unset;
+  margin-right: 0; 
 }
 
 .navLogo {
@@ -53,3 +54,25 @@
 
 /* .welcomeMessage .letter {
 } */
+
+@media only screen and (max-width: 481px) {
+    
+  .navLogo {
+    font-size: 30px;
+  }
+
+  .navLinks, .NavLinkButton {
+    font-size: 12px;
+    padding: 3px;
+  }
+
+  .welcomeMessage {
+    display: none;
+  }
+
+  .NavLinkButton {
+    padding: 3px;
+    margin: 0;
+  }
+
+}

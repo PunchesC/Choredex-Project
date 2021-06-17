@@ -72,5 +72,27 @@ table {
 
 .Slash{
     text-decoration: line-through;
-  
+}
+
+@media only screen and (max-width: 481px) {
+
+    .CalendarCard {
+        width: 300px;
+        margin: 5px;
+    }
+
+    /* .CalendarGrid, .CalendarGridChores {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-auto-flow: row dense;
+    }
+
+    .CalendarGrid {
+        grid-column-start: 1;
+    }
+
+    .CalendarGridChores {
+        grid-column-start: 2;
+    } */
+
 }

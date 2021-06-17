@@ -7,16 +7,17 @@ interface Props {
   ourTrainer: string;
   // onDelete: () => void;
   onComplete?: () => void;
+  choresUpdateTrigger?: any;
 }
 
-function CalendarCard({ ourTrainer, onComplete }: Props) {
+function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
   const [ on, setOn ] = useState(false);
   
 
   useEffect(() => {
     loadTrainerChores();
-  }, []);
+  }, [choresUpdateTrigger]);
 
   function loadTrainerChores() {
     readAllChoresForTrainer(ourTrainer).then((choresFromApi) => {
@@ -54,9 +55,13 @@ function changeState(){
       <div>
             {chores
               .filter((eachChore) => eachChore.monday)
-              .map((chore) => (
+              .map((chore, i) => (
+                <div key={i} className={addSlash}>
+             
               
-                <div className={addSlash}> 
+              
+             
+                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -71,8 +76,10 @@ function changeState(){
 <div>
             {chores
               .filter((eachChore) => eachChore.tuesday)
-              .map((chore) => (
-                <div className={addSlash}>
+        
+               
+              .map((chore, i) => (
+                <div key={i} className={addSlash}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -86,8 +93,9 @@ function changeState(){
 <div>
             {chores
               .filter((eachChore) => eachChore.wednesday)
-              .map((chore) => (
-                <div className={addSlash}>
+            
+              .map((chore, i) => (
+                <div key={i} className={addSlash}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -101,8 +109,9 @@ function changeState(){
 <div>
             {chores
               .filter((eachChore) => eachChore.thursday)
-              .map((chore) => (
-                <div className={addSlash}> 
+        
+              .map((chore, i) => (
+                <div key={i} className={addSlash}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -116,8 +125,9 @@ function changeState(){
 <div>
             {chores
               .filter((eachChore) => eachChore.friday)
-              .map((chore) => (
-                <div className={addSlash}> 
+       
+              .map((chore, i) => (
+                <div key={i} className={addSlash}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -131,8 +141,9 @@ function changeState(){
 <div>
             {chores
               .filter((eachChore) => eachChore.saturday)
-              .map((chore) => (
-                <div className={addSlash}> 
+           
+              .map((chore, i) => (
+                <div key={i} className={addSlash}>
                   {chore.title}
                   <br></br>
                   {chore.description}
@@ -146,8 +157,9 @@ function changeState(){
 <div>
             {chores
               .filter((eachChore) => eachChore.sunday)
-              .map((chore) => (
-                <div className={addSlash}> 
+         
+              .map((chore, i) => (
+                <div key={i} className={addSlash}>
                   {chore.title}
                   <br></br>
                   {chore.description}

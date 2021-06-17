@@ -26,3 +26,24 @@
 .TrainerForm {
     text-align: center;
 }
+
+/* @media only screen and (max-width: 481px) {
+
+    .FormModal {
+        width: 250px;
+    }
+
+} */
+
+@media only screen and (max-width: 480px) {
+
+    .modal-dialog {
+        max-width: 70vw;
+        margin: 0;
+        height: 600px;
+	}
+
+    .modal-content {
+        height: 80%;
+    }
+}

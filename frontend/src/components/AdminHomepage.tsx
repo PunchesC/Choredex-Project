@@ -52,7 +52,7 @@ function AdminHomepage(){
     <div className="AdminHomepage">
 
       {/* <h3 className="Title">ADMIN HOMEPAGE</h3> */}
-      <button onClick={ handleShowTrainerForm }>add trainer</button>
+      <button className="AdminButtons" onClick={ handleShowTrainerForm }>add trainer</button>
 
       <Modal size="sm" centered show={ showTrainerForm } onHide={ handleHideTrainerForm } animation={ false }>
         {/* <Modal.Header>
@@ -64,7 +64,7 @@ function AdminHomepage(){
       </Modal>
       {/* {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>} */}
 
-      <button onClick={ handleShowTaskForm }>add task</button>
+      <button className="AdminButtons" onClick={ handleShowTaskForm }>add task</button>
 
       {trainers.map((eachTrainer, i) => 
       <CalendarCard key={i} ourTrainer={eachTrainer.name} choresUpdateTrigger={choresUpdateTrigger}/> )}

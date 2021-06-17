@@ -36,7 +36,11 @@ button:hover {
   background-color: rgb(167, 164, 164);
 }
 
-.SignInForm label{
+/* .SignInForm label{
  margin:5px;
+ text-align: center;
+} */
 
-}
+/* .signInFormTitle {
+  text-align: center;
+} */

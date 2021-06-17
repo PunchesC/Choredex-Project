@@ -7,6 +7,11 @@
     border-radius: 20px;
 }
 
+.AdminButtons {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
 /* .TopButton {
     border: unset;
     background-color: unset;
@@ -21,3 +26,13 @@
     background-color: unset;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.781);
 } */
+
+@media only screen and (max-width: 481px) {
+
+    .AdminHomepage {
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+}

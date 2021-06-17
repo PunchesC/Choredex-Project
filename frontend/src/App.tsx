@@ -35,9 +35,9 @@ function App() {
               <Route path="/">
                 <Homepage />
                 <footer className="HomepageFooter">
-                  <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2 className="Credits">yitz-hochstadt</h2>
-                  <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2 className="Credits">curtispunches</h2>
-                  <img src={linkedinIcon} alt="linkedin icon" />{" "}<h2 className="Credits">kaleigh-griffin</h2>
+                  <img src={linkedinIcon} alt="linkedin icon" /><a className="linkedinLink" href="https://linkedin.com/in/yitz-hochstadt"><h2 className="Credits">yitz-hochstadt</h2></a>
+                  <img src={linkedinIcon} alt="linkedin icon" /><a className="linkedinLink" href="https://linkedin.com/in/curtispunches"><h2 className="Credits">curtispunches</h2></a>
+                  <img src={linkedinIcon} alt="linkedin icon" /><a className="linkedinLink" href="https://linkedin.com/in/kaleigh-griffin"><h2 className="Credits">kaleigh-griffin</h2></a>
                 </footer>
               </Route>
             </Switch>

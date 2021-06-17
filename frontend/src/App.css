@@ -57,6 +57,15 @@ img {
     height: 16px;
 }
 
+.linkedinLink{
+    text-decoration: none;
+    color: black
+}
+.linkedinLink:hover{
+    color:darkgray;
+    transition: 0.3s;
+}
+
 @media only screen and (max-width: 481px) {
     
     .Credits {

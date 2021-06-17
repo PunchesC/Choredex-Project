@@ -51,11 +51,6 @@ table {
     grid-template-columns: repeat(7, 1fr);
 }
 
-.CompletedTask {
-    font-style: italic;
-    color: gray;
-}
-
 .DoneButton {
     margin: 2px;
     background-color: unset;

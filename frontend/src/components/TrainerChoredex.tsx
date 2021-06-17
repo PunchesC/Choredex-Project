@@ -69,19 +69,20 @@ function TrainerChoredex(){
   return (
     <div className="TrainerChoredex">
       <h2>{currentUser}'s Choredex</h2>
-      <div className="TrainerChoredex_calendar">
+      <div>
       <CalendarCard ourTrainer={currentUser} onComplete={ () => handleCompleteTask() }/>
+      </div>
       {currentTrainer!.pokemons.map((poke, i) => (
             <p key={i} className="pokemonCard">
+              {poke.name}<br/> 
               <img src={poke.picUrl} alt='' className="pokemonCard_pic"/><br/>
-              Name: {poke.name}<br/> 
               HP: {poke.hpAmount}<br/>
               Attack: {poke.attackAmount}<br/>
               Defense: {poke.defenseAmount}<br/>
               Speed: {poke.speedAmount}
             </p>))}
       {/* This is where the specific trainer calendar card will go! */}
-      </div>
+      
     </div>
   )
 }

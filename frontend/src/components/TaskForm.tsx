@@ -38,7 +38,7 @@ function TaskForm({onSubmit, onClose}:Props){
 
     event.preventDefault();
 
-    const chore: Chore = {
+    const newChore: Chore = {
       title:title,
       description: description,
       trainer: ourTrainer,
@@ -61,13 +61,13 @@ function TaskForm({onSubmit, onClose}:Props){
 
       directoryRef.child(file.name).put(file).then(snapshot => {
         snapshot.ref.getDownloadURL().then(url => {
-          chore.trainer = url;
-          onSubmit(chore);
+          newChore.trainer = url;
+          onSubmit(newChore);
           clearForm();
         });
       });
     } else {
-      onSubmit(chore);
+      onSubmit(newChore);
       onClose();
       clearForm();
     }

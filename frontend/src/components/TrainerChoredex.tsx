@@ -48,6 +48,7 @@ function TrainerChoredex(){
   };
 
   function handleCompleteTask() {
+    
         const newAccount = { // copy of account
           ...account,
           trainers: account.trainers.map(trainer => { // copy of trainers

@@ -61,9 +61,7 @@ function TaskForm({onSubmit, onClose}:Props){
 
       directoryRef.child(file.name).put(file).then(snapshot => {
         snapshot.ref.getDownloadURL().then(url => {
-          newChore.trainer = url;
-          onSubmit(newChore);
-          newChore.trainer = url;
+                 newChore.trainer = url;
           onSubmit(newChore);
           onClose();
           clearForm();

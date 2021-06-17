@@ -65,3 +65,12 @@ table {
     background-color: unset;
     text-shadow: 0 0 10px black;
 }
+
+.noDisplay{
+    display:none
+}
+
+.Slash{
+    text-decoration: line-through;
+  
+}

@@ -3,7 +3,8 @@
     border: 3px solid rgb(61, 60, 60);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.747);
     border-radius: 20px;
-    margin: 30px;
+    margin: 0 auto;
+    margin-top: 30px;
     background-color: white;
     min-width: 600px;
     max-width: 700px;

@@ -5,6 +5,7 @@
     margin: 0 auto;
     width: 60%;
     margin-top: 40px;
+    font-weight: bold;
 }
 
 .Title {
@@ -33,4 +34,8 @@ button {
 
 button:hover {
     background-color: rgb(167, 164, 164);
+}
+
+input {
+    font-weight: bold;
 }

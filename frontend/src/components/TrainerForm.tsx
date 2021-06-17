@@ -29,7 +29,7 @@ function TrainerForm({ onSubmit, onClose }: Props) {
             <form onSubmit={handleSubmit}>
                 <h3 className="trainerFormTitle">ADD TRAINER</h3>
                 <label>name:<br></br>
-                    <input type="text" value={name} onChange={e => setName(e.target.value)} />
+                    <input type="text" value={name} onChange={e => setName(e.target.value)} required/>
                 </label><br></br>
                 <button type="submit">add</button>
                 <button onClick={onClose}>close</button>

@@ -86,9 +86,10 @@ function changeState(){
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton"onClick={onComplete}>DONE</button>
+                  
                 </div>
               ))}
+             <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
 </div>
 <div>
             {chores
@@ -102,9 +103,10 @@ function changeState(){
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton" onClick={onComplete}>DONE</button>
+                
                 </div>
               ))}
+              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
               </div>
 <div>
             {chores
@@ -118,9 +120,10 @@ function changeState(){
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton"onClick={onComplete}>DONE</button>
+                  
                 </div>
               ))}
+              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
 </div>
 <div>
             {chores
@@ -134,9 +137,10 @@ function changeState(){
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton" onClick={onComplete}>DONE</button>
+                 
                 </div>
               ))}
+              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
 </div>
 <div>
             {chores
@@ -150,9 +154,10 @@ function changeState(){
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton"onClick={onComplete}>DONE</button>
+                 
                 </div>
               ))}
+              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
 </div>
 <div>
             {chores
@@ -166,9 +171,10 @@ function changeState(){
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton" onClick={onComplete}>DONE</button>
+                  
                 </div>
               ))}
+              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
               </div>
           </div>
       {/* <button>Create a Task for {chore.trainer}</button> */}

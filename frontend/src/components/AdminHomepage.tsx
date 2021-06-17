@@ -43,10 +43,12 @@ function AdminHomepage(){
     function handleHideTrainerForm() {
       setShowTrainerForm(false);
     }
-
+///Do we need to add chores to trainer or account? 
     function handleAddTask(chore:Chore):void {
       createTask(chore).then(loadChores);
+      console.log(chore);
     }
+
 
     function handleAddTrainer(trainer: Trainer): void {
       account.trainers.push(trainer)

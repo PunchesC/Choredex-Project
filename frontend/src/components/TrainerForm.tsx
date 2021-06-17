@@ -11,7 +11,7 @@ function TrainerForm({ onSubmit, onClose }: Props) {
 
     const [ name, setName ] = useState("");
     
-    function handleSubmit(e:FormEvent) {
+    function handleSubmit(e:FormEvent):void {
         e.preventDefault();
 
         const trainer: Trainer = {

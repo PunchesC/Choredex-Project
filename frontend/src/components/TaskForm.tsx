@@ -20,8 +20,8 @@ function TaskForm({onSubmit, onClose}:Props){
   const [ friday, setFriday ] = useState(false);
   const [ saturday, setSaturday ] = useState(false);
   const [ sunday, setSunday ] = useState(false);
-  const [ ourTrainer, setOurTrainer ] = useState("");
-  const [ difficulty, setDifficulty ] = useState("");
+  const [ ourTrainer, setOurTrainer ] = useState("Jimmy");
+  const [ difficulty, setDifficulty ] = useState("easy");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const {account} = useContext(AccountContext);
@@ -63,6 +63,9 @@ function TaskForm({onSubmit, onClose}:Props){
         snapshot.ref.getDownloadURL().then(url => {
           newChore.trainer = url;
           onSubmit(newChore);
+          newChore.trainer = url;
+          onSubmit(newChore);
+          onClose();
           clearForm();
         });
       });
@@ -75,8 +78,9 @@ function TaskForm({onSubmit, onClose}:Props){
     function clearForm(){
       setTitle("");
       setDescription("");
-      setOurTrainer("");
-      setDifficulty("")
+      setOurTrainer("Jimmy");
+      setDifficulty("easy")
+
       formRef.current?.reset();
     }
 
@@ -124,7 +128,7 @@ function TaskForm({onSubmit, onClose}:Props){
         <label>select trainer:
           <select value={ourTrainer} onChange={e=> setOurTrainer(e.target.value)}>
             {account.trainers.map((trainer,i )=> 
-              <option> {trainer.name}</option>)}
+              <option>{trainer.name}</option>)}
           </select>
         </label><br></br>
         <label>level of difficulty:

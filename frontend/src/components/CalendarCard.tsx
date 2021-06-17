@@ -21,6 +21,8 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
       setChores(choresFromApi);
     });
   }
+  let addNoDisplay ="";
+  let addSlash = "";
 
   return (
     <div className="CalendarCard">
@@ -38,7 +40,7 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
             {chores
               .filter((eachChore) => eachChore.monday)
               .map((chore) => (
-                <div>
+                <div className={addSlash}>
                   {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                   {chore.title}
                   <br></br>
@@ -46,21 +48,21 @@ function CalendarCard({ ourTrainer, onComplete }: Props) {
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton" onClick={onComplete}>DONE</button>
+                  <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>
                 </div>
               ))}
 
             {chores
               .filter((eachChore) => eachChore.tuesday)
               .map((chore) => (
-                <div>
+                <div className={addSlash}>
                   {chore.title}
                   <br></br>
                   {chore.description}
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  <button className="DoneButton" onClick={onComplete}>DONE</button>
+                  <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>
                 </div>
               ))}
 

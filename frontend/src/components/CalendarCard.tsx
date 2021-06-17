@@ -32,6 +32,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
 
   function changeState() {
     setOn(true);
+    onComplete!();
   }
 
   return (
@@ -47,32 +48,25 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
         <h6>SUNDAY</h6>
       </div>
       <div className="CalendarGridChores">
-      <div>
-            {chores
-              .filter((eachChore) => eachChore.monday)
-              .map((chore, i) => (
-                <div key={i} className={addSlash}>
-             
-              
-              
-             
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
-                  {chore.title}
-                  <br></br>
-                  {chore.description}
-                  <br></br>
-                  Difficulty: {chore.difficulty}
-                  <br></br>
-                  
-                </div>
-              ))}
-               <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
-</div>
-<div>
+        <div>
+          {chores
+            .filter((eachChore) => eachChore.monday)
+            .map((chore, i) => (
+              <div key={i} className={addSlash}>
+                {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
+                {chore.title}
+                <br></br>
+                {chore.description}
+                <br></br>
+                Difficulty: {chore.difficulty}
+                <br></br>
+              </div>
+            ))}
+            <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+        </div>
+        <div>
             {chores
               .filter((eachChore) => eachChore.tuesday)
-        
-               
               .map((chore, i) => (
                 <div key={i} className={addSlash}>
                   {chore.title}
@@ -81,15 +75,13 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  
                 </div>
               ))}
              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
-</div>
-<div>
+        </div>
+        <div>
             {chores
               .filter((eachChore) => eachChore.wednesday)
-            
               .map((chore, i) => (
                 <div key={i} className={addSlash}>
                   {chore.title}
@@ -98,15 +90,13 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                
                 </div>
               ))}
               <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
-              </div>
-<div>
+        </div>
+        <div>
             {chores
               .filter((eachChore) => eachChore.thursday)
-        
               .map((chore, i) => (
                 <div key={i} className={addSlash}>
                   {chore.title}
@@ -115,15 +105,13 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  
                 </div>
               ))}
               <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
-</div>
-<div>
+        </div>
+        <div>
             {chores
               .filter((eachChore) => eachChore.friday)
-       
               .map((chore, i) => (
                 <div key={i} className={addSlash}>
                   {chore.title}
@@ -132,15 +120,13 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                 
                 </div>
               ))}
               <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
-</div>
-<div>
+        </div>
+        <div>
             {chores
               .filter((eachChore) => eachChore.saturday)
-           
               .map((chore, i) => (
                 <div key={i} className={addSlash}>
                   {chore.title}
@@ -149,15 +135,13 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                 
                 </div>
               ))}
               <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
-</div>
-<div>
+        </div>
+        <div>
             {chores
               .filter((eachChore) => eachChore.sunday)
-         
               .map((chore, i) => (
                 <div key={i} className={addSlash}>
                   {chore.title}
@@ -166,188 +150,13 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                   Difficulty: {chore.difficulty}
                   <br></br>
-                  
                 </div>
               ))}
               <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
-              </div>
-       
-        </div>
-        <div>
-          {chores
-            .filter((eachChore) => eachChore.friday)
-            .map((chore, i) => (
-              <div key={i} className={addSlash}>
-                {chore.title}
-                <br></br>
-                {chore.description}
-                <br></br>
-                Difficulty: {chore.difficulty}
-                <br></br>
-                <button className="DoneButton" onClick={onComplete}>
-                  DONE
-                </button>
-              </div>
-            ))}
-        </div>
-        <div>
-          {chores
-            .filter((eachChore) => eachChore.saturday)
-            .map((chore, i) => (
-              <div key={i} className={addSlash}>
-                {chore.title}
-                <br></br>
-                {chore.description}
-                <br></br>
-                Difficulty: {chore.difficulty}
-                <br></br>
-                <button className="DoneButton" onClick={onComplete}>
-                  DONE
-                </button>
-              </div>
-            ))}
-        </div>
-        <div>
-          {chores
-            .filter((eachChore) => eachChore.sunday)
-            .map((chore, i) => (
-              <div key={i} className={addSlash}>
-                {chore.title}
-                <br></br>
-                {chore.description}
-                <br></br>
-                Difficulty: {chore.difficulty}
-                <br></br>
-                <button className="DoneButton" onClick={onComplete}>
-                  DONE
-                </button>
-              </div>
-            ))}
         </div>
       </div>
-  
+    </div>
   );
 }
 
 export default CalendarCard;
-
-{
-  /* <table>
-<tr>
-  <th>MONDAY</th>
-  <th>TUESDAY</th>
-  <th>WEDNESDAY</th>
-  <th>THURSDAY</th>
-  <th>FRIDAY</th>
-  <th>SATURDAY</th>
-  <th>SUNDAY</th>
-</tr>
-<tr>
-  <td>
-    {chores
-      .filter((eachChore) => eachChore.monday)
-      .map((chore) => (
-        <div>
-          {chore.title}
-          <br></br>
-          {chore.description}
-          <br></br>
-          Difficulty: {chore.difficulty}
-          <br></br>
-          <button className="DoneButton" onClick={onComplete}>DONE</button>
-        </div>
-      ))}
-  </td>
-  <td>
-    {chores
-      .filter((eachChore) => eachChore.tuesday)
-      .map((chore) => (
-        <div>
-          {chore.title}
-          <br></br>
-          {chore.description}
-          <br></br>
-          Difficulty: {chore.difficulty}
-          <br></br>
-          <button className="DoneButton" onClick={onComplete}>DONE</button>
-        </div>
-      ))}
-  </td>
-  <td>
-    {chores
-      .filter((eachChore) => eachChore.wednesday)
-      .map((chore) => (
-        <div>
-          {chore.title}
-          <br></br>
-          {chore.description}
-          <br></br>
-          Difficulty: {chore.difficulty}
-          <br></br>
-          <button className="DoneButton" onClick={onComplete}>DONE</button>
-        </div>
-      ))}
-  </td>
-  <td>
-    {chores
-      .filter((eachChore) => eachChore.thursday)
-      .map((chore) => (
-        <div>
-          {chore.title}
-          <br></br>
-          {chore.description}
-          <br></br>
-          Difficulty: {chore.difficulty}
-          <br></br>
-          <button className="DoneButton" onClick={onComplete}>DONE</button>
-        </div>
-      ))}
-  </td>
-  <td>
-    {chores
-      .filter((eachChore) => eachChore.friday)
-      .map((chore) => (
-        <div>
-          {chore.title}
-          <br></br>
-          {chore.description}
-          <br></br>
-          Difficulty: {chore.difficulty}
-          <br></br>
-          <button className="DoneButton" onClick={onComplete}>DONE</button>
-        </div>
-      ))}
-  </td>
-  <td>
-    {chores
-      .filter((eachChore) => eachChore.saturday)
-      .map((chore) => (
-        <div>
-          {chore.title}
-          <br></br>
-          {chore.description}
-          <br></br>
-          Difficulty: {chore.difficulty}
-          <br></br>
-          <button className="DoneButton" onClick={onComplete}>DONE</button>
-        </div>
-      ))}
-  </td>
-  <td>
-    {chores
-      .filter((eachChore) => eachChore.sunday)
-      .map((chore) => (
-        <div>
-          {chore.title}
-          <br></br>
-          {chore.description}
-          <br></br>
-          Difficulty: {chore.difficulty}
-          <br></br>
-          <button className="DoneButton" onClick={onComplete}>DONE</button>
-        </div>
-      ))}
-  </td>
-</tr>
-</table> */
-}

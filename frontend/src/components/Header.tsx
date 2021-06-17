@@ -48,7 +48,7 @@ history.push(`/`);
 
 function goToChoredex(){
   for(let trainer of account.trainers!)
-  history.push(`/choredex/${trainer.name}`);
+  history.push(`/choredex/${currentUser}`);
 }
 function goToAdminHomepage(){
   history.push(`/homepage/${currentUser}`);

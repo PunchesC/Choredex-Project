@@ -27,6 +27,10 @@ export function readAccountById(id:string):Promise<Account>{
   return axios.get(`${baseUrl}/accounts/${encodeURIComponent(id)}`).then(res => res.data);
 }
 
+export function createAccount(account:Account):Promise<Account>{
+  return axios.post(`${baseUrl}/accounts`,account).then(res =>res.data)
+}
+
 export function updateAccountInDatabase(account:Account):Promise<Account>{
   return axios.put(`${baseUrl}/accounts/${encodeURIComponent(account._id!)}`, account).then(res => res.data);
 }

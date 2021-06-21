@@ -18,7 +18,7 @@ function App() {
           <Header />
             <Switch>
               <Route path="/account-sign-up">
-                <AccountForm />
+                <AccountForm/>
               </Route>
               <Route path="/sign-in-form">
                 <SignInForm />

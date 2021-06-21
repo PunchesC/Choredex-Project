@@ -51,6 +51,7 @@ export function AccountContextProvider({children}: {children:ReactNode;}) {
     useEffect(() => {
         readAccountById("60ca0d103e4534633954dd1c").then(accountFromApi => {
             setAccount(accountFromApi)
+            // console.log(JSON.stringify(accountFromApi, null, 2));
         });
     }, [])
 

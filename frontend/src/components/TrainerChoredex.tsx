@@ -14,7 +14,6 @@ function TrainerChoredex(){
   const [pokes, setPokes] = useState<Pokemon[]>([]);
   const trainers = account.trainers;
   const currentTrainer = trainers.find(trainer => trainer.name === currentUser);
-  const [chore, setChore] = useState<Chore>()
   const [choresUpdateTrigger, setChoresUpdateTrigger] = useState(0);
 
   useEffect(() => {
@@ -68,11 +67,14 @@ function TrainerChoredex(){
           })
         };
         updateAccount(newAccount);
-        updateChoreInDatabase(chore).then(() => 
-        setChoresUpdateTrigger(prev => prev + 1))
+        chore.complete = true;
+        updateChoreInDatabase(chore).then(() => {
+          setChoresUpdateTrigger(prev => prev + 1)
+        })
         console.log(currentTrainer);
         console.log(trainers);
-        chore.complete=true;
+        console.log(newAccount);
+        console.log(chore.complete);
 
       }
 
@@ -90,7 +92,7 @@ function TrainerChoredex(){
     <div className="TrainerChoredex">
       <h2 className="TrainerTitle">{currentUser}'s Choredex</h2>
       <div className="TrainerChoredex_calendar">
-      <CalendarCard ourTrainer={currentUser} choresUpdateTrigger={choresUpdateTrigger} onComplete={ () => handleCompleteTask(chore!) }/>
+      <CalendarCard ourTrainer={currentUser} choresUpdateTrigger={choresUpdateTrigger} onComplete={ (chore) => handleCompleteTask(chore)}/>
       </div>
       {currentTrainer!.pokemons.map((poke, i) => (
             <p key={i} className="pokemonCard">

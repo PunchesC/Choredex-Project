@@ -13,7 +13,6 @@ interface Props {
 
 function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
-  // const [on, setOn] = useState(false);
   const {currentUser,isAdmin,account} = useContext(AccountContext);
 
   useEffect(() => {
@@ -23,21 +22,11 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   function loadTrainerChores() {
     readAllChoresForTrainer(ourTrainer).then((choresFromApi) => {
       setChores(choresFromApi);
+      console.log(choresFromApi);
     });
   }
   let addNoDisplay = "";
   let addSlash = "";
-
-//needs to be replace with account admin
-//WORKS BUT ISSUE WITH ADMIN BEING ALSO A TRAINER
-// if(isAdmin && currentUser===account.adminName){
-//   addNoDisplay = " noDisplay";
-// }
-
-
- 
-//needs to be replace with account admin
-
 
   return (
     <div className="CalendarCard">
@@ -64,10 +53,9 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                 <br></br>
                 Difficulty: {chore.difficulty}
                 <br></br>
-               <button className={"DoneButton"+ addNoDisplay} onClick={onComplete(chore)}>DONE</button>
+               {onComplete && <button className="DoneButton" onClick={() => onComplete(chore)}>DONE</button>}
               </div>
             ))}
-            
         </div>
         <div>
             {chores

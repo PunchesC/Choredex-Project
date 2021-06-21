@@ -1,9 +1,8 @@
 import './TaskForm.css'
-import {FormEvent, useState, useContext, useRef, useEffect} from "react";
+import {FormEvent, useState, useContext, useRef} from "react";
 import {Chore} from "../model/model";
 import firebase from "../firebaseConfig"
 import {AccountContext} from '../context/auth.context';
-import { readAllChores } from '../service/pokemonService';
 
 interface Props {
   onSubmit: (chore:Chore) => void;
@@ -41,7 +40,8 @@ function TaskForm({onSubmit, onClose}:Props){
       thursday: thursday,
       friday: friday,
       saturday: saturday,
-      sunday: sunday
+      sunday: sunday,
+      complete: false
     }
 
     const files = fileInputRef.current?.files;

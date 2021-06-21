@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { Account } from '../model/model'
-import { readAccountById, updateAccountInDatabase } from '../service/pokemonService';
+import { Account, Chore } from '../model/model'
+import { readAccountById, updateAccountInDatabase, updateChoreInDatabase } from '../service/pokemonService';
 
 interface AccountContextValue {
     account: Account;
@@ -30,13 +30,14 @@ const example: Account =
     updateAccount: () => {},
     currentUser: "",
     isAdmin: false,
-    setCurrentUser: ()=> {}
+    setCurrentUser: ()=> {},
 }
 export const AccountContext = createContext(defaultValue);
 
 export function AccountContextProvider({children}: {children:ReactNode;}) {
 
     const [ account, setAccount ] = useState<Account>(example);
+
     const [currentUser, setCurrentUser] = useState("");
     const isAdmin = currentUser===account.adminName;
 
@@ -44,6 +45,8 @@ export function AccountContextProvider({children}: {children:ReactNode;}) {
         setAccount(account);
         updateAccountInDatabase(account); 
     }
+
+ 
 
     useEffect(() => {
         readAccountById("60ca0d103e4534633954dd1c").then(accountFromApi => {

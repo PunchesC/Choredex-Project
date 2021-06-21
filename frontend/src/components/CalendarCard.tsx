@@ -64,7 +64,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                 <br></br>
                 Difficulty: {chore.difficulty}
                 <br></br>
-                {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
+               <button className={"DoneButton"+ addNoDisplay} onClick={onComplete(chore)}>DONE</button>
               </div>
             ))}
             

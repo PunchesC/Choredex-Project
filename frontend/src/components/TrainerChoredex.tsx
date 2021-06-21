@@ -1,8 +1,9 @@
 import {useContext, useEffect, useState} from 'react';
 import { Redirect } from 'react-router-dom';
 import {AccountContext} from '../context/auth.context';
+import { Chore } from '../model/model';
 import Pokemon from '../model/Pokemon';
-import { allPokemon } from '../service/pokemonService';
+import { allPokemon, updateChoreInDatabase } from '../service/pokemonService';
 import CalendarCard from './CalendarCard';
 import './TrainerChoredex.css'
 
@@ -13,6 +14,8 @@ function TrainerChoredex(){
   const [pokes, setPokes] = useState<Pokemon[]>([]);
   const trainers = account.trainers;
   const currentTrainer = trainers.find(trainer => trainer.name === currentUser);
+  const [chore, setChore] = useState<Chore>()
+  const [choresUpdateTrigger, setChoresUpdateTrigger] = useState(0);
 
   useEffect(() => {
     loadPokemon();
@@ -47,7 +50,9 @@ function TrainerChoredex(){
     });
   };
 
-  function handleCompleteTask() {
+
+
+  function handleCompleteTask(chore:Chore):void {
     
         const newAccount = { // copy of account
           ...account,
@@ -63,15 +68,29 @@ function TrainerChoredex(){
           })
         };
         updateAccount(newAccount);
+        updateChoreInDatabase(chore).then(() => 
+        setChoresUpdateTrigger(prev => prev + 1))
         console.log(currentTrainer);
         console.log(trainers);
+        chore.complete=true;
+
       }
+
+
+      // function updateChore(chore:Chore){
+       
+      //   updateChoreInDatabase(chore).then((ourChore)=>
+      //   setChore(ourChore)
+      //   )};
+
+
+    
 
   return (
     <div className="TrainerChoredex">
       <h2 className="TrainerTitle">{currentUser}'s Choredex</h2>
       <div className="TrainerChoredex_calendar">
-      <CalendarCard ourTrainer={currentUser} onComplete={ () => handleCompleteTask() }/>
+      <CalendarCard ourTrainer={currentUser} choresUpdateTrigger={choresUpdateTrigger} onComplete={ () => handleCompleteTask(chore!) }/>
       </div>
       {currentTrainer!.pokemons.map((poke, i) => (
             <p key={i} className="pokemonCard">

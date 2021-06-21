@@ -31,6 +31,6 @@ export function updateAccountInDatabase(account:Account):Promise<Account>{
   return axios.put(`${baseUrl}/accounts/${encodeURIComponent(account._id!)}`, account).then(res => res.data);
 }
 
-export function updateChore(chore:Chore):Promise<Chore>{
+export function updateChoreInDatabase(chore:Chore):Promise<Chore>{
   return axios.put(`${baseUrl}/chores/${encodeURIComponent(chore._id!)}`,chore).then(res => res.data);
 }

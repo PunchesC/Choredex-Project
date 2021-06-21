@@ -27,6 +27,7 @@ export interface Chore {
   sunday?: boolean;
   trainer: string;
   difficulty: string;
+  complete?: boolean;
 }
 
 export interface Account {

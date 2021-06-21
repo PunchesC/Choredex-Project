@@ -143,6 +143,25 @@ app.put("/accounts/:id", async (req, res) => {
     res.status(500).json({message: "Internal Server Error"});
   }
 });
+//I (Curtis added this!!!)
+app.put("/chores/:id", async (req, res) => {
+  const id = req.params.id;
+  const chore = req.body as Chore;
+  delete chore._id;
+  try {
+    const client = await getClient();
+    const result = await client.db().collection<Chore>('chores').replaceOne({ _id: new ObjectId(id) }, chore);
+    if (result.modifiedCount === 0) {
+      res.status(404).json({message: "Not Found"});
+    } else {
+      chore._id = new ObjectId(id);
+      res.json(chore);
+    }
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
 
 async function getPokeStuff(){
   let pokeResults:PokemonResults = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151')).data;

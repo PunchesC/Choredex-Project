@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AccountContext } from "../context/auth.context";
 import { Chore } from "../model/model";
 import { readAllChoresForTrainer } from "../service/pokemonService";
 import "./CalendarCard.css";
@@ -6,13 +7,14 @@ import "./CalendarCard.css";
 interface Props {
   ourTrainer: string;
   // onDelete: () => void;
-  onComplete?: () => void;
+  onComplete?: (chore:Chore) => void;
   choresUpdateTrigger?: any;
 }
 
 function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
-  const [on, setOn] = useState(false);
+  // const [on, setOn] = useState(false);
+  const {currentUser,isAdmin,account} = useContext(AccountContext);
 
   useEffect(() => {
     loadTrainerChores();
@@ -25,15 +27,17 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   }
   let addNoDisplay = "";
   let addSlash = "";
-  if (on === true) {
-    addNoDisplay = " noDisplay";
-    addSlash = " Slash";
-  }
 
-  function changeState() {
-    setOn(true);
-    onComplete!();
-  }
+//needs to be replace with account admin
+//WORKS BUT ISSUE WITH ADMIN BEING ALSO A TRAINER
+// if(isAdmin && currentUser===account.adminName){
+//   addNoDisplay = " noDisplay";
+// }
+
+
+ 
+//needs to be replace with account admin
+
 
   return (
     <div className="CalendarCard">
@@ -60,9 +64,10 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                 <br></br>
                 Difficulty: {chore.difficulty}
                 <br></br>
+                {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
               </div>
             ))}
-            <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+            
         </div>
         <div>
             {chores
@@ -77,7 +82,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                 </div>
               ))}
-             <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+       {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
         </div>
         <div>
             {chores
@@ -92,7 +97,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                 </div>
               ))}
-              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
         </div>
         <div>
             {chores
@@ -107,7 +112,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                 </div>
               ))}
-              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
         </div>
         <div>
             {chores
@@ -122,7 +127,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                 </div>
               ))}
-              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
         </div>
         <div>
             {chores
@@ -137,7 +142,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                 </div>
               ))}
-              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
         </div>
         <div>
             {chores
@@ -152,7 +157,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
                   <br></br>
                 </div>
               ))}
-              <button className={"DoneButton"+ addNoDisplay} onClick={changeState}>DONE</button>
+              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
         </div>
       </div>
     </div>

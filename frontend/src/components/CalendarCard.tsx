@@ -46,7 +46,6 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
             .filter((eachChore) => eachChore.monday)
             .map((chore, i) => (
               <div key={i} className={addSlash}>
-                {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                 {chore.title}
                 <br></br>
                 {chore.description}

@@ -9,22 +9,24 @@ import TaskForm from './TaskForm';
 //  });
 
 
-test('header classes',() =>{
+test('task title',() =>{
   const spy = jest.fn();
   const spy2 = jest.fn();
   render(<TaskForm onSubmit={spy} onClose={spy2}/>);
-  const text = screen.getByText("Task Title:");
+  const text = screen.getByText("task title:");
   expect(text).toBeInTheDocument();
  });
+
+ 
 
 //  test('filling out form calls callbackwith task title, task description,days, trainer, difficulty',() =>{
 //   const spy = jest.fn();
 //   const spy2 = jest.fn();
 //   render(<TaskForm onSubmit={spy} onClose={spy2}/>);
-//   const inputTitle = screen.getByRole("textbox",{name:"Task Title:"});
-//   fireEvent.change(inputTitle, { target: { value: 'test thing' } });
-//   // const inputDescription = screen.getByRole("textbox",{name:"Task Description(optional):"});
-//   // fireEvent.change(inputDescription, { target: { value: 'test thing' } });
+//   const inputTitle = screen.getByRole("textbox",{name:"task title:"});
+//   fireEvent.change(inputTitle, { target: { value: 'test title' } });
+//   const inputDescription = screen.getByRole("textbox",{name:"task description(optional):"});
+//   fireEvent.change(inputDescription, { target: { value: 'test description' } });
 //   const doneMondayCheckbox = screen.getByRole("checkbox", { name: "monday" });
 //   fireEvent.click(doneMondayCheckbox);
 //   const doneTuesdayCheckbox = screen.getByRole("checkbox", { name: "tuesday" });
@@ -38,7 +40,7 @@ test('header classes',() =>{
 //   const doneSaturdayCheckbox = screen.getByRole("checkbox", { name: "saturday" });
 //   fireEvent.click(doneSaturdayCheckbox);
 //   const doneSundayCheckbox = screen.getByRole("checkbox", { name: "sunday" });
-//   // fireEvent.click(doneSundayCheckbox);
+//   fireEvent.click(doneSundayCheckbox);
 //   // const trainerSelect = screen.getByRole("listbox", { name: "Select Trainer:" });
 //   // fireEvent.change(trainerSelect, {target: {value: 'test thing'}});
 //   // const difficultySelect = screen.getByRole("listbox", { name: "Level of Difficulty:" });
@@ -48,6 +50,9 @@ test('header classes',() =>{
 //   fireEvent.click(screen.getByRole("button",{name:"submit"}));
 //   expect(spy).toBeCalledWith({
 //   name: "test thing", 
+//   title:"test title",
+//   description:"test description",
+//   difficulty:"easy",
 //   monday: true, 
 //   tuesday:true, 
 //   wednesday:true,
@@ -55,9 +60,12 @@ test('header classes',() =>{
 //   friday:true,
 //   saturday:true,
 //   sunday:true,
+//   trainer:"Jimmy"
 
 
 //   });
   
 
 // });
+
+

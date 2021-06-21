@@ -67,9 +67,10 @@ function TrainerChoredex(){
           })
         };
         updateAccount(newAccount);
-        updateChoreInDatabase(chore).then(() => 
-        setChoresUpdateTrigger(prev => prev + 1))
-        console.log(chore);
+        chore.complete = true;
+        updateChoreInDatabase(chore).then(() => {
+          setChoresUpdateTrigger(prev => prev + 1)
+        })
         console.log(currentTrainer);
         console.log(trainers);
         console.log(newAccount);

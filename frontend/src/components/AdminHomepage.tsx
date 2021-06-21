@@ -38,6 +38,7 @@ function AdminHomepage(){
       setChoresUpdateTrigger(prev => prev + 1))
     }
 
+
     function handleAddTrainer(trainer: Trainer): void {
       account.trainers.push(trainer)
       updateAccount(account);

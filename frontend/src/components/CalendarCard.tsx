@@ -28,22 +28,6 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   let addNoDisplay = "";
   let addSlash = "";
 
-  // if(!onComplete){
-  //   addNoDisplay = " noDisplay"
-  //   addSlash = " Slash"
-  // }
-
-//needs to be replace with account admin
-//WORKS BUT ISSUE WITH ADMIN BEING ALSO A TRAINER
-// if(isAdmin && currentUser===account.adminName){
-//   addNoDisplay = " noDisplay";
-// }
-
-
- 
-//needs to be replace with account admin
-
-
   return (
     <div className="CalendarCard">
       <h5 className="CalendarTitle">{ourTrainer}'s Calendar</h5>
@@ -62,13 +46,14 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
             .filter((eachChore) => eachChore.monday)
             .map((chore, i) => (
               <div key={i} className={addSlash}>
+                {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
                 {chore.title}
                 <br></br>
                 {chore.description}
                 <br></br>
                 Difficulty: {chore.difficulty}
                 <br></br>
-               <button className={"DoneButton"+ addNoDisplay} onClick={onComplete!(chore)!}>DONE</button>
+               {onComplete && <button className="DoneButton" onClick={() => onComplete(chore)}>DONE</button>}
               </div>
             ))}
         </div>

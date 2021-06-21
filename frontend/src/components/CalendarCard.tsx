@@ -3,6 +3,7 @@ import { AccountContext } from "../context/auth.context";
 import { Chore } from "../model/model";
 import { readAllChoresForTrainer } from "../service/pokemonService";
 import "./CalendarCard.css";
+import EachChore from "./EachChore";
 
 interface Props {
   ourTrainer: string;
@@ -44,111 +45,53 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
         <div>
           {chores
             .filter((eachChore) => eachChore.monday)
-            .map((chore, i) => (
-              <div key={i} className={addSlash}>
-                {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
-                {chore.title}
-                <br></br>
-                {chore.description}
-                <br></br>
-                Difficulty: {chore.difficulty}
-                <br></br>
-               {onComplete && <button className="DoneButton" onClick={() => onComplete(chore)}>DONE</button>}
-              </div>
+            .map((aChore, i) => (
+              <EachChore key={i} chore={aChore} onComplete={onComplete}/>
             ))}
         </div>
         <div>
-            {chores
-              .filter((eachChore) => eachChore.tuesday)
-              .map((chore, i) => (
-                <div key={i} className={addSlash}>
-                  {chore.title}
-                  <br></br>
-                  {chore.description}
-                  <br></br>
-                  Difficulty: {chore.difficulty}
-                  <br></br>
-                </div>
-              ))}
-       {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
+          {chores
+            .filter((eachChore) => eachChore.tuesday)
+            .map((aChore, i) => (
+              <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+            ))}
         </div>
         <div>
-            {chores
-              .filter((eachChore) => eachChore.wednesday)
-              .map((chore, i) => (
-                <div key={i} className={addSlash}>
-                  {chore.title}
-                  <br></br>
-                  {chore.description}
-                  <br></br>
-                  Difficulty: {chore.difficulty}
-                  <br></br>
-                </div>
-              ))}
-              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
+          {chores
+            .filter((eachChore) => eachChore.wednesday)
+            .map((aChore, i) => (
+              <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+            ))}
         </div>
         <div>
-            {chores
-              .filter((eachChore) => eachChore.thursday)
-              .map((chore, i) => (
-                <div key={i} className={addSlash}>
-                  {chore.title}
-                  <br></br>
-                  {chore.description}
-                  <br></br>
-                  Difficulty: {chore.difficulty}
-                  <br></br>
-                </div>
-              ))}
-              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
+          {chores
+            .filter((eachChore) => eachChore.thursday)
+            .map((aChore, i) => (
+              <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+            ))}
         </div>
         <div>
-            {chores
-              .filter((eachChore) => eachChore.friday)
-              .map((chore, i) => (
-                <div key={i} className={addSlash}>
-                  {chore.title}
-                  <br></br>
-                  {chore.description}
-                  <br></br>
-                  Difficulty: {chore.difficulty}
-                  <br></br>
-                </div>
-              ))}
-              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
-        </div>
-        <div className="CalendarGridChores">
-            {chores
-              .filter((eachChore) => eachChore.monday)
-              .map((chore, i) => (
-                <div key={i} className={addSlash}>
-                  {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
-                  {chore.title}
-                  <br></br>
-                  {chore.description}
-                  <br></br>
-                  Difficulty: {chore.difficulty}
-                  <br></br>
-                </div>
-              ))}
-              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
+          {chores
+            .filter((eachChore) => eachChore.friday)
+            .map((aChore, i) => (
+              <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+            ))}
         </div>
         <div>
-            {chores
-              .filter((eachChore) => eachChore.sunday)
-              .map((chore, i) => (
-                <div key={i} className={addSlash}>
-                  {chore.title}
-                  <br></br>
-                  {chore.description}
-                  <br></br>
-                  Difficulty: {chore.difficulty}
-                  <br></br>
-                </div>
-              ))}
-              {!onComplete && <button className={"DoneButton"+ addNoDisplay} onClick={onComplete}>DONE</button>}
+          {chores
+            .filter((eachChore) => eachChore.saturday)
+            .map((aChore, i) => (
+              <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+            ))}
         </div>
-      </div>
+        <div>
+          {chores
+            .filter((eachChore) => eachChore.sunday)
+            .map((aChore, i) => (
+              <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+            ))}
+        </div>
+      </div>      
     </div>
   );
 }

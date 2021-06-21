@@ -15,6 +15,11 @@
     text-align: right;
     border-bottom: 1px solid black;
     font-style: italic;
+    color: #f55d3e;
+}
+
+.days {
+    font-weight: bold;
 }
 
 /* th {
@@ -37,8 +42,7 @@ table {
     width: 100%;
 } */
 
-.CalendarGrid {
-    font-style: italic;
+.CalendarGridDays {
     font-size: 12px;
     border-bottom: 1px solid black;
 }
@@ -48,19 +52,25 @@ table {
     font-weight: bold;
 }
 
-.CalendarGrid, .CalendarGridChores {
+.CalendarGridDays, .CalendarGridChores {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+button {
+    color: black;
 }
 
 .DoneButton {
     margin: 2px;
+    color: black;
     background-color: unset;
     border: unset;
     border-radius: unset;
     font-weight: bold;
     border-bottom: 1px solid black;
-    width: 90%;
+    width: 80%;
 }
 
 .DoneButton:hover {
@@ -100,5 +110,9 @@ table {
     .CalendarGridChores {
         grid-column-start: 2;
     } */
+
+    .CalendarGridDays {
+
+    }
 
 }

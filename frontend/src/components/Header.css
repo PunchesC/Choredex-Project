@@ -2,7 +2,7 @@
   display:flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.705);
+  background-color: #878E88;
 }
 
 .navLinks, .NavLinkButton {
@@ -11,12 +11,13 @@
   font-style: normal;
   padding: 5px 20px;
   font-size: 16px;
+  font-weight: unset;
 }
 
 .navLinks:hover, .NavLinkButton:hover {
   border: 1px solid white;
   border-radius: 5px;
-  background-color: black;
+  /* background-color: black; */
   color: white;
 }
 
@@ -30,9 +31,9 @@
   font-size: 65px;
   color: white;
   text-decoration: none;
-  font-style: normal;
   padding: 5px 20px;
   font-style: italic;
+  font-weight: lighter;
 }
 
 .navLogo:hover {
@@ -46,14 +47,37 @@
 
 
 .welcomeMessage {
-  color: rgb(163, 162, 162);
+  color: #f7cb15;
   text-shadow: 0 0 10px white;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: bold;
 }
 
 /* .welcomeMessage .letter {
 } */
+
+/* @media only screen and (max-width: 1300px) {
+
+  .navLinks, .NavLinkButton {
+    font-size: 14px;
+    padding: 2px;
+  }
+
+  .NavLinkButton {
+    padding: 2px;
+  }
+  
+}
+
+@media only screen and (max-width: 1166px) {
+
+  .welcomeMessage {
+    font-size: 12px;
+  }
+  
+} */
+
 
 @media only screen and (max-width: 481px) {
     
@@ -63,7 +87,7 @@
 
   .navLinks, .NavLinkButton {
     font-size: 12px;
-    padding: 3px;
+    padding: 2px;
   }
 
   .welcomeMessage {

@@ -19,19 +19,23 @@ body {
     width: 35%;
 }
 
-h3 {
+.Welcome {
     font-style: italic;
-    font-weight: unset;
+    font-size: 37px;
+    font-weight: bold;
     border-bottom: 1px solid white;
-    color: white;
-    text-align: unset;
-    padding: unset;
+    color: #F55D3E;
+    text-align: right;
+    padding: 5px;
 }
 
-h4 {
-    font-size: 14px;
-    font-weight: unset;
+.About {
+    font-size: 16px;
     color: white;
+    /* font-weight: bold; */
+    text-align: justify;
+    /* background-color: #878E88;
+    padding: 5px; */
 }
 
 .rightSide {
@@ -55,6 +59,7 @@ h4 {
 .pokeText {
     height: 85px;
     padding-top: 20px;
+    margin-bottom: 10px;
 }
 
 .pokemon {
@@ -85,6 +90,14 @@ h4 {
 
     .pokemon {
         height: 100px
+    }
+
+    .About {
+        font-size: 14px;
+    }
+
+    .Welcome {
+        font-size: 25;
     }
 
 }

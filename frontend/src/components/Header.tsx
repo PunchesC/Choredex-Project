@@ -65,11 +65,10 @@ function testing(){
             {!currentUser&&<NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay} onClick={testing}>sign in</NavLink>}
             {!currentUser&&<NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>}
             {currentUser&& <span className="welcomeMessage">Welcome {currentUser}, to the {account.gymName}!</span>}
-            {currentUser===account.adminName && <button className="NavLinkButton" onClick={goToAdminHomepage}>view homepage</button>}
-            {currentUser && <button className="NavLinkButton" onClick={goToChoredex}>view choredex</button>}
+            {currentUser===account.adminName && <button className="NavLinkButton" onClick={goToAdminHomepage}>homepage</button>}
+            {/* {currentUser && <button className="NavLinkButton" onClick={goToChoredex}>choredex</button>} */}
             {currentUser&&<button className="NavLinkButton" onClick={signOut}>sign out</button>}
           </nav>
-          
     </div>
    
   )

@@ -96,7 +96,7 @@ function TrainerChoredex(){
       </div>
       {currentTrainer!.pokemons.map((poke, i) => (
             <p key={i} className="pokemonCard">
-              {poke.name}<br/> 
+              <p className="PokeName">{poke.name}</p> 
               <img src={poke.picUrl} alt='' className="pokemonCard_pic"/><br/>
               HP: {poke.hpAmount}<br/>
               Attack: {poke.attackAmount}<br/>

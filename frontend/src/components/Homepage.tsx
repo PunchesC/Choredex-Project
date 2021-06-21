@@ -1,5 +1,5 @@
 import "./Homepage.css";
-import gottaCleanItAll from "../assets/gottaCleanItAll.png";
+import gottaCleanItAll2 from "../assets/gottaCleanItAll2.png";
 import pokemon from '../assets/pokemon.jpg';
 
 function Homepage() {
@@ -8,8 +8,8 @@ function Homepage() {
     <div className="Homepage">
 
       <div className="leftSide">
-        <h3>welcome!</h3>
-        <h4>how difficult is it sometimes to offer children incentive to do basic, 
+        <h3 className="Welcome">welcome!</h3>
+        <h4 className="About">how difficult is it sometimes to offer children incentive to do basic, 
           everyday chores/tasks around the house without always offering them money 
           to do so? do you live with multiple roommates and have a tough time trying 
           to divvy up the tasks between yourselves? with this application you will be 
@@ -22,7 +22,7 @@ function Homepage() {
 
         <div className="rightSide">
           <div className="rightFrame">
-            <img className="pokeText" src={gottaCleanItAll} alt="gotta clean it all" />
+            <img className="pokeText" src={gottaCleanItAll2} alt="gotta clean it all" />
             <img className="pokemon" src={pokemon} alt="starter pokemon" />
           </div>
         </div>

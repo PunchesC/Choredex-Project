@@ -13,7 +13,7 @@
     padding: 10px;
     font-style: italic;
     text-align: center;
-    color: black;
+    font-weight: bold;
 }
 
 label {
@@ -22,11 +22,11 @@ label {
 }
 
 button {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    background-color: rgb(204, 202, 202);
+    background-color: rgb(177, 174, 174);
     border-radius: 10px;
     padding: 5px 15px;
     margin: 30px;

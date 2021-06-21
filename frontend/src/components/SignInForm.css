@@ -1,19 +1,18 @@
 .SignInForm{
-  background-color: white;
+  background-color: #FFFFFF;
   border-radius: 20px;
   margin: 0 auto;
   width: 60%;
   margin-top: 40px;
-  padding-top:20px;
   text-align: center;
 }
 
 .Title {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #F55D3E;
   padding: 10px;
   font-style: italic;
   text-align: center;
-  color: black;
+  color: #F55D3E;
 }
 
 label {
@@ -22,18 +21,20 @@ label {
 }
 
 button {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-style: italic;
-  background-color: rgb(204, 202, 202);
+  background-color: #878E88;
   border-radius: 10px;
   padding: 5px 15px;
   margin: 30px;
+  color: white;
+  font-weight: lighter;
 }
 
 button:hover {
-  background-color: rgb(167, 164, 164);
+  background-color: #6f7570;
 }
 
 /* .SignInForm label{

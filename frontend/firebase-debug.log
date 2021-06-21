@@ -1,0 +1,65 @@
+[debug] [2021-06-21T18:04:55.435Z] ----------------------------------------------------------------------
+[debug] [2021-06-21T18:04:55.437Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kalei\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting:github
+[debug] [2021-06-21T18:04:55.438Z] CLI Version:   9.12.1
+[debug] [2021-06-21T18:04:55.438Z] Platform:      win32
+[debug] [2021-06-21T18:04:55.438Z] Node Version:  v14.16.0
+[debug] [2021-06-21T18:04:55.439Z] Time:          Mon Jun 21 2021 14:04:55 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-06-21T18:04:55.439Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-21T18:04:55.442Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-06-21T18:04:55.465Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-21T18:04:55.465Z] > authorizing via signed-in user (kaleigh200@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\kalei\Desktop\GC\FINAL-PROJECT\Choredex-Project\Choredex-Project
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[debug] [2021-06-21T18:04:56.539Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-06-21T18:04:56.540Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using choredex. 
+[debug] [2021-06-21T18:05:27.950Z] > refreshing access token with scopes: []
+[debug] [2021-06-21T18:05:27.951Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-21T18:05:28.126Z] <<< HTTP RESPONSE 200 {"date":"Mon, 21 Jun 2021 18:05:28 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-21T18:05:28.186Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/choredex [none]
+[debug] [2021-06-21T18:05:29.251Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/choredex 200
+[debug] [2021-06-21T18:05:29.251Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/choredex {"projectId":"choredex","projectNumber":"1088613946083","displayName":"Choredex","name":"projects/choredex","resources":{"hostingSite":"choredex","storageBucket":"choredex.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at C:\Users\kalei\Desktop\GC\FINAL-PROJECT\Choredex-Project\Choredex-Project 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=798486138&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-06-21T18:06:12.931Z] >>> HTTP REQUEST POST https://github.com/login/oauth/access_token  
+ {"client_id":"89cf50f02ac6aaed3484","client_secret":"3330d14abc895d9a74d5f17cd7a00711fa2c5bf0","code":"18aeadcfccd9fbcdcd83","redirect_uri":"http://localhost:9005","state":"798486138"}
+[debug] [2021-06-21T18:06:13.156Z] <<< HTTP RESPONSE 200 {"server":"GitHub.com","date":"Mon, 21 Jun 2021 18:06:13 GMT","content-type":"application/json; charset=utf-8","transfer-encoding":"chunked","vary":"X-PJAX, Accept-Encoding, Accept, X-Requested-With","permissions-policy":"interest-cohort=()","etag":"W/\"6efbfa4f0a1940aacb91f822f8a51133\"","cache-control":"max-age=0, private, must-revalidate","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"0","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","expect-ct":"max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"","content-security-policy":"default-src 'none'; base-uri 'self'; block-all-mixed-content; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com cdn.optimizely.com logx.optimizely.com/v1/events translator.github.com wss://alive.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com secured-user-images.githubusercontent.com/ *.githubusercontent.com; manifest-src 'self'; media-src 'none'; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; worker-src github.com/socket-worker-3f088aa2.js gist.github.com/socket-worker-3f088aa2.js","x-github-request-id":"EB00:5C6A:246438:3A9B4D:60D0D515"}
+[debug] [2021-06-21T18:06:13.159Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2021-06-21T18:06:13.501Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2021-06-21T18:06:13.501Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"kaleighgriffin","id":77368035,"node_id":"MDQ6VXNlcjc3MzY4MDM1","avatar_url":"https://avatars.githubusercontent.com/u/77368035?v=4","gravatar_id":"","url":"https://api.github.com/users/kaleighgriffin","html_url":"https://github.com/kaleighgriffin","followers_url":"https://api.github.com/users/kaleighgriffin/followers","following_url":"https://api.github.com/users/kaleighgriffin/following{/other_user}","gists_url":"https://api.github.com/users/kaleighgriffin/gists{/gist_id}","starred_url":"https://api.github.com/users/kaleighgriffin/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kaleighgriffin/subscriptions","organizations_url":"https://api.github.com/users/kaleighgriffin/orgs","repos_url":"https://api.github.com/users/kaleighgriffin/repos","events_url":"https://api.github.com/users/kaleighgriffin/events{/privacy}","received_events_url":"https://api.github.com/users/kaleighgriffin/received_events","type":"User","site_admin":false,"name":"Kaleigh Griffin","company":null,"blog":"https://www.linkedin.com/in/kaleigh-griffin/","location":"Grand Rapids, MI, USA","email":null,"hireable":null,"bio":"Full Stack Web Developer blooming from crafting cocktails and into crafting web applications.","twitter_username":null,"public_repos":25,"public_gists":0,"followers":0,"following":0,"created_at":"2021-01-13T01:11:55Z","updated_at":"2021-06-21T18:06:12Z","private_gists":0,"total_private_repos":0,"owned_private_repos":0,"disk_usage":2026,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as kaleighgriffin 
+[info] 
+[debug] [2021-06-21T18:07:26.130Z] >>> [apiv2][query] GET https://api.github.com/repos/kaleighgriffin/Choredex-Project/actions/secrets/public-key type=owner
+[debug] [2021-06-21T18:07:26.347Z] <<< [apiv2][status] GET https://api.github.com/repos/kaleighgriffin/Choredex-Project/actions/secrets/public-key 404
+[debug] [2021-06-21T18:07:26.347Z] <<< [apiv2][body] GET https://api.github.com/repos/kaleighgriffin/Choredex-Project/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/actions#get-a-repository-public-key"}

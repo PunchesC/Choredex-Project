@@ -16,6 +16,8 @@
 
 .trainerFormTitle {
     color: black;
+    border-bottom: 1px solid black;
+    font-weight: bold;
 }
 
 .FormModal {

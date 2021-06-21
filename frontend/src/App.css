@@ -1,10 +1,10 @@
 .AppBody {
-    background-color: rgb(153, 150, 149);
+    background-color: #76BED0;
     font-family: 'Roboto', sans-serif;
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.89);
+    /* background-color: rgba(0, 0, 0, 0.986); */
     color: white;
     display:flex;
     justify-content: space-between;
@@ -29,11 +29,12 @@ h1, nav {
 .navLinks:hover {
     border: 1px solid white;
     border-radius: 5px;
-    background-color: black;
+    /* background-color: black; */
+    background-color: #6f7570;
 }
 
 footer {
-    background-color: white;
+    background-color: #FFFFFF;
     height: 40px;
     display: flex;
     align-items: center;

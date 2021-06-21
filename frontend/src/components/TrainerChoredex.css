@@ -2,17 +2,24 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
-    border: 5px solid black;
+    border: 2px solid black;
     display: inline-block;
     border-radius: 10px;
     margin: 10px;
-    background-color: rgba(255, 255, 255, 0.555);
+    background-color: #c7ecf5;
     font-weight: bold;
     font-size: 12px;
     text-transform: capitalize;
+    box-shadow: 0 0 3px black;
+    font-style: normal;
 }
 
-/* .pokemonCard:after {
+.PokeName {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* .pokemonCard_pic {
     content: "";
     position: absolute;
     top: 0px;
@@ -28,7 +35,7 @@
    
 }
 
-.pokemonCard:hover:after {
+.pokemonCard_pic:after {
     width: 120%;
     background-color: rgba(255,255,255,0);
     -webkit-transition: all 0.3s ease-out;
@@ -41,9 +48,11 @@
 .pokemonCard_pic{
     width: 150px;
     height: 150px;
-    border: 2px solid black;
-    background-color: rgba(255, 255, 255, 0.637);
-    border-radius: 10px;
+    border: 1px solid black;
+    background-image: url('../assets/sparkle.jpg');
+    background-size: cover;
+    /* border-radius: 10px; */
+    margin-bottom: 8px;
 }
 
 .TrainerTitle {

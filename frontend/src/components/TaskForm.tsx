@@ -91,7 +91,7 @@ function TaskForm({onSubmit, onClose}:Props){
       </div>
 
       <div className="TaskForm_right_container">
-        <label>select day(s):<br></br>
+        <div>select day(s):<br></br>
           <label>
             <input type="checkbox" onClick={e => setMonday(true)}></input>monday
           </label>{" "}
@@ -113,7 +113,7 @@ function TaskForm({onSubmit, onClose}:Props){
           <label>
             <input type="checkbox" onClick={e => setSunday(true)}></input>sunday
           </label>  
-        </label><br></br>
+        </div><br></br>
       {/* Number of trainer dependent on the amount selected on Account Form */}
         <label>select trainer:
           <select value={ourTrainer} onChange={e=> setOurTrainer(e.target.value)} required>

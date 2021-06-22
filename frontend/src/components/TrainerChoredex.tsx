@@ -104,7 +104,7 @@ function TrainerChoredex(){
               Attack: {poke.attackAmount}<br/>
               Defense: {poke.defenseAmount}<br/>
               Speed: {poke.speedAmount}
-            </p>))}
+            </p>))} <br></br>
       {/* This is where the specific trainer calendar card will go! */}
       <button className="TopButton" onClick={ scrollToTop } >back to top</button>
     </div>

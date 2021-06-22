@@ -125,6 +125,24 @@ app.get("/accounts/:id", async (req, res) => {
   }
 });
 
+
+
+app.get("/accounts/by-gym-name/:gymName", async (req, res) => {
+  const gymName = req.params.gymName;
+  try {
+    const client = await getClient();
+    const account = await client.db().collection<Account>('accounts').findOne({ gymName : gymName });
+    if (account) {
+      res.json(account);
+    } else {
+      res.status(404).json({message: "Not Found"});
+    }
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
 app.put("/accounts/:id", async (req, res) => {
   const id = req.params.id;
   const account = req.body as Account;
@@ -143,7 +161,7 @@ app.put("/accounts/:id", async (req, res) => {
     res.status(500).json({message: "Internal Server Error"});
   }
 });
-//I (Curtis added this!!!)
+
 app.put("/chores/:id", async (req, res) => {
   const id = req.params.id;
   const chore = req.body as Chore;

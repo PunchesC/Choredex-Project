@@ -2,7 +2,7 @@ import { FormEvent, useContext, useState } from "react";
 import { AccountContext } from "../context/auth.context";
 import { useHistory } from "react-router-dom"
 import "./SignInForm.css";
-
+import sweeping from '../assets/sweeping.png'
 
 function SignInForm(){
 const [adminName, setAdminName] = useState("");
@@ -52,6 +52,7 @@ if(account.adminName===adminName && account.adminPassword===password){
       <div>
         <button type="submit">sign in</button>
       </div>
+      <img className="sweeping" src={sweeping} alt="minccino sweeping" />
     </form>
   )
 }

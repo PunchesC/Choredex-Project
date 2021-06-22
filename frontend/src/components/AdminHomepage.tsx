@@ -82,11 +82,6 @@ function AdminHomepage(){
 
       <button className="TopButton" onClick={ scrollToTop } >back to top</button>
 
-      {/* <div className="AdminFooter">
-        <button onClick={ handleShowTrainerForm }>add trainer</button>
-        <button onClick={ handleShowTaskForm }>add task</button>
-        <button onClick={ scrollToTop } >back to top</button>
-      </div> */}
     </div>
   );
 

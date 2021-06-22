@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { FormEvent, useContext, useState } from 'react';
 import {Account, Trainer} from '../model/model';
 import { AccountContext } from '../context/auth.context';
+import vacuuming from '../assets/vacuuming.png';
 
 // interface Props {
 //   onSubmit: (account:Account) => void;
@@ -63,9 +64,9 @@ function AccountForm(){
         </label><br></br>
       </div>
       <div className="AccountForm_right_container">
-        <label>calendar title:<br></br>
+        {/* <label>calendar title:<br></br>
           <input type="text" value={calendarTitle} onChange={(e) => setCalendarTitle(e.target.value)} required/>
-        </label><br></br>
+        </label><br></br> */}
         {/* <label>Number of Trainers
           <input></input>
         </label> */}
@@ -77,7 +78,8 @@ function AccountForm(){
         <input></input>
         </label> */}
       </div>
-      <button type="submit">submit</button>
+      <button type="submit">submit</button><br></br>
+      <img className="vacuuming" src={vacuuming} alt="mr mime vacuuming" />
     </form>
   );
 

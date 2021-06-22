@@ -86,7 +86,9 @@ function TrainerChoredex(){
       //   )};
 
 
-    
+      function scrollToTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }
 
   return (
     <div className="TrainerChoredex">
@@ -104,7 +106,7 @@ function TrainerChoredex(){
               Speed: {poke.speedAmount}
             </p>))}
       {/* This is where the specific trainer calendar card will go! */}
-      
+      <button className="TopButton" onClick={ scrollToTop } >back to top</button>
     </div>
   )
 }

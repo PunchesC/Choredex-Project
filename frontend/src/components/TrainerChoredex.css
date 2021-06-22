@@ -2,20 +2,21 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
-    border: 2px solid black;
+    border: 1px solid black;
     display: inline-block;
     border-radius: 10px;
-    margin: 10px;
+    margin: 3px;
     background-color: #c7ecf5;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 9px;
     text-transform: capitalize;
     box-shadow: 0 0 3px black;
     font-style: normal;
+    text-align: left;
 }
 
 .PokeName {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0;
 }
 
@@ -46,24 +47,44 @@
 } */
 
 .pokemonCard_pic{
-    width: 150px;
-    height: 150px;
+    width: 85px;
+    height: 85px;
     border: 1px solid black;
     background-image: url('../assets/sparkle.jpg');
     background-size: cover;
     /* border-radius: 10px; */
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .TrainerTitle {
     display: none;
 }
 
-.CalendarGrid, .CalendarGridChores {
+.TrainerChoredex {
+    margin: 0 auto;
+    width: 85%;
     text-align: center;
 }
 
-.TrainerChoredex {
-    margin: 0 auto;
-    width: 80%;
+@media only screen and (min-width: 481px) { 
+
+    .pokemonCard {
+        margin: 10px;
+        font-size: 12px;
+        border: 2px solid black;
+    }
+
+    .PokeName {
+        font-size: 16px;
+    }
+
+    .pokemonCard_pic {
+        height: 120px;
+        width: 120px;
+        margin-bottom: 8px;
+    }
+
+    .TrainerChoredex {
+        width: 90%;
+    }
 }

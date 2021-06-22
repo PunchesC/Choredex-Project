@@ -144,10 +144,10 @@ function TaskForm({onSubmit, onClose}:Props){
             <option>hard</option>
         </select>
         </label><br></br>
-        <div className="chooseFile">
+        {/* <div className="chooseFile">
           <p>choose a file if you would like to attach a picture to help describe a task</p>
           <input ref={fileInputRef} type="file" />
-        </div>
+        </div> */}
         <button type="submit">submit</button>
         <button onClick={onClose}>close</button>
       </div>

@@ -17,17 +17,17 @@ function EachChore({onComplete, chore}:Props){
         {chore.complete === true ?
         <div className=" Slash">
                 {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
-                <p>{chore.title}</p>
-                <p>{chore.description}</p>
-                <p>difficulty: {chore.difficulty}</p>
+                <p className="ChoreTitle">{chore.title}</p>
+                <p className="ChoreDesc">{chore.description}</p>
+                <p className="ChoreDiff">difficulty: {chore.difficulty}</p>
                {onComplete && <button className="DoneButton noDisplay" onClick={() => onComplete(chore)}>DONE</button>}
         </div>
         : 
         <div>
                 {/* <pre>{JSON.stringify(chore, null, 2)}</pre> */}
-                <p>{chore.title}</p>
-                <p>{chore.description}</p>
-                <p>difficulty: {chore.difficulty}</p>
+                <p className="ChoreTitle">{chore.title}</p>
+                <p className="ChoreDesc">{chore.description}</p>
+                <p className="ChoreDiff">difficulty: {chore.difficulty}</p>
                {onComplete && <button className="DoneButton" onClick={() => onComplete(chore)}>DONE</button>}
         </div>}
         </div>

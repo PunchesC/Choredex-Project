@@ -46,12 +46,12 @@ export function AccountContextProvider({children}: {children:ReactNode;}) {
         updateAccountInDatabase(account); 
     }
 
- 
-
+//////////I NEED THIS TO KNOW
+////Account is now misty
     useEffect(() => {
-        readAccountById("60ca0d103e4534633954dd1c").then(accountFromApi => {
+        readAccountById("60d1ebab35da292b60ff674c").then(accountFromApi => {
             setAccount(accountFromApi)
-            // console.log(JSON.stringify(accountFromApi, null, 2));
+            console.log(JSON.stringify(accountFromApi, null, 2));
         });
     }, [])
 

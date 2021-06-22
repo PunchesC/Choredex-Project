@@ -4,10 +4,8 @@ import { FormEvent, useContext, useState } from 'react';
 import {Account, Trainer} from '../model/model';
 import { AccountContext } from '../context/auth.context';
 import vacuuming from '../assets/vacuuming.png';
+import { createAccount } from '../service/pokemonService';
 
-// interface Props {
-//   onSubmit: (account:Account) => void;
-// }
 
 function AccountForm(){
 
@@ -40,7 +38,7 @@ function AccountForm(){
       calendarTitle: calendarTitle,
       trainers: trainers
     }
-    // onSubmit(account);
+    createAccount(account);
     clearForm();
     alert("Successfully created a gym! Sign in to start adding trainers and assigning chores!")
   }

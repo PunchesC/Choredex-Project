@@ -4,7 +4,7 @@ import { useContext} from "react";
 import './Header.css'
 
 function Header(){
-const {account, currentUser, setCurrentUser,setAccount} = useContext(AccountContext);
+const {account, currentUser, setCurrentUser } = useContext(AccountContext);
 let history = useHistory();
 
 
@@ -38,10 +38,6 @@ if(currentUser===account.adminName){
 function signOut(){
 setCurrentUser("");
 history.push(`/`);
-}
-
-function goToAdminHomepage(){
-  history.push(`/homepage/${currentUser}`);
 }
 
 function testing(){

@@ -1,17 +1,11 @@
 import './AccountForm.css'
-import { useHistory } from 'react-router';
-import { FormEvent, useContext, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {Account, Trainer} from '../model/model';
-import { AccountContext } from '../context/auth.context';
 import vacuuming from '../assets/vacuuming.png';
 import { createAccount } from '../service/pokemonService';
 
 
 function AccountForm(){
-
-  // const { add account } = useContext(AccountContext);
-  const history = useHistory();
-  const {account} = useContext(AccountContext);
   const [ adminName, setAdminName ] = useState("");
   const [ adminPassword, setAdminPassword ] = useState("");
   const [ gymName, setGymName ] = useState("");

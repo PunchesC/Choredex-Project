@@ -14,13 +14,12 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
 
   useEffect(() => {
-    loadTrainerChores();
-  }, [choresUpdateTrigger]);
+    loadTrainerChores(ourTrainer);
+  }, [ourTrainer, choresUpdateTrigger]);
 
-  function loadTrainerChores() {
+  function loadTrainerChores(ourTrainer:string) {
     readAllChoresForTrainer(ourTrainer).then((choresFromApi) => {
       setChores(choresFromApi);
-      console.log(choresFromApi);
     });
   }
 

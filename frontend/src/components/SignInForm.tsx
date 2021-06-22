@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useEffect, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { AccountContext } from '../context/auth.context';
 import { useHistory } from 'react-router-dom';
 import './SignInForm.css';

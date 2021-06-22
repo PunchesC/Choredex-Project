@@ -5,10 +5,6 @@ interface Props{
     chore:Chore;
     onComplete?: (chore:Chore) => void;
 }
-let addNoDisplay = "";
-let addSlash = "";
-let onComplete;
-
 
 function EachChore({onComplete, chore}:Props){
 

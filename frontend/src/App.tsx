@@ -49,7 +49,3 @@ function App() {
 }
 
 export default App;
-
-      {/* 
-      <TaskForm />
-      <Pokemon /> */}

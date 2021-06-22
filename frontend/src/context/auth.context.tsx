@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { Account, Chore } from '../model/model'
-import { readAccountById, updateAccountInDatabase, updateChoreInDatabase } from '../service/pokemonService';
+import { Account } from '../model/model'
+import { readAccountById, updateAccountInDatabase } from '../service/pokemonService';
 
 interface AccountContextValue {
     account: Account;

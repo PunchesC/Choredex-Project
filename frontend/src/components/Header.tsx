@@ -2,12 +2,6 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { AccountContext } from '../context/auth.context';
 import { useContext} from "react";
 import './Header.css'
-import TrainerChoredex from './TrainerChoredex';
-import userEvent from '@testing-library/user-event';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
-
-
 
 function Header(){
 const {account, currentUser, setCurrentUser} = useContext(AccountContext);
@@ -46,10 +40,6 @@ setCurrentUser("");
 history.push(`/`);
 }
 
-function goToChoredex(){
-  for(let trainer of account.trainers!)
-  history.push(`/choredex/${currentUser}`);
-}
 function goToAdminHomepage(){
   history.push(`/homepage/${currentUser}`);
 }

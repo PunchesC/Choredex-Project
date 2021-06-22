@@ -1,5 +1,4 @@
-import { useEffect, useState, useContext } from "react";
-import { AccountContext } from "../context/auth.context";
+import { useEffect, useState } from "react";
 import { Chore } from "../model/model";
 import { readAllChoresForTrainer } from "../service/pokemonService";
 import "./CalendarCard.css";
@@ -7,14 +6,12 @@ import EachChore from "./EachChore";
 
 interface Props {
   ourTrainer: string;
-  // onDelete: () => void;
   onComplete?: (chore:Chore) => void;
   choresUpdateTrigger?: any;
 }
 
 function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
-  const {currentUser,isAdmin,account} = useContext(AccountContext);
 
   useEffect(() => {
     loadTrainerChores();

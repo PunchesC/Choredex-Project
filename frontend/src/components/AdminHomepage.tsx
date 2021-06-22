@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Chore, Trainer } from '../model/model';
-import { createTask, readAllChores, allPokemon} from '../service/pokemonService';
+import { createTask } from '../service/pokemonService';
 import './AdminHomepage.css';
 import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
@@ -14,7 +14,7 @@ function AdminHomepage(){
     const [ showTaskForm, setShowTaskForm ] = useState(false);
     const [ showTrainerForm, setShowTrainerForm ] = useState(false);
     const [choresUpdateTrigger, setChoresUpdateTrigger] = useState(0);
-    const {account, updateAccount, currentUser} = useContext(AccountContext);
+    const {account, updateAccount} = useContext(AccountContext);
     const trainers = account.trainers;
 
     function handleShowTaskForm() {

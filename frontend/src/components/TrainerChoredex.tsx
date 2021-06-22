@@ -49,9 +49,15 @@ function TrainerChoredex(){
     });
   };
 
-
-
   function handleCompleteTask(chore:Chore):void {
+    let randomPoke: Pokemon;
+    if (chore.difficulty === "easy"){
+      randomPoke = randomEasyPoke
+    } else if (chore.difficulty === "medium"){
+      randomPoke = randomMediumPoke
+    } else {
+      randomPoke = randomHardPoke
+    }
     
         const newAccount = { // copy of account
           ...account,
@@ -59,7 +65,7 @@ function TrainerChoredex(){
             if (trainer.name === currentUser) {
               return { // copy of current trainer
                 ...trainer,
-                pokemons: [ ...trainer.pokemons, randomEasyPoke ] // copy of pokemons
+                pokemons: [ ...trainer.pokemons, randomPoke ] // copy of pokemons
               }
             } else {
               return trainer;
@@ -72,10 +78,11 @@ function TrainerChoredex(){
           setChoresUpdateTrigger(prev => prev + 1)
         })
         console.log(currentTrainer);
-        console.log(trainers);
-        console.log(newAccount);
         console.log(chore.complete);
-
+        console.log(randomPoke);
+        console.log(randomEasyPoke);
+        console.log(randomMediumPoke);
+        console.log(randomHardPoke);
       }
 
 

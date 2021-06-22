@@ -103,7 +103,7 @@ function TrainerChoredex(){
       <div className="TrainerChoredex_calendar">
       <CalendarCard ourTrainer={currentUser} choresUpdateTrigger={choresUpdateTrigger} onComplete={ (chore) => handleCompleteTask(chore)}/>
       </div>
-      {currentTrainer!.pokemons.map((poke, i) => (
+      {currentTrainer!.pokemons.slice(0).reverse().map((poke, i) => (
             <p key={i} className="pokemonCard">
               <p className="PokeName">{poke.name}</p> 
               <img src={poke.picUrl} alt='' className="pokemonCard_pic"/><br/>

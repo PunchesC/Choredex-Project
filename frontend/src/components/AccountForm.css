@@ -18,7 +18,7 @@
 
 label {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 button {
@@ -47,3 +47,19 @@ input {
     width: 200px;
     margin-bottom: 15px;
 }
+
+@media only screen and (max-width: 481px) { 
+
+    .AccountForm {
+        width: 80%;
+    }
+
+    button {
+        margin: 10px;
+    }
+
+    .Title {
+        font-size: 22px;
+    }
+  
+  }

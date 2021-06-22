@@ -14,20 +14,20 @@ interface AccountContextValue {
   setCurrentUser: (user: string) => void;
   setAccount: (account: Account) => void;
 }
-const example: Account = {
-  _id: '60ca0d103e4534633954dd1c',
-  adminName: 'Ash',
-  adminPassword: '123',
-  gymName: 'Cerulean Gym',
-  gymPassword: '123',
-  calendarTitle: 'Galar League',
-  trainers: [
-    { name: 'Jimmy', pokemons: [] },
-    { name: 'Billy', pokemons: [] },
-    { name: 'Samantha', pokemons: [] },
-    { name: 'Ash', pokemons: [] },
-  ],
-};
+const example: Account = 
+    {
+        _id: "60ca0d103e4534633954dd1c",
+        adminName: "Ash",
+        adminPassword: "123",
+        gymName: "Cerulean Gym",
+        gymPassword: "123",
+        calendarTitle: "Galar League",
+        trainers: [
+            { name: "Jimmy", pokemons: [] },
+            { name: "Billy", pokemons: [] },
+            { name: "Samantha", pokemons: [] }
+        ]
+    };
 
 const defaultValue: AccountContextValue = {
   account: example,

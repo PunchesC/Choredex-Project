@@ -20,8 +20,7 @@ const example: Account =
         trainers: [
             { name: "Jimmy", pokemons: [] },
             { name: "Billy", pokemons: [] },
-            { name: "Samantha", pokemons: [] },
-            { name: "Ash", pokemons: [] }
+            { name: "Samantha", pokemons: [] }
         ]
     };
 

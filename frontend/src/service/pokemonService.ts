@@ -38,3 +38,13 @@ export function updateAccountInDatabase(account:Account):Promise<Account>{
 export function updateChoreInDatabase(chore:Chore):Promise<Chore>{
   return axios.put(`${baseUrl}/chores/${encodeURIComponent(chore._id!)}`,chore).then(res => res.data);
 }
+
+export function readAccountByGymName(gymName:string):Promise<Account>{
+ return axios.get(`${baseUrl}/accounts/by-gym-name/${gymName}`).then(res => res.data);
+  
+}
+
+// export function readAccountByGymName(gymName:string):Promise<Account>{
+//   return axios.get(baseUrl, { params: {gymName:gymName}}).then(res => res.data);
+   
+//  }

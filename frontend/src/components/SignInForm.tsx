@@ -1,51 +1,46 @@
-import { FormEvent, useContext, useState } from 'react';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 import { AccountContext } from '../context/auth.context';
 import { useHistory } from 'react-router-dom';
 import './SignInForm.css';
-import sweeping from '../assets/sweeping.png'
+import sweeping from '../assets/sweeping.png';
+import { readAccountByGymName } from '../service/pokemonService';
 function SignInForm() {
   const [adminName, setAdminName] = useState('');
   const [trainerName, setTrainerName] = useState('');
   const [password, setPassword] = useState('');
-  const { account, setCurrentUser } = useContext(AccountContext);
+  const [gymName, setGymName] = useState('');
+  const { setCurrentUser, setAccount } = useContext(AccountContext);
 
   let history = useHistory();
 
   function handleSubmit(event: FormEvent): void {
     event.preventDefault();
-    if (adminName.length !== 0) {
+
+    readAccountByGymName(gymName).then((accountFromApi) => {
+      setAccount(accountFromApi);
+
       if (
-        account.adminName === adminName &&
-        account.adminPassword === password
+        accountFromApi.adminName === adminName &&
+        accountFromApi.adminPassword === password
       ) {
-        console.log(
-          'Sucess Admin: ' + account.adminName + account.adminPassword
-        );
-        console.log(account.adminName);
         setCurrentUser(adminName);
-        history.push(`/homepage/${account.adminName}`);
-      }
-    } else {
-      for (let trainer of account.trainers) {
-        if (trainer.name === trainerName && account.gymPassword === password) {
-          console.log('Sucess Trainer: ' + trainer.name + account.gymPassword);
-          setCurrentUser(trainerName);
-          history.push(`/choredex/${trainer.name}`);
-          console.log(account.gymPassword);
+        history.push(`/homepage/${accountFromApi.adminName}`);
+      } else {
+        for (let trainer of accountFromApi.trainers) {
+          if (
+            trainer.name === trainerName &&
+            accountFromApi.gymPassword === password
+          ) {
+            setCurrentUser(trainerName);
+            history.push(`/choredex/${trainer.name}`);
+          }
         }
-        console.log(trainer);
-        console.log(trainer.name);
-        console.log(trainerName);
-        console.log(account.gymPassword);
       }
-    }
+    });
   }
 
   return (
     <form className="SignInForm" onSubmit={handleSubmit}>
-      {/* <h2>SIGN IN FORM</h2>
-      <div className="SignInForm_inputs">
-        <label>Admin Name: */}
       <h2 className="Title">SIGN IN FORM</h2>
       <div>
         <label>
@@ -61,6 +56,15 @@ function SignInForm() {
           <input
             value={trainerName}
             onChange={(e) => setTrainerName(e.target.value)}
+          ></input>
+        </label>
+        <br></br>
+        <label>
+          gym name:<br></br>
+          <input
+            type="text"
+            value={gymName}
+            onChange={(e) => setGymName(e.target.value)}
           ></input>
         </label>
         <br></br>

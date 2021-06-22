@@ -4,7 +4,7 @@ import { useContext} from "react";
 import './Header.css'
 
 function Header(){
-const {account, currentUser, setCurrentUser} = useContext(AccountContext);
+const {account, currentUser, setCurrentUser,setAccount} = useContext(AccountContext);
 let history = useHistory();
 
 

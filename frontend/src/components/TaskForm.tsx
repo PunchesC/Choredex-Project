@@ -19,7 +19,7 @@ function TaskForm({onSubmit, onClose}:Props){
   const [ friday, setFriday ] = useState(false);
   const [ saturday, setSaturday ] = useState(false);
   const [ sunday, setSunday ] = useState(false);
-  const [ ourTrainer, setOurTrainer ] = useState("Jimmy");
+  const [ ourTrainer, setOurTrainer ] = useState("Choose a trainer");
   const [ difficulty, setDifficulty ] = useState("easy");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -68,7 +68,7 @@ function TaskForm({onSubmit, onClose}:Props){
     function clearForm(){
       setTitle("");
       setDescription("");
-      setOurTrainer("Jimmy");
+      setOurTrainer("Choose a trainer");
       setDifficulty("easy")
 
       formRef.current?.reset();

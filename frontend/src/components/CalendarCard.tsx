@@ -26,8 +26,6 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
       console.log(choresFromApi);
     });
   }
-  let addNoDisplay = "";
-  let addSlash = "";
 
   return (
     <div className="CalendarCard">

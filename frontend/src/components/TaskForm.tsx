@@ -34,13 +34,6 @@ function TaskForm({onSubmit, onClose}:Props){
       description: description,
       trainer: ourTrainer,
       difficulty: difficulty,
-      monday: monday,
-      tuesday: tuesday,
-      wednesday: wednesday,
-      thursday: thursday,
-      friday: friday,
-      saturday: saturday,
-      sunday: sunday,
       complete: false
     }
 
@@ -60,7 +53,27 @@ function TaskForm({onSubmit, onClose}:Props){
         });
       });
     } else {
-      onSubmit(newChore);
+      if (monday) {
+        onSubmit({...newChore, monday:true});
+      } 
+      if (tuesday) {
+        onSubmit({...newChore, tuesday:true});
+      }
+      if (wednesday) {
+        onSubmit({...newChore, wednesday:true});
+      }
+      if (thursday) {
+          onSubmit({...newChore, thursday:true});
+      }
+      if (friday) {
+        onSubmit({...newChore, friday:true});
+      }
+      if (saturday) {
+        onSubmit({...newChore, saturday:true});
+      }
+      if (sunday) {
+        onSubmit({...newChore, sunday:true});
+      }
       onClose();
       clearForm();
     }
@@ -74,11 +87,13 @@ function TaskForm({onSubmit, onClose}:Props){
       formRef.current?.reset();
     }
 
+    
   }
+
+  
 
   return (
     <form className="TaskForm" onSubmit={handleSubmit} ref={formRef}>
-
       <h3 className="taskFormTitle">NEW TASK</h3>
 
       <div className="TaskForm_left_container">
@@ -93,25 +108,25 @@ function TaskForm({onSubmit, onClose}:Props){
       <div className="TaskForm_right_container">
         <div>select day(s):<br></br>
           <label>
-            <input type="checkbox" onClick={e => setMonday(true)}></input>monday
+            <input type="checkbox" name="day" onChange={e => setMonday(e.target.checked)}></input>{" "}monday
           </label>{" "}
           <label>
-            <input type="checkbox" onClick={e => setTuesday(true)}></input>tuesday
+            <input type="checkbox" name="day" onChange={e => setTuesday(e.target.checked)}></input>{" "}tuesday
           </label>{" "}
           <label>
-            <input type="checkbox" onClick={e => setWednesday(true)}></input>wednesday
+            <input type="checkbox" name="day" onChange={e => setWednesday(e.target.checked)}></input>{" "}wednesday
           </label>{" "}
           <label>
-            <input type="checkbox" onClick={e => setThursday(true)}></input>thursday
+            <input type="checkbox" name="day" onChange={e => setThursday(e.target.checked)}></input>{" "}thursday
           </label>{" "}
           <label>
-            <input type="checkbox" onClick={e => setFriday(true)}></input>friday
+            <input type="checkbox" name="day" onChange={e => setFriday(e.target.checked)}></input>{" "}friday
           </label>{" "}
           <label>
-            <input type="checkbox" onClick={e => setSaturday(true)}></input>saturday
+            <input type="checkbox" name="day" onChange={e => setSaturday(e.target.checked)}></input>{" "}saturday
           </label>{" "}
           <label>
-            <input type="checkbox" onClick={e => setSunday(true)}></input>sunday
+            <input type="checkbox" name="day" onChange={e => setSunday(e.target.checked)}></input>{" "}sunday
           </label>  
         </div><br></br>
       {/* Number of trainer dependent on the amount selected on Account Form */}

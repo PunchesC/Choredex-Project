@@ -42,7 +42,7 @@ test('renders chore title',() =>{
   expect(difficulty).toBeInTheDocument();
  });
 
- test('renders class when false',() =>{
+ test('does not render class when false',() =>{
     const sampleChore = {
         title: "Mow the lawn",
         discription: "and edging too",
@@ -51,8 +51,8 @@ test('renders chore title',() =>{
         complete: false
     }
   const {container} = render(<EachChore chore={sampleChore} />);
-  const doneButton = container.firstChild;
-  expect(doneButton).not.toHaveClass("Slash");
+  const rootEl = container.firstChild;
+  expect(rootEl?.firstChild).not.toHaveClass("Slash");
  });
 
  test('renders class when true',() =>{
@@ -64,6 +64,6 @@ test('renders chore title',() =>{
         complete: true
     }
   const {container} = render(<EachChore chore={sampleChore} />);
-  const doneButton = container.firstChild;
-  expect(doneButton).toHaveClass("EachChore");
+  const rootEl = container.firstChild;
+  expect(rootEl?.firstChild).toHaveClass("Slash");
  });

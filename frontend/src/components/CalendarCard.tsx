@@ -7,10 +7,11 @@ import EachChore from "./EachChore";
 interface Props {
   ourTrainer: string;
   onComplete?: (chore:Chore) => void;
+  onDelete?: (chore:Chore) => void;
   choresUpdateTrigger?: any;
 }
 
-function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
+function CalendarCard({ ourTrainer, onComplete, onDelete, choresUpdateTrigger }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
               {chores
                 .filter((eachChore) => eachChore.monday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -43,7 +44,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
               {chores
                 .filter((eachChore) => eachChore.tuesday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -53,7 +54,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
               {chores
                 .filter((eachChore) => eachChore.wednesday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -63,7 +64,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
               {chores
                 .filter((eachChore) => eachChore.thursday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -73,7 +74,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
               {chores
                 .filter((eachChore) => eachChore.friday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -83,7 +84,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
               {chores
                 .filter((eachChore) => eachChore.saturday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -93,7 +94,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger }: Props) {
               {chores
                 .filter((eachChore) => eachChore.sunday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onDelete={onDelete}/>
                 ))}
             </div>
           </div>

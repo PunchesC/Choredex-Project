@@ -38,7 +38,7 @@
     text-align: center;
 }
 
-.DoneButton {
+.DoneButton, .DeleteButton {
     margin: 2px;
     color: black;
     border: unset;
@@ -48,7 +48,7 @@
     border-radius: 5px;
 }
 
-.DoneButton:hover {
+.DoneButton:hover, .DeleteButton:hover {
     text-shadow: 0 0 10px black;
 }
 

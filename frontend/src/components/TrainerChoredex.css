@@ -20,41 +20,50 @@
     margin: 0;
 }
 
-/* .pokemonCard_pic {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 0%;
-    height: 100%;
-    background-color: rgba(255,255,255,0.4);
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
-    transition: none;
-   
-}
-
-.pokemonCard_pic:after {
-    width: 120%;
-    background-color: rgba(255,255,255,0);
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-} */
-
 .pokemonCard_pic{
     width: 85px;
     height: 85px;
     border: 1px solid black;
     background-image: url('../assets/sparkle.jpg');
     background-size: cover;
-    /* border-radius: 10px; */
     margin-bottom: 5px;
+
+    overflow: hidden;
+    display: inline-block;
 }
+
+/* .pokemonCard_pic:after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    opacity: 0;
+    transform: rotate(30deg);
+    
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.13) 0%,
+        rgba(255, 255, 255, 0.13) 77%,
+        rgba(255, 255, 255, 0.5) 92%,
+        rgba(255, 255, 255, 0.0) 100%
+    );
+}
+      
+.pokemonCard_pic:hover:after {
+    opacity: 1;
+    left: 100%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+}
+      
+.pokemonCard_Pic:active:after {
+    opacity: 0;
+} */
+      
 
 .TrainerTitle {
     display: none;

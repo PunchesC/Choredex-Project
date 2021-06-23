@@ -1,11 +1,10 @@
 import { useContext, useState } from 'react';
 import { Chore, Trainer } from '../model/model';
-import { createTask } from '../service/pokemonService';
+import { createTask, deleteTask, updateChoreInDatabase } from '../service/pokemonService';
 import './AdminHomepage.css';
 import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';
 import TrainerForm from './TrainerForm';
-// import { Button, Modal } from 'react-bootstrap';
 import { AccountContext } from '../context/auth.context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
@@ -32,12 +31,18 @@ function AdminHomepage(){
     function handleHideTrainerForm() {
       setShowTrainerForm(false);
     }
-///Do we need to add chores to trainer or account? 
+
     function handleAddTask(chore:Chore):void {
       createTask(chore).then(() => 
       setChoresUpdateTrigger(prev => prev + 1))
     }
 
+    function handleDeleteTask(choreId:string):void {
+      deleteTask(choreId).then(() => {
+        setChoresUpdateTrigger(prev => prev - 1)
+      });
+      console.log("Delete");
+    }
 
     function handleAddTrainer(trainer: Trainer): void {
       account.trainers.push(trainer)
@@ -51,37 +56,26 @@ function AdminHomepage(){
 
   return (
     <div className="AdminHomepage">
-
-      {/* <h3 className="Title">ADMIN HOMEPAGE</h3> */}
       <button className="AdminButtons" onClick={ handleShowTrainerForm }>add trainer</button>
 
       <Modal size="sm" centered show={ showTrainerForm } onHide={ handleHideTrainerForm } animation={ false }>
-        {/* <Modal.Header>
-          <Modal.Title><h3 className="trainerFormTitle">ADD NEW TRAINER</h3></Modal.Title>
-        </Modal.Header> */}
         <Modal.Body>
           <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>
         </Modal.Body>
       </Modal>
-      {/* {showTrainerForm === true && <TrainerForm onSubmit={handleAddTrainer} onClose={ ()=> setShowTrainerForm(false) }/>} */}
 
       <button className="AdminButtons" onClick={ handleShowTaskForm }>add task</button>
 
       {trainers.map((eachTrainer, i) => 
-      <CalendarCard key={i} ourTrainer={eachTrainer.name} choresUpdateTrigger={choresUpdateTrigger}/> )}
+      <CalendarCard key={i} ourTrainer={eachTrainer.name} choresUpdateTrigger={choresUpdateTrigger} onDelete={(chore) => handleDeleteTask(chore._id!)}/> )}
 
       <Modal size="lg" centered show={ showTaskForm } onHide={ handleHideTaskForm } animation={ false }>
-        {/* <Modal.Header>
-          <Modal.Title><h3 className="taskFormTitle">NEW TASK FORM</h3></Modal.Title>
-        </Modal.Header> */}
         <Modal.Body className="FormModal">
           <TaskForm onSubmit={ handleAddTask } onClose={ () => setShowTaskForm(false) }/>
         </Modal.Body>
       </Modal>
-      {/* {showTaskForm === true && <TaskForm onSubmit={handleAddTask} onClose={ () => setShowTaskForm(false) }/>} */}
 
       <button className="TopButton" onClick={ scrollToTop } >back to top</button>
-
     </div>
   );
 

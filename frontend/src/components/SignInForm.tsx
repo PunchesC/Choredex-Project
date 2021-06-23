@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './SignInForm.css';
 import sweeping from '../assets/sweeping.png';
 import { readAccountByGymName } from '../service/pokemonService';
+
 function SignInForm() {
   const [adminName, setAdminName] = useState('');
   const [trainerName, setTrainerName] = useState('');

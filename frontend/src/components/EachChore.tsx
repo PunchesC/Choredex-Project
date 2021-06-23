@@ -4,9 +4,10 @@ import './EachChore.css';
 interface Props{
     chore:Chore;
     onComplete?: (chore:Chore) => void;
+    onDelete?: (chore:Chore) => void;
 }
 
-function EachChore({onComplete, chore}:Props){
+function EachChore({onDelete, onComplete, chore}:Props){
 
     return (
         <div className="EachChore">
@@ -17,6 +18,7 @@ function EachChore({onComplete, chore}:Props){
                 <p className="ChoreDesc">{chore.description}</p>
                 <p className="ChoreDiff">difficulty: {chore.difficulty}</p>
                {onComplete && <button className="DoneButton noDisplay" onClick={() => onComplete(chore)}>DONE</button>}
+               {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
         </div>
         : 
         <div>
@@ -25,6 +27,7 @@ function EachChore({onComplete, chore}:Props){
                 <p className="ChoreDesc">{chore.description}</p>
                 <p className="ChoreDiff">difficulty: {chore.difficulty}</p>
                {onComplete && <button className="DoneButton" onClick={() => onComplete(chore)}>DONE</button>}
+               {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
         </div>}
         </div>
     )

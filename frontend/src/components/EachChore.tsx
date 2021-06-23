@@ -1,5 +1,5 @@
 import { Chore } from '../model/model';
-import { FormEvent, useState, useContext, useRef } from 'react';
+import { useRef } from 'react';
 import firebase from '../firebaseConfig';
 import './EachChore.css';
 
@@ -14,7 +14,6 @@ interface Props {
 
 function EachChore({ onComplete, chore, onChangePhoto,onDelete }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const formRef = useRef<HTMLFormElement>(null);
 
   function photoUpload() {
     const files = fileInputRef.current?.files;
@@ -41,7 +40,7 @@ function EachChore({ onComplete, chore, onChangePhoto,onDelete }: Props) {
           <p className="ChoreTitle Slash">{chore.title}</p>
           <p className="ChoreDesc Slash">{chore.description}</p>
           <p className="ChoreDiff Slash">difficulty: {chore.difficulty}</p>
-          <img src={chore.photo}></img>
+          <img src={chore.photo} alt="chore_pic"></img>
           {onComplete && (
             <button
               className="DoneButton noDisplay"

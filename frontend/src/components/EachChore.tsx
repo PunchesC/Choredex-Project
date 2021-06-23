@@ -12,7 +12,7 @@ interface Props {
 }
 
 
-function EachChore({ onComplete, chore, onChangePhoto,onDelete }: Props) {
+function EachChore({ onComplete, chore, onChangePhoto, onDelete }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -42,27 +42,9 @@ function EachChore({ onComplete, chore, onChangePhoto,onDelete }: Props) {
           <p className="ChoreDesc Slash">{chore.description}</p>
           <p className="ChoreDiff Slash">difficulty: {chore.difficulty}</p>
           <img src={chore.photo}></img>
-          {onComplete && (
-            <button
-              className="DoneButton noDisplay"
-              onClick={() => onComplete(chore)}
-            >
-              DONE
-            </button>
-          )}
+          {onComplete && (<button className="DoneButton noDisplay" onClick={() => onComplete(chore)}>DONE</button>)}
           {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
-
-          {onChangePhoto && (
-            <div className="chooseFile">
-              Send a Picka!
-              <input
-                className="Input"
-                ref={fileInputRef}
-                type="file"
-                onChange={photoUpload}
-              />
-            </div>
-          )}
+          {onChangePhoto && (<div className="chooseFile">send a picka!<input className="Input" ref={fileInputRef} type="file" onChange={photoUpload}/></div>)}
         </div>
       ) : (
         <div>
@@ -71,23 +53,11 @@ function EachChore({ onComplete, chore, onChangePhoto,onDelete }: Props) {
           <p className="ChoreDesc">{chore.description}</p>
           <p className="ChoreDiff">difficulty: {chore.difficulty}</p>
           <p>{chore.photo}</p>
-          {onComplete && (
-            <button className="DoneButton" onClick={() => onComplete(chore)}>
-              DONE
-            </button>
-          )}
+          {onComplete && (<button className="DoneButton" onClick={() => onComplete(chore)}>DONE</button>)}
           {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
-          {onChangePhoto && (
-            <div className="chooseFile noDisplay">
-              <input
-                className="Input"
-                ref={fileInputRef}
-                type="file"
-                onChange={photoUpload}
-                title="Send a Picture"
-              />
-            </div>
-          )}
+          {onChangePhoto && (<div className="chooseFile noDisplay"><input className="Input" ref={fileInputRef} type="file" onChange={photoUpload} title="Send a Picture"/>
+        </div>
+        )}
         </div>
       )}
     </div>

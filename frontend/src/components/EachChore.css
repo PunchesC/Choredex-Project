@@ -14,9 +14,15 @@
     text-decoration: none;
 }
 
-.chooseFile{
-text-decoration: none;
+.chooseFile {
+    text-decoration: none;
 }
+
+img {
+    width: 90px;
+    height:auto;
+}
+
 .ChoreTitle {
     font-style: normal;
     margin: 0;

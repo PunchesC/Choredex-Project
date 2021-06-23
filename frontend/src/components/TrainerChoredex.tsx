@@ -84,7 +84,12 @@ function TrainerChoredex(){
         console.log(randomMediumPoke);
         console.log(randomHardPoke);
       }
-
+      function setPhoto(chore:Chore, photoURL:string){
+        chore.photo = photoURL;
+        updateChoreInDatabase(chore).then(() => {
+          setChoresUpdateTrigger(prev => prev + 1)
+        })
+      }
 
       // function updateChore(chore:Chore){
        
@@ -101,7 +106,7 @@ function TrainerChoredex(){
     <div className="TrainerChoredex">
       <h2 className="TrainerTitle">{currentUser}'s Choredex</h2>
       <div className="TrainerChoredex_calendar">
-      <CalendarCard ourTrainer={currentUser} choresUpdateTrigger={choresUpdateTrigger} onComplete={ (chore) => handleCompleteTask(chore)}/>
+      <CalendarCard ourTrainer={currentUser} choresUpdateTrigger={choresUpdateTrigger} onComplete={ handleCompleteTask} onChangePhoto={setPhoto}/>
       </div>
       {currentTrainer!.pokemons.slice(0).reverse().map((poke, i) => (
             <p key={i} className="pokemonCard">

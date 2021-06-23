@@ -28,6 +28,7 @@ export interface Chore {
   trainer: string;
   difficulty: string;
   complete: boolean;
+  photo?: string;
 }
 
 export interface Account {

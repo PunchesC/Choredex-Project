@@ -5,3 +5,15 @@
 .Slash{
     text-decoration: line-through;
 }
+
+.Input[type='file']{
+    color: rgba(0, 0, 0, 0)
+}
+
+.Picka{
+    text-decoration: none;
+}
+
+.chooseFile{
+text-decoration: none;
+}

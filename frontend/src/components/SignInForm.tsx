@@ -18,7 +18,7 @@ function SignInForm() {
 
     readAccountByGymName(gymName).then((accountFromApi) => {
       setAccount(accountFromApi);
-
+     
       if (
         accountFromApi.adminName === adminName &&
         accountFromApi.adminPassword === password
@@ -26,10 +26,12 @@ function SignInForm() {
         setCurrentUser(adminName);
         history.push(`/homepage/${accountFromApi.adminName}`);
       } else {
-        for (let trainer of accountFromApi.trainers) {
+        for (let trainer of accountFromApi.trainers)
+         {
           if (
             trainer.name === trainerName &&
             accountFromApi.gymPassword === password
+            
           ) {
             setCurrentUser(trainerName);
             history.push(`/choredex/${trainer.name}`);
@@ -37,7 +39,10 @@ function SignInForm() {
         }
       }
     });
+  
   }
+
+  
 
   return (
     <form className="SignInForm" onSubmit={handleSubmit}>

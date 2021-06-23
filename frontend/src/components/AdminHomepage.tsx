@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Chore, Trainer } from '../model/model';
-import { createTask, deleteTask, updateChoreInDatabase } from '../service/pokemonService';
+import { createTask, deleteTask } from '../service/pokemonService';
 import './AdminHomepage.css';
 import CalendarCard from './CalendarCard';
 import TaskForm from './TaskForm';

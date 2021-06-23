@@ -47,12 +47,3 @@ export function readAccountByGymName(gymName:string):Promise<Account>{
  return axios.get(`${baseUrl}/accounts/by-gym-name/${gymName}`).then(res => res.data);
   
 }
-
-
-function id(id: any) {
-  throw new Error('Function not implemented.');
-}
-// export function readAccountByGymName(gymName:string):Promise<Account>{
-//   return axios.get(baseUrl, { params: {gymName:gymName}}).then(res => res.data);
-   
-//  }

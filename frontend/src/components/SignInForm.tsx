@@ -26,6 +26,7 @@ function SignInForm() {
         setCurrentUser(adminName);
         history.push(`/homepage/${accountFromApi.adminName}`);
       } else {
+        let trainerFound = false;
         for (let trainer of accountFromApi.trainers) {
           if (
             trainer.name === trainerName &&
@@ -33,7 +34,12 @@ function SignInForm() {
           ) {
             setCurrentUser(trainerName);
             history.push(`/choredex/${trainer.name}`);
+            trainerFound = true;
           }
+        }
+        if (trainerFound === false){
+          console.log("Wrong Password");
+          alert("Wrong admin/trainer name or password, please try again.")
         }
       }
     });

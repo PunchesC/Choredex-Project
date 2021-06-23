@@ -181,6 +181,22 @@ app.put("/chores/:id", async (req, res) => {
   }
 });
 
+app.delete("/chores/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const client = await getClient();
+    const result = await client.db().collection<Chore>('chores').deleteOne({ _id: new ObjectId(id) });
+    if (result.deletedCount === 0) {
+      res.status(404).json({message: "Not Found"});
+    } else {
+      res.status(204).end();
+    }
+  } catch (err) {
+    console.error("FAIL", err);
+    res.status(500).json({message: "Internal Server Error"});
+  }
+});
+
 async function getPokeStuff(){
   let pokeResults:PokemonResults = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151')).data;
   let pokes = pokeResults.results

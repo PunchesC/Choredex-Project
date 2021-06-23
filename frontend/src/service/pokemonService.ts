@@ -12,7 +12,11 @@ export function allPokemon():Promise<Pokemon[]> {
 }
 
 export function createTask(chore:Chore):Promise<Chore>{
-  return axios.post(`${baseUrl}/chores`,chore).then(res =>res.data)
+  return axios.post(`${baseUrl}/chores`, chore).then(res => res.data)
+}
+
+export function deleteTask(choreId:string):Promise<void>{
+  return axios.delete(`${baseUrl}/chores/${encodeURIComponent(choreId)}`)
 }
 
 export function readAllChores():Promise<Chore[]> {
@@ -43,8 +47,3 @@ export function readAccountByGymName(gymName:string):Promise<Account>{
  return axios.get(`${baseUrl}/accounts/by-gym-name/${gymName}`).then(res => res.data);
   
 }
-
-// export function readAccountByGymName(gymName:string):Promise<Account>{
-//   return axios.get(baseUrl, { params: {gymName:gymName}}).then(res => res.data);
-   
-//  }

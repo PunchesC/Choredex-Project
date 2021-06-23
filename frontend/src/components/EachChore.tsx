@@ -2,18 +2,17 @@ import { Chore } from '../model/model';
 import { FormEvent, useState, useContext, useRef } from 'react';
 import firebase from '../firebaseConfig';
 import './EachChore.css';
-import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
+
 
 interface Props {
   chore: Chore;
   onComplete?: (chore: Chore) => void;
+  onDelete?: (chore:Chore) => void;
   onChangePhoto?: (chore: Chore, photoURL: string) => void;
 }
-let addNoDisplay = '';
-let addSlash = '';
-let onComplete;
 
-function EachChore({ onComplete, chore, onChangePhoto }: Props) {
+
+function EachChore({ onComplete, chore, onChangePhoto,onDelete }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -51,6 +50,8 @@ function EachChore({ onComplete, chore, onChangePhoto }: Props) {
               DONE
             </button>
           )}
+          {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
+
           {onChangePhoto && (
             <div className="chooseFile">
               Send a Picka!
@@ -75,6 +76,7 @@ function EachChore({ onComplete, chore, onChangePhoto }: Props) {
               DONE
             </button>
           )}
+          {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
           {onChangePhoto && (
             <div className="chooseFile noDisplay">
               <input

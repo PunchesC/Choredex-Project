@@ -14,10 +14,10 @@ function Homepage() {
           to do so? do you live with multiple roommates and have a tough time trying 
           to divvy up the tasks between yourselves? with this application you will be 
           able to create a task calendar that tracks each users progress and completion 
-          from their list of chores, organized by day, and once 
+          from their list of chores, organized by the day, and once 
           a task is completed the user will be rewarded a pokemon based on the level of 
           difficulty of the chore. collect as many as you can and view them on your very 
-          own pokedex!</h4>
+          own choredex!</h4>
         </div>
 
         <div className="rightSide">

@@ -1,10 +1,6 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useState } from 'react';
 import { Account } from '../model/model';
-import {
-  readAccountByGymName,
-  readAccountById,
-  updateAccountInDatabase,
-} from '../service/pokemonService';
+import { updateAccountInDatabase } from '../service/pokemonService';
 
 interface AccountContextValue {
   account: Account;

@@ -7,21 +7,21 @@ import EachChore from "./EachChore";
 interface Props {
   ourTrainer: string;
   onComplete?: (chore:Chore) => void;
+  onDelete?:(chore:Chore) => void;
   onChangePhoto?:(chore:Chore, photoURL:string) => void;
   choresUpdateTrigger?: any;
 }
 
-function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePhoto }: Props) {
+function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePhoto,onDelete }: Props) {
   const [chores, setChores] = useState<Chore[]>([]);
 
   useEffect(() => {
-    loadTrainerChores();
-  }, [choresUpdateTrigger]);
+    loadTrainerChores(ourTrainer);
+  }, [ourTrainer, choresUpdateTrigger]);
 
-  function loadTrainerChores() {
+  function loadTrainerChores(ourTrainer:string) {
     readAllChoresForTrainer(ourTrainer).then((choresFromApi) => {
       setChores(choresFromApi);
-      console.log(choresFromApi);
     });
   }
 
@@ -35,7 +35,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePho
               {chores
                 .filter((eachChore) => eachChore.monday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -45,7 +45,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePho
               {chores
                 .filter((eachChore) => eachChore.tuesday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -55,7 +55,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePho
               {chores
                 .filter((eachChore) => eachChore.wednesday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -65,7 +65,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePho
               {chores
                 .filter((eachChore) => eachChore.thursday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -75,7 +75,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePho
               {chores
                 .filter((eachChore) => eachChore.friday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -85,7 +85,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePho
               {chores
                 .filter((eachChore) => eachChore.saturday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto} onDelete={onDelete}/>
                 ))}
             </div>
           </div>
@@ -95,7 +95,7 @@ function CalendarCard({ ourTrainer, onComplete, choresUpdateTrigger, onChangePho
               {chores
                 .filter((eachChore) => eachChore.sunday)
                 .map((aChore, i) => (
-                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto}/>
+                  <EachChore key={i} chore={aChore} onComplete={onComplete} onChangePhoto={onChangePhoto} onDelete={onDelete}/>
                 ))}
             </div>
           </div>

@@ -1,9 +1,10 @@
-import { FormEvent, useContext, useEffect, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { AccountContext } from '../context/auth.context';
 import { useHistory } from 'react-router-dom';
 import './SignInForm.css';
 import sweeping from '../assets/sweeping.png';
 import { readAccountByGymName } from '../service/pokemonService';
+
 function SignInForm() {
   const [adminName, setAdminName] = useState('');
   const [trainerName, setTrainerName] = useState('');
@@ -26,8 +27,8 @@ function SignInForm() {
         setCurrentUser(adminName);
         history.push(`/homepage/${accountFromApi.adminName}`);
       } else {
-        for (let trainer of accountFromApi.trainers)
-         {
+        let trainerFound = false;
+        for (let trainer of accountFromApi.trainers) {
           if (
             trainer.name === trainerName &&
             accountFromApi.gymPassword === password
@@ -35,7 +36,12 @@ function SignInForm() {
           ) {
             setCurrentUser(trainerName);
             history.push(`/choredex/${trainer.name}`);
+            trainerFound = true;
           }
+        }
+        if (trainerFound === false){
+          console.log("Wrong Password");
+          alert("Wrong admin/trainer name or password, please try again.")
         }
       }
     });

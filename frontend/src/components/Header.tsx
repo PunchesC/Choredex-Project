@@ -4,7 +4,7 @@ import { useContext} from "react";
 import './Header.css'
 
 function Header(){
-const {account, currentUser, setCurrentUser,setAccount} = useContext(AccountContext);
+const {account, currentUser, setCurrentUser } = useContext(AccountContext);
 let history = useHistory();
 
 
@@ -40,10 +40,6 @@ setCurrentUser("");
 history.push(`/`);
 }
 
-function goToAdminHomepage(){
-  history.push(`/homepage/${currentUser}`);
-}
-
 function testing(){
   console.log("CLICKED")
 }
@@ -54,8 +50,8 @@ function testing(){
           <nav>
             {!currentUser&&<NavLink to="/sign-in-form" className={"navLinks"+ addNoDisplay} onClick={testing}>sign in</NavLink>}
             {!currentUser&&<NavLink to="/account-sign-up" className={"navLinks"+ addNoDisplay}>sign up</NavLink>}
-            {currentUser&& <span className="welcomeMessage">Welcome {currentUser}, to the {account.gymName}!</span>}
-            {currentUser===account.adminName && <button className="NavLinkButton" onClick={goToAdminHomepage}>homepage</button>}
+            {currentUser&& <span className="welcomeMessage">Welcome {currentUser}, to the {account.gymName} gym!</span>}
+            {/* {currentUser===account.adminName && <button className="NavLinkButton" onClick={goToAdminHomepage}>homepage</button>} */}
             {/* {currentUser && <button className="NavLinkButton" onClick={goToChoredex}>choredex</button>} */}
             {currentUser&&<button className="NavLinkButton" onClick={signOut}>sign out</button>}
           </nav>

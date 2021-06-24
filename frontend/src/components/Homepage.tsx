@@ -7,6 +7,15 @@ function Homepage() {
   return (
     <div className="Homepage">
 
+      <div className="topSide">
+        <p>**If you would like to test our site without creating a new account, feel free to use the 
+        following information and have fun!**</p>
+        <p>Admin Name: Ash | Admin Password: 123</p>
+        <p>Gym Name: Cerulean Gym | Gym Password: 123</p>
+        <p>Trainer Name: Jimmy</p>
+      </div>
+
+      <div className="container">
       <div className="leftSide">
         <h3 className="Welcome">welcome!</h3>
         <h4 className="About">how difficult is it sometimes to offer children incentive to do basic, 
@@ -25,6 +34,7 @@ function Homepage() {
             <img className="pokeText" src={gottaCleanItAll2} alt="gotta clean it all" />
             <img className="pokemon" src={pokemon} alt="starter pokemon" />
           </div>
+        </div>
         </div>
 
     </div>

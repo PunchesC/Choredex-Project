@@ -1,6 +1,6 @@
 .Homepage {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -10,6 +10,21 @@ body {
 
 .leftSide, .rightSide {
     margin-top: 5%;
+}
+
+.topSide {
+    margin: 0 auto;
+}
+
+.Homepage p {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
 }
 
 .leftSide {
@@ -71,7 +86,15 @@ body {
     
     .Homepage {
         display: flex;
-        flex-direction: column-reverse
+        flex-direction: row-reverse;
+    }
+
+    .topSide {
+        display: none;
+    }
+
+    .container {
+        display: unset;
     }
 
     .rightSide {
@@ -82,6 +105,7 @@ body {
         width: 90%;
         max-width: 400px;
         text-align: center;
+        margin-left: 15px;
     }
 
     .pokeText {

@@ -51,13 +51,13 @@ footer {
 h2, .Credits {
     padding-right: 40px;
     font-style: italic;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: bold;
     margin: 0;
 }
 
 img {
-    height: 16px;
+    height: 10px;
 }
 
 .linkedinLink{
@@ -69,14 +69,14 @@ img {
     transition: 0.3s;
 }
 
-@media only screen and (max-width: 481px) {
+@media only screen and (min-width: 481px) {
     
     .Credits {
-        font-size: 10px;
+        font-size: 16px;
     }
 
     img {
-        height: 10px;
+        height: 16px;
     }
     
 }

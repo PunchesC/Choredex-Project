@@ -2,8 +2,8 @@
   background-color: #FFFFFF;
   border-radius: 20px;
   margin: 0 auto;
-  width: 60%;
-  margin-top: 40px;
+  width: 80%;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -13,6 +13,7 @@
   font-style: italic;
   text-align: center;
   color: #F55D3E;
+  font-size: 22px;
 }
 
 label {
@@ -28,7 +29,7 @@ button {
   background-color: #878E88;
   border-radius: 10px;
   padding: 5px 15px;
-  margin: 30px;
+  margin: 10px;
   color: black;
 }
 
@@ -42,18 +43,19 @@ button:hover {
   margin-bottom: 15px;
 }
 
-@media only screen and (max-width: 481px) { 
+@media only screen and (min-width: 481px) { 
 
   .SignInForm {
-    width: 80%;
+    width: 60%;
+    margin-top: 40px;
   }
 
   button {
-    margin: 10px;
+    margin: 30px;
   }
 
   .Title {
-    font-size: 22px;
+    font-size: 30px;
 }
 
 }

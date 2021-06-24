@@ -7,7 +7,8 @@
 }
 
 .Input[type='file']{
-    color: rgba(0, 0, 0, 0)
+    color: rgba(0, 0, 0, 0);
+    margin-left: 33%;
 }
 
 .Picka{
@@ -38,4 +39,7 @@
     margin: 0;
     font-size: 10px;
     margin-bottom: 5px;
+}
+.ChorePic{
+    margin: 0;
 }

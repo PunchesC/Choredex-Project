@@ -40,7 +40,7 @@ function EachChore({ onComplete, chore, onChangePhoto, onDelete }: Props) {
           <p className="ChoreTitle Slash">{chore.title}</p>
           <p className="ChoreDesc Slash">{chore.description}</p>
           <p className="ChoreDiff Slash">difficulty: {chore.difficulty}</p>
-          <img src={chore.photo} alt="chore_pic"></img>
+          <p><img src={chore.photo} alt=""></img></p>
           {onComplete && (<button className="DoneButton noDisplay" onClick={() => onComplete(chore)}>DONE</button>)}
           {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
           {onChangePhoto && (<div className="chooseFile">send a picka!<input className="Input" ref={fileInputRef} type="file" onChange={photoUpload}/></div>)}
@@ -51,12 +51,11 @@ function EachChore({ onComplete, chore, onChangePhoto, onDelete }: Props) {
           <p className="ChoreTitle">{chore.title}</p>
           <p className="ChoreDesc">{chore.description}</p>
           <p className="ChoreDiff">difficulty: {chore.difficulty}</p>
-          <p>{chore.photo}</p>
           {onComplete && (<button className="DoneButton" onClick={() => onComplete(chore)}>DONE</button>)}
           {onDelete && <button className="DeleteButton" onClick={() => onDelete(chore)}>DELETE</button>}
           {onChangePhoto && (<div className="chooseFile noDisplay"><input className="Input" ref={fileInputRef} type="file" onChange={photoUpload} title="Send a Picture"/>
-        </div>
-        )}
+          <p className="ChorePic"><img src={chore.photo} alt=""></img></p>
+          </div>)}
         </div>
       )}
     </div>
